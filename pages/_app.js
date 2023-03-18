@@ -1,7 +1,17 @@
-import '../styles/globals.css'
+import Head from "next/head";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default function App({ Component, pageProps }) {
+  return (
+    <>
+      <Head>
+        <title>Tharavugal.org</title>
+        <meta
+          name="description"
+          content="Real-time events are structured and can be used for analysis and research purposes."
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
 }
-
-export default MyApp
