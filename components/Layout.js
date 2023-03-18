@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 
 export default function Layout({ children }) {
   return (
@@ -16,8 +16,15 @@ export default function Layout({ children }) {
         </Toolbar>
       </AppBar>
       <Toolbar variant="dense" />
-      <main>{children}</main>
-      <footer>Footer</footer>
+      <Box p={3}>{children}</Box>
+      <footer>
+        <Box
+          textAlign="center"
+          sx={{ bgcolor: "text.primary", color: "white", p: 3 }}
+        >
+          © 2023 Tharavugal.org
+        </Box>
+      </footer>
     </>
   );
 }
