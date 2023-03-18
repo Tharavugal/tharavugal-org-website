@@ -16,7 +16,9 @@ export default function Layout({ children }) {
         </Toolbar>
       </AppBar>
       <Toolbar variant="dense" />
-      <Box p={3}>{children}</Box>
+      <Box p={3} bgcolor="#E7EBF0">
+        {children}
+      </Box>
       <footer>
         <Box
           textAlign="center"
