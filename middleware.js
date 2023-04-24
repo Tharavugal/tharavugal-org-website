@@ -3,8 +3,8 @@ import { USER_ROLES } from './constants';
 import Auth from './utils/Auth';
 
 const routesConfig = {
-  public: ['/', '/signin', '/api/signin'],
-  protected: [{ path: '/admin', roles: [USER_ROLES.ADMIN] }],
+  public: ['/api/signin'],
+  protected: [{ path: '/api/admin', roles: [USER_ROLES.ADMIN] }],
 };
 
 async function authorize(path, req) {
@@ -28,7 +28,7 @@ async function authorize(path, req) {
 }
 
 export const config = {
-  matcher: '/((?!_next/static|_next/image|favicon.ico).*)',
+  matcher: '/api/:function*',
 };
 
 export async function middleware(req, res) {

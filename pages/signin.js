@@ -14,14 +14,15 @@ import {
   Typography,
 } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { useRouter } from 'next/router';
 
 import APIClient from '@/utils/APIClient';
 import useAlert from '@/hooks/useAlert';
-import Layout from '@/components/Layout';
+import Layout from '@/components/layouts/DefaultLayout';
+import { setAppState } from '@/store';
+import { useRouter } from 'next/router';
 
 export default function Signin() {
-  const router = useRouter()
+  const router = useRouter();
   const showAlert = useAlert();
 
   const handleSubmit = async (event) => {
@@ -32,8 +33,12 @@ export default function Signin() {
       Object.fromEntries(data)
     );
     if (result.ok) {
-      localStorage.setItem('authToken', result.data.authToken);
-      router.push('/admin')
+      setAppState((s) => ({
+        ...s,
+        user: result.data.user,
+      }));
+      localStorage.setItem('authToken', result.data.user.authToken);
+      router.push('/admin');
     } else {
       showAlert('error', result.data.message);
     }

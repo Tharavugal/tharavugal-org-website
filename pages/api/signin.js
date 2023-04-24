@@ -10,12 +10,19 @@ export default async function handler(req, res) {
     .collection('users')
     .findOne({ email: req.body.email });
   client.close();
-  
+
   if (user) {
     const isValid = await Credential.compare(req.body.password, user.password);
     if (isValid) {
-      const authToken = await Auth.generateToken({});
-      return res.status(200).json({ message: 'Signin success', authToken });
+      const authToken = await Auth.generateToken({
+        id: user.id,
+        role: user.role,
+      });
+      const data = {
+        authToken,
+        role: user.role,
+      };
+      return res.status(200).json({ message: 'Signin success', user: data });
     }
   }
 

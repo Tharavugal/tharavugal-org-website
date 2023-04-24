@@ -1,7 +1,7 @@
 import { Box, Divider, Paper, Typography } from "@mui/material";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 
-import Layout from "../components/Layout";
+import Layout from "../components/layouts/DefaultLayout";
 
 export default function Home() {
   return (
