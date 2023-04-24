@@ -4,6 +4,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useAppState } from '@/store';
+import { USER_ROLES } from '@/constants';
 
 function logout() {
   localStorage.clear();
@@ -29,7 +30,7 @@ export default function AppHeader() {
           தரவுகள்
         </Typography>
         <div>
-          {user && user.role === 'admin' && (
+          {user && user.role === USER_ROLES.ADMIN && (
             <Box mr={2} component={Link} href="/admin" sx={{ color: 'white' }}>
               Dashboard
             </Box>

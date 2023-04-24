@@ -20,6 +20,7 @@ import useAlert from '@/hooks/useAlert';
 import Layout from '@/components/layouts/DefaultLayout';
 import { setAppState } from '@/store';
 import { useRouter } from 'next/router';
+import { USER_ROLES } from '@/constants';
 
 export default function Signin() {
   const router = useRouter();
@@ -37,8 +38,8 @@ export default function Signin() {
         ...s,
         user: result.data.user,
       }));
-      localStorage.setItem('authToken', result.data.user.authToken);
-      router.push('/admin');
+      localStorage.setItem('user', JSON.stringify(result.data.user));
+      router.replace(result.data.user.role === USER_ROLES.ADMIN ? '/admin' : '/')
     } else {
       showAlert('error', result.data.message);
     }
