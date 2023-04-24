@@ -4,7 +4,10 @@ import Auth from './utils/Auth';
 
 const routesConfig = {
   public: ['/api/signin'],
-  protected: [{ path: '/api/admin', roles: [USER_ROLES.ADMIN] }],
+  protected: [
+    { path: '/api/admin', roles: [USER_ROLES.ADMIN] },
+    { path: '/api/event-categories', roles: [USER_ROLES.ADMIN] },
+  ],
 };
 
 async function authorize(path, req) {
@@ -15,8 +18,6 @@ async function authorize(path, req) {
   const authPayload = await Auth.isAuthenticated(
     req.headers.get('authorization')
   );
-
-  console.log('authPayload', authPayload);
 
   if (authPayload) {
     const matchedPath = routesConfig.protected.find((r) => r.path === path);

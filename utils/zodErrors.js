@@ -6,6 +6,5 @@ export default function zodErrors(schema, values) {
   if (!result.success) {
     result.error.issues.forEach((i) => setInObj(errors, i.path.join('.'), i.message));
   }
-  console.log(values, errors);
   return errors;
 }

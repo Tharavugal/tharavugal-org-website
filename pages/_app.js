@@ -10,6 +10,8 @@ import '@fontsource/roboto/700.css';
 import { Box, CircularProgress } from '@mui/material';
 import { useRouter } from 'next/router';
 import { setAppState } from '@/store';
+import { SWRConfig } from 'swr';
+import APIClient from '@/utils/APIClient';
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -26,7 +28,7 @@ export default function App({ Component, pageProps }) {
       // redirect to login page if accessing a private page and not logged in
       const publicPaths = ['/', '/signin'];
       const path = url.split('?')[0];
-      const user = localStorage.getItem('user')
+      const user = localStorage.getItem('user');
       if (!user && !publicPaths.includes(path)) {
         setAuthorized(false);
         router.push({
@@ -81,7 +83,19 @@ export default function App({ Component, pageProps }) {
       </Head>
       <main>
         <SnackbarProvider maxSnack={3}>
-          <Component {...pageProps} />
+          <SWRConfig
+            value={{
+              fetcher: APIClient.get,
+              onError(err, key, config) {
+                console.log(err);
+                console.log(err.status);
+                console.log(key);
+                console.log(config);
+              },
+            }}
+          >
+            <Component {...pageProps} />
+          </SWRConfig>
         </SnackbarProvider>
       </main>
     </>

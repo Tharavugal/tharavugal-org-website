@@ -2,7 +2,7 @@ export default class APIClient {
   static async get(url, headers = {}) {
     const res = await fetch(url, {
       headers: {
-        Authorization: localStorage.getItem("authToken"),
+        Authorization: JSON.parse(localStorage.getItem("user"))?.authToken,
         ...headers,
       },
     });
@@ -25,7 +25,7 @@ export default class APIClient {
       method: patch ? "PATCH" : "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: localStorage.getItem("authToken"),
+        Authorization: JSON.parse(localStorage.getItem("user"))?.authToken,
         ...headers,
       },
       body: JSON.stringify(data),
@@ -43,7 +43,7 @@ export default class APIClient {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: localStorage.getItem("authToken"),
+        Authorization: JSON.parse(localStorage.getItem("user"))?.authToken,
         ...headers,
       },
       body: JSON.stringify(data),
