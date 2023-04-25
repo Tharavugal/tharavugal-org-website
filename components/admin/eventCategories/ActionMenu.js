@@ -1,14 +1,14 @@
-import { useState } from "react";
-import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from "@mui/icons-material/Delete";
-import APIClient from "@/utils/APIClient";
-import useAlert from "@/hooks/useAlert";
-import { Dialog, DialogContent } from "@mui/material";
-import Edit from "./Edit";
+import { useState } from 'react';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import APIClient from '@/utils/APIClient';
+import useAlert from '@/hooks/useAlert';
+import Edit from './Edit';
+import DialogWindow from '@/components/DialogWindow';
 
 export default function ActionMenu({ row }) {
   const [editOpen, setEditOpen] = useState(false);
@@ -26,14 +26,14 @@ export default function ActionMenu({ row }) {
 
   const handleDelete = async () => {
     handleClose();
-    if (window.confirm("Delete?")) {
-      const result = await APIClient.delete("/api/event-categories", {
+    if (window.confirm('Delete?')) {
+      const result = await APIClient.delete('/api/event-categories', {
         id: row.id,
       });
       if (result.ok) {
-        showAlert("success", result.data.message);
+        showAlert('success', result.data.message);
       } else {
-        showAlert("error", result.data.message);
+        showAlert('error', result.data.message);
       }
     }
   };
@@ -49,9 +49,9 @@ export default function ActionMenu({ row }) {
         size="small"
         variant="outlined"
         id="basic-button"
-        aria-controls={open ? "basic-menu" : undefined}
+        aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}
+        aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
         endIcon={<KeyboardArrowDownIcon />}
       >
@@ -63,29 +63,31 @@ export default function ActionMenu({ row }) {
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          "aria-labelledby": "basic-button",
+          'aria-labelledby': 'basic-button',
         }}
       >
         <MenuItem onClick={handleEdit}>
           <EditIcon
             fontSize="18"
             sx={{ mr: 1, color: (theme) => theme.palette.text.secondary }}
-          />{" "}
+          />{' '}
           Edit
         </MenuItem>
         <MenuItem onClick={handleDelete}>
           <DeleteIcon
             fontSize="18"
             sx={{ mr: 1, color: (theme) => theme.palette.text.secondary }}
-          />{" "}
+          />{' '}
           Delete
         </MenuItem>
       </Menu>
-      <Dialog open={editOpen} onClose={() => setEditOpen(false)} fullWidth>
-        <DialogContent sx={{ minHeight: "500px" }}>
-          <Edit record={row} />
-        </DialogContent>
-      </Dialog>
+      <DialogWindow
+        title="Update Event Category"
+        open={editOpen}
+        onClose={() => setEditOpen(false)}
+      >
+        <Edit record={row} />
+      </DialogWindow>
     </div>
   );
 }
