@@ -7,6 +7,7 @@ const routesConfig = {
   protected: [
     { path: '/api/admin', roles: [USER_ROLES.ADMIN] },
     { path: '/api/event-categories', roles: [USER_ROLES.ADMIN] },
+    { path: '/api/event-locations', roles: [USER_ROLES.ADMIN] },
   ],
 };
 

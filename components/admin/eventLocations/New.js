@@ -2,15 +2,15 @@ import APIClient from '@/utils/APIClient';
 import Form from './Form';
 import { v4 as uuid } from 'uuid';
 import useAlert from '@/hooks/useAlert';
-import { eventCategoriesSchema } from '@/schema';
+import { eventLocationsSchema } from '@/schema';
 
 export default function New({ onClose }) {
   const showAlert = useAlert();
 
   const handleSubmit = async (values) => {
     const result = await APIClient.post(
-      '/api/event-categories',
-      eventCategoriesSchema.safeParse(values).data
+      '/api/event-locations',
+      eventLocationsSchema.safeParse(values).data
     );
     if (result.ok) {
       showAlert('success', result.data.message);
