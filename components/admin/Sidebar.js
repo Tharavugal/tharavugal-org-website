@@ -32,6 +32,12 @@ export default function Sidebar() {
           <ListItemText primary="Event Locations" />
         </ListItemButton>
       </ListItem>
+      <ListItem disablePadding>
+        <ListItemButton selected={router.pathname === '/admin/entity-types'}
+          onClick={() => router.push('/admin/entity-types')}>
+          <ListItemText primary="Entity Types" />
+        </ListItemButton>
+      </ListItem>
     </List>
   );
 }
