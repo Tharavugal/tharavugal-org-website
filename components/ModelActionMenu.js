@@ -9,7 +9,7 @@ import APIClient from '@/utils/APIClient';
 import useAlert from '@/hooks/useAlert';
 import DialogWindow from '@/components/DialogWindow';
 
-export default function ActionMenu({ row, url, Edit }) {
+export default function ActionMenu({ row, url, Edit, actions = [] }) {
   const [editOpen, setEditOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -79,6 +79,17 @@ export default function ActionMenu({ row, url, Edit }) {
           />{' '}
           Delete
         </MenuItem>
+        {actions.map((a, i) => (
+          <MenuItem
+            key={i}
+            onClick={() => {
+              a.handler();
+              handleClose();
+            }}
+          >
+            {a.label}
+          </MenuItem>
+        ))}
       </Menu>
       <DialogWindow
         title="Update"
