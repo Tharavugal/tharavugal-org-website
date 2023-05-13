@@ -42,7 +42,7 @@ export default async function handler(req, res) {
       break;
 
     case "DELETE":
-      const delResult = await collection.deleteOne({ id: req.body.id });
+      const delResult = await collection.deleteOne({ id: req.query.id });
 
       if (delResult.deletedCount) {
         output = res.status(200).json({ message: "Deleted!" });

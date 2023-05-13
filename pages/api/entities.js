@@ -3,7 +3,7 @@ import { connect } from "@/utils/db";
 export default async function handler(req, res) {
   const client = await connect();
   const DB_NAME = process.env.DB_NAME;
-  const collection = client.db(DB_NAME).collection("event-categories");
+  const collection = client.db(DB_NAME).collection("entities");
   let output;
 
   switch (req.method) {
