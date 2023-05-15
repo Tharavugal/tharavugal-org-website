@@ -28,12 +28,16 @@ export const eventsSchema = z.object({
   id: z.string().uuid(),
   title: z.string().min(1, '*Required'),
   slug: z.string().min(1, '*Required'),
-  startDate: z.string().min(1, '*Required'),
-  startTime: z.string().min(1, '*Required'),
+  startDate: z.date(),
+  startTime: z.date(),
   startUTCOffset: z.string().min(1, '*Required'),
-  endDate: z.string().min(1, '*Required'),
-  endTime: z.string().min(1, '*Required'),
+  endDate: z.date(),
+  endTime: z.date(),
   endUTCOffset: z.string().min(1, '*Required'),
-  categories: z.array(z.string()),
-  locations: z.array(z.string()),
+  categories: z.array(z.string()).min(1, '*Required'),
+  locations: z.array(z.string()).min(1, '*Required'),
+  data: z
+    .string()
+    .min(1, '*Required')
+    .transform((val) => JSON.parse(val)),
 });

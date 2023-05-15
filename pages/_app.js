@@ -2,6 +2,8 @@ import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import { SnackbarProvider } from 'notistack';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -82,21 +84,23 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <SnackbarProvider maxSnack={3}>
-          <SWRConfig
-            value={{
-              fetcher: APIClient.get,
-              onError(err, key, config) {
-                console.log(err);
-                console.log(err.status);
-                console.log(key);
-                console.log(config);
-              },
-            }}
-          >
-            <Component {...pageProps} />
-          </SWRConfig>
-        </SnackbarProvider>
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <SnackbarProvider maxSnack={3}>
+            <SWRConfig
+              value={{
+                fetcher: APIClient.get,
+                onError(err, key, config) {
+                  console.log(err);
+                  console.log(err.status);
+                  console.log(key);
+                  console.log(config);
+                },
+              }}
+            >
+              <Component {...pageProps} />
+            </SWRConfig>
+          </SnackbarProvider>
+        </LocalizationProvider>
       </main>
     </>
   );

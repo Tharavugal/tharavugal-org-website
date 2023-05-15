@@ -10,6 +10,7 @@ const routesConfig = {
     { path: '/api/event-locations', roles: [USER_ROLES.ADMIN] },
     { path: '/api/entities', roles: [USER_ROLES.ADMIN] },
     { path: '/api/entity-types', roles: [USER_ROLES.ADMIN] },
+    { path: '/api/events', roles: [USER_ROLES.ADMIN] },
   ],
 };
 

@@ -11,6 +11,7 @@ export default function CodeInputField({ label, name, lang }) {
       onChange={field.onChange}
       config={{ textArea: { onBlur: field.onBlur } }}
       style={{ height: '350px' }}
+      theme="Dark"
     />
   );
 }

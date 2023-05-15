@@ -1,11 +1,11 @@
 import { TextField } from "@mui/material";
-import { DatePicker } from "@mui/x-date-pickers";
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { useField } from "@opentf/react-form";
 
-export default function MUIDateField({ name, label, ...otherProps }) {
+export default function MUITimeField({ name, label, ...otherProps }) {
   const { field, error, setValue } = useField(name);
   return (
-    <DatePicker
+    <TimePicker
       {...field}
       readOnly={Boolean(otherProps.readOnly)}
       disabled={Boolean(otherProps.disabled)}
@@ -16,7 +16,7 @@ export default function MUIDateField({ name, label, ...otherProps }) {
         <TextField sx={{ mt: 2 }} size="small" {...params} />
       )}
       onChange={(newValue) => setValue(newValue)}
-      format="yyyy-MM-dd"
+      format="HH:mm:ss"
     />
   );
 }

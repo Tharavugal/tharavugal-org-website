@@ -8,5 +8,6 @@ export default function zodErrors(schema, values) {
       setInObj(errors, i.path.join('.'), i.message)
     );
   }
+  console.log(errors);
   return errors;
 }
