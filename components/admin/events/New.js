@@ -16,7 +16,7 @@ export default function New({ onClose }) {
     seconds: 0,
     milliseconds: 0,
   });
-  const defaultTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const defaultTz = 'Asia/Kolkata';
 
   const handleSubmit = async (values) => {
     let data = eventsSchema.safeParse(values).data;
