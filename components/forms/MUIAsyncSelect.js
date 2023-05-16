@@ -15,7 +15,6 @@ export default function MUIAsyncSelectField({ name, label, url, multiple }) {
     }
     setLoading(true);
     const { data } = await APIClient.get(url + '?q=' + val);
-    console.log(data);
     setOptions(data.map((i) => i.name));
     setLoading(false);
   };

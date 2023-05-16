@@ -21,6 +21,7 @@
     "@opentf/react-state": "^0.13.1",
     "bcrypt": "^5.1.0",
     "date-fns": "^2.30.0",
+    "date-fns-tz": "^2.0.0",
     "immer": "^10.0.2",
     "jose": "^4.14.4",
     "mongodb": "^5.5.0",

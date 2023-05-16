@@ -16,27 +16,18 @@ export default function New({ onClose }) {
     seconds: 0,
     milliseconds: 0,
   });
+  const defaultTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
   const handleSubmit = async (values) => {
     let data = eventsSchema.safeParse(values).data;
     data = produce(data, (draft) => {
-      draft.startedAt = createDate(
-        draft.startDate,
-        draft.startTime,
-        draft.startUTCOffset
-      );
-      draft.endedAt = createDate(
-        draft.endDate,
-        draft.endTime,
-        draft.endUTCOffset
-      );
+      draft.startedAt = createDate(draft.startDate, draft.startTime);
+      draft.endedAt = createDate(draft.endDate, draft.endTime);
       draft.status = 'Draft';
       delete draft.startDate;
       delete draft.startTime;
-      delete draft.startUTCOffset;
       delete draft.endDate;
       delete draft.endTime;
-      delete draft.endUTCOffset;
     });
     const result = await APIClient.post('/api/events', data);
     if (result.ok) {
@@ -55,10 +46,10 @@ export default function New({ onClose }) {
         slug: '',
         startDate: new Date(),
         startTime: defaultTime,
-        startUTCOffset: '+05:30',
+        startTz: defaultTz,
         endDate: new Date(),
         endTime: defaultTime,
-        endUTCOffset: '+05:30',
+        endTz: defaultTz,
         categories: [],
         locations: [],
         data: JSON.stringify({}, null, 2),

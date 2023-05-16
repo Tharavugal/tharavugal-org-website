@@ -4,7 +4,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import ModelActionMenu from '../../ModelActionMenu';
 import Edit from './Edit';
 
-export default function List({ data = [] }) {
+export default function List({ data = [], mutate }) {
   const columns = [
     {
       field: 'title',
@@ -22,6 +22,7 @@ export default function List({ data = [] }) {
             row={params.row}
             Edit={Edit}
             actions={[]}
+            mutate={mutate}
           />
         );
       },

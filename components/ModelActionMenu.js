@@ -9,7 +9,7 @@ import APIClient from '@/utils/APIClient';
 import useAlert from '@/hooks/useAlert';
 import DialogWindow from '@/components/DialogWindow';
 
-export default function ActionMenu({ row, url, Edit, actions = [] }) {
+export default function ActionMenu({ row, url, Edit, actions = [], mutate }) {
   const [editOpen, setEditOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -31,6 +31,7 @@ export default function ActionMenu({ row, url, Edit, actions = [] }) {
       });
       if (result.ok) {
         showAlert('success', result.data.message);
+        mutate();
       } else {
         showAlert('error', result.data.message);
       }
@@ -96,7 +97,7 @@ export default function ActionMenu({ row, url, Edit, actions = [] }) {
         open={editOpen}
         onClose={() => setEditOpen(false)}
       >
-        <Edit record={row} />
+        <Edit record={row} mutate={mutate} />
       </DialogWindow>
     </div>
   );

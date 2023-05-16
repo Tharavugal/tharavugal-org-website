@@ -36,7 +36,7 @@ export default function Events() {
             </Button>
           </Box>
           <Paper sx={{ mt: 2 }}>
-            <List data={events?.data} />
+            <List data={events?.data} mutate={mutate} />
           </Paper>
 
           <DialogWindow

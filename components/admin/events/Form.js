@@ -11,8 +11,13 @@ import MUIAutoCompleteField from '@/components/forms/MUIAutoCompleteField';
 import MUIAsyncSelectField from '@/components/forms/MUIAsyncSelect';
 import { useEffect } from 'react';
 
-function slugify(str) {
-  str = str.replaceAll('.', '-');
+function slugify(str, locations, id) {
+  str =
+    str.replaceAll('.', '-') +
+    ' ' +
+    locations.join(' ') +
+    ' ' +
+    id.split('-')[0];
   return str.trim().replaceAll(' ', '-').toLowerCase();
 }
 
@@ -21,9 +26,9 @@ function SlugField({ name, label }) {
   const { values } = useFormContext();
 
   useEffect(() => {
-    field.onChange(slugify(values.title));
+    field.onChange(slugify(values.title, values.locations, values.id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [values.title]);
+  }, [values.title, values.locations]);
 
   return (
     <TextField
@@ -42,46 +47,12 @@ export default function EventsForm({
   onSubmit,
   update = false,
 }) {
-  const tzOptions = [
-    '-12:00',
-    '-11:00',
-    '-10:00',
-    '-09:30',
-    '-09:00',
-    '-8:00',
-    '-7:00',
-    '-06:00',
-    '-05:00',
-    '-04:00',
-    '-03:30',
-    '-03:00',
-    '-02:00',
-    '-01:00',
-    '+00:00',
-    '+01:00',
-    '+02:00',
-    '+03:00',
-    '+03:30',
-    '+04:00',
-    '+04:30',
-    '+05:00',
-    '+05:30',
-    '+05:45',
-    '+06:00',
-    '+06:30',
-    '+07:00',
-    '+08:00',
-    '+08:45',
-    '+09:00',
-    '+09:30',
-    '+10:00',
-    '+10:30',
-    '+11:00',
-    '+12:00',
-    '+12:45',
-    '+13:00',
-    '+14:00',
-  ];
+  const tzOptions = Intl.supportedValuesOf('timeZone');
+  const index = tzOptions.indexOf('Asia/Calcutta');
+
+  if (index !== -1) {
+    tzOptions[index] = 'Asia/Kolkata';
+  }
 
   return (
     <Box>
@@ -104,8 +75,8 @@ export default function EventsForm({
         </Box>
         <Box mt={2}>
           <MUIAutoCompleteField
-            name="startUTCOffset"
-            label="Start UTC Offset"
+            name="startTz"
+            label="Start Tz"
             options={tzOptions}
           />
         </Box>
@@ -117,8 +88,8 @@ export default function EventsForm({
         </Box>
         <Box mt={2}>
           <MUIAutoCompleteField
-            name="endUTCOffset"
-            label="End UTC Offset"
+            name="endTz"
+            label="End Tz"
             options={tzOptions}
           />
         </Box>

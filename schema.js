@@ -30,10 +30,10 @@ export const eventsSchema = z.object({
   slug: z.string().min(1, '*Required'),
   startDate: z.date(),
   startTime: z.date(),
-  startUTCOffset: z.string().min(1, '*Required'),
+  startTz: z.string().min(1, '*Required'),
   endDate: z.date(),
   endTime: z.date(),
-  endUTCOffset: z.string().min(1, '*Required'),
+  endTz: z.string().min(1, '*Required'),
   categories: z.array(z.string()).min(1, '*Required'),
   locations: z.array(z.string()).min(1, '*Required'),
   data: z
