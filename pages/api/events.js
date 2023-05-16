@@ -9,10 +9,19 @@ export default async function handler(req, res) {
 
   switch (req.method) {
     case 'GET':
-      const data = await collection
+      const perPage = req.query.per || 10;
+      const page = req.query.page || 0;
+      const cursor = await collection
         .find({}, { projection: { _id: 0 } })
-        .sort({ updatedAt: -1 });
-      output = res.status(200).json({ data: await data.toArray() });
+        .sort({ updatedAt: -1 })
+        .skip(perPage * page)
+        .limit(10);
+      const colSize = await collection.estimatedDocumentCount();
+      const data = {
+        events: await cursor.toArray(),
+        total: colSize,
+      };
+      output = res.status(200).json({ data });
       break;
 
     case 'POST':
@@ -37,7 +46,10 @@ export default async function handler(req, res) {
       };
 
       if (req.body.startedAt) {
-        updateData.startedAt = zonedTimeToUtc(req.body.startedAt, req.body.startTz);
+        updateData.startedAt = zonedTimeToUtc(
+          req.body.startedAt,
+          req.body.startTz
+        );
         updateData.endedAt = zonedTimeToUtc(req.body.endedAt, req.body.endTz);
       }
 

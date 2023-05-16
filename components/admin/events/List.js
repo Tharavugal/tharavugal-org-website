@@ -1,4 +1,4 @@
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
 import ModelActionMenu from '../../ModelActionMenu';
@@ -6,7 +6,14 @@ import Edit from './Edit';
 import APIClient from '@/utils/APIClient';
 import { EVENTS_STATUS } from '@/constants';
 
-export default function List({ data = [], mutate }) {
+export default function List({
+  data = [],
+  rowCount,
+  page,
+  setPage,
+  isLoading,
+  mutate,
+}) {
   const columns = [
     {
       field: 'title',
@@ -49,7 +56,17 @@ export default function List({ data = [], mutate }) {
 
   return (
     <Box>
-      <DataGrid rows={data} columns={columns} autoHeight />
+      <DataGrid
+        rows={data}
+        columns={columns}
+        autoHeight
+        pageSizeOptions={[10]}
+        rowCount={rowCount}
+        loading={isLoading}
+        paginationModel={{ page, pageSize: 10 }}
+        paginationMode="server"
+        onPaginationModelChange={(o) => setPage(o.page)}
+      />
     </Box>
   );
 }
