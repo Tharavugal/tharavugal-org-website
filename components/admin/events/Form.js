@@ -13,12 +13,12 @@ import { useEffect } from 'react';
 
 function slugify(str, locations, id) {
   str =
-    str.replaceAll('.', '-') +
+    str.replaceAll('.', '-').trim() +
     ' ' +
     locations.join(' ') +
     ' ' +
     id.split('-')[0];
-  return str.trim().replaceAll(' ', '-').toLowerCase();
+  return str.replaceAll(' ', '-').toLowerCase();
 }
 
 function SlugField({ name, label }) {

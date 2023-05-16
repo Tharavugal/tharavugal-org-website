@@ -19,7 +19,7 @@ export default function Admin({ data }) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   const client = await connect();
   const DB_NAME = process.env.DB_NAME;
   const eventsCol = client.db(DB_NAME).collection('events');

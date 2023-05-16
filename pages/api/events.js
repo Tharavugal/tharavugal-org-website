@@ -32,13 +32,20 @@ export default async function handler(req, res) {
       break;
 
     case 'PATCH':
+      const updateData = {
+        ...req.body,
+      };
+
+      if (req.body.startedAt) {
+        updateData.startedAt = zonedTimeToUtc(req.body.startedAt, req.body.startTz);
+        updateData.endedAt = zonedTimeToUtc(req.body.endedAt, req.body.endTz);
+      }
+
       const updateResult = await collection.updateOne(
         { id: req.body.id },
         {
           $set: {
-            ...req.body,
-            startedAt: zonedTimeToUtc(req.body.startedAt, req.body.startTz),
-            endedAt: zonedTimeToUtc(req.body.endedAt, req.body.endTz),
+            ...updateData,
             updatedAt: new Date(),
           },
         }
@@ -48,6 +55,7 @@ export default async function handler(req, res) {
         output = res.status(200).json({ message: 'Update Success!' });
         break;
       }
+
       output = res.status(422).json({ message: 'Update Failed!' });
       break;
 

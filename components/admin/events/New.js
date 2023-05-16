@@ -7,6 +7,7 @@ import Form from './Form';
 import useAlert from '@/hooks/useAlert';
 import { eventsSchema } from '@/schema';
 import createDate from '@/utils/createDate';
+import { EVENTS_STATUS } from '@/constants';
 
 export default function New({ onClose }) {
   const showAlert = useAlert();
@@ -23,7 +24,7 @@ export default function New({ onClose }) {
     data = produce(data, (draft) => {
       draft.startedAt = createDate(draft.startDate, draft.startTime);
       draft.endedAt = createDate(draft.endDate, draft.endTime);
-      draft.status = 'Draft';
+      draft.status = EVENTS_STATUS.DRAFT;
       delete draft.startDate;
       delete draft.startTime;
       delete draft.endDate;

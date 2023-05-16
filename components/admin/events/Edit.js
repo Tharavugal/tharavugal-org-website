@@ -36,7 +36,6 @@ export default function Edit({ record, mutate }) {
     data = produce(data, (draft) => {
       draft.startedAt = createDate(draft.startDate, draft.startTime);
       draft.endedAt = createDate(draft.endDate, draft.endTime);
-      draft.status = 'Draft';
       delete draft.startDate;
       delete draft.startTime;
       delete draft.startUTCOffset;
