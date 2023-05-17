@@ -5,13 +5,15 @@ import Layout from '../components/layouts/DefaultLayout';
 import Events from '@/components/Events';
 import { connect } from '@/utils/db';
 
+import styles from './index.module.css';
+
 export default function Home({ data }) {
   return (
     <Layout>
       <Box
         sx={{ display: 'grid', gridTemplateColumns: '70fr 30fr', columnGap: 2 }}
       >
-        <Events data={data.events} />
+        <Events data={data.events} styles={styles} />
         <Paper sx={{ p: 2 }}>
           <Typography
             variant="h6"
