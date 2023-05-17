@@ -1,15 +1,24 @@
 import { Box, Divider, Paper, Typography } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { useRouter } from 'next/router';
 
 import Layout from '../components/layouts/DefaultLayout';
 import Events from '@/components/Events';
 import { connect } from '@/utils/db';
 
 import styles from './index.module.css';
+import SearchForm from '@/components/SearchForm';
 
 export default function Home({ data }) {
+  const router = useRouter();
+
   return (
     <Layout>
+      <SearchForm
+        onSubmit={(values) => {
+          router.push('/search?q=' + values.searchText);
+        }}
+      />
       <Box
         sx={{ display: 'grid', gridTemplateColumns: '70fr 30fr', columnGap: 2 }}
       >

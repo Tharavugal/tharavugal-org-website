@@ -13,7 +13,6 @@ export default function ActionMenu({ row, url, Edit, actions = [], mutate }) {
   const showAlert = useAlert();
 
   const handleClick = (event) => {
-    console.log('Clicked');
     setAnchorEl(event.currentTarget);
   };
 

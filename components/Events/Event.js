@@ -15,7 +15,7 @@ export default function Event({ data }) {
       <CardHeader
         action={<ActionMenu />}
         title={
-          <Typography component="a" fontSize={20} href={'/events/' + data.slug}>
+          <Typography component="a" fontSize={18} href={'/events/' + data.slug}>
             {data.title}
           </Typography>
         }

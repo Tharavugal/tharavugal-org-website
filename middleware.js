@@ -3,7 +3,7 @@ import { USER_ROLES } from './constants';
 import Auth from './utils/Auth';
 
 const routesConfig = {
-  public: ['/api/signin'],
+  public: ['/api/signin', '/api/search-events'],
   protected: [
     { path: '/api/admin', roles: [USER_ROLES.ADMIN] },
     { path: '/api/event-categories', roles: [USER_ROLES.ADMIN] },
