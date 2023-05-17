@@ -31,7 +31,7 @@ export default function Event({ data }) {
             ))}
           </Box>
           <Box sx={{ textAlign: 'right' }}>
-            <Typography variant="span" fontSize={12} color="">
+            <Typography variant="span" fontSize={12} color="text.secondary">
               {format(new Date(data.startedAt), 'yyyy-MM-dd hh:mm:ss aa')}{' '}
               {data.startTz}
             </Typography>

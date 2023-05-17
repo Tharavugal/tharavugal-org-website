@@ -30,27 +30,42 @@ export async function getServerSideProps(context) {
   const client = await connect();
   const DB_NAME = process.env.DB_NAME;
   const eventsCol = client.db(DB_NAME).collection('events');
-  const events = await eventsCol
-    .find(
-      { status: 'Published' },
+  const cursor = eventsCol
+    .aggregate([
       {
-        projection: {
-          _id: 0,
-          title: 1,
-          slug: 1,
-          locations: 1,
-          startedAt: 1,
-          startTz: 1,
+        $match: {
+          status: 'Published',
         },
-      }
-    )
+      },
+      {
+        $group: {
+          _id: {
+            $dateToString: {
+              date: '$startedAt',
+              format: '%G-%m-%d',
+              timezone: '$startTz',
+            },
+          },
+          records: {
+            $push: {
+              title: '$title',
+              slug: '$slug',
+              locations: '$locations',
+              startedAt: '$startedAt',
+              startTz: '$startTz',
+            },
+          },
+        },
+      },
+    ])
     .sort({ updatedAt: -1 })
     .limit(10);
 
+  const events = JSON.parse(JSON.stringify(await cursor.toArray()));
   return {
     props: {
       data: {
-        events: JSON.parse(JSON.stringify(await events.toArray())),
+        events,
       },
     },
   };
