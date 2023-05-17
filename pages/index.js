@@ -60,7 +60,7 @@ export async function getServerSideProps(context) {
         },
       },
     ])
-    .sort({ updatedAt: -1 })
+    .sort({ startedAt: -1 })
     .limit(10);
 
   const events = JSON.parse(JSON.stringify(await cursor.toArray()));
