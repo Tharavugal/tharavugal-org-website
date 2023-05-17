@@ -2,20 +2,24 @@ import {
   Box,
   Card,
   CardActions,
-  CardContent,
+  CardHeader,
   Chip,
   Typography,
 } from '@mui/material';
 import { format } from 'date-fns';
+import ActionMenu from './ActionMenu';
 
 export default function Event({ data }) {
   return (
     <Card variant="outlined" sx={{ mb: 1 }}>
-      <CardContent>
-        <Typography component="a" href={'/events/' + data.slug}>
-          {data.title}
-        </Typography>
-      </CardContent>
+      <CardHeader
+        action={<ActionMenu />}
+        title={
+          <Typography component="a" fontSize={20} href={'/events/' + data.slug}>
+            {data.title}
+          </Typography>
+        }
+      />
       <CardActions>
         <Box
           sx={{
