@@ -8,6 +8,7 @@ import { connect } from '@/utils/db';
 
 import styles from './index.module.css';
 import SearchForm from '@/components/SearchForm';
+import Tools from '@/components/tools';
 
 export default function Home({ data }) {
   const router = useRouter();
@@ -20,7 +21,7 @@ export default function Home({ data }) {
         }}
       />
       <Box
-        sx={{ display: 'grid', gridTemplateColumns: '70fr 30fr', columnGap: 2 }}
+        sx={{ display: 'grid', gridTemplateColumns: '70% 30%', columnGap: 2 }}
       >
         <Events data={data.events} styles={styles} />
         <Paper sx={{ p: 2 }}>
@@ -31,6 +32,9 @@ export default function Home({ data }) {
             <ChevronRightIcon /> Tools
           </Typography>
           <Divider />
+          <Box>
+            <Tools />
+          </Box>
         </Paper>
       </Box>
     </Layout>

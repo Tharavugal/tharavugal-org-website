@@ -5,6 +5,7 @@ import useAlert from '@/hooks/useAlert';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { IconButton } from '@mui/material';
 import ReportIcon from '@mui/icons-material/Report';
+import EditIcon from '@mui/icons-material/Edit';
 
 export default function ActionMenu({ row, url, Edit, actions = [], mutate }) {
   const [editOpen, setEditOpen] = useState(false);
@@ -21,9 +22,9 @@ export default function ActionMenu({ row, url, Edit, actions = [], mutate }) {
   };
 
   const handleReport = () => {
-    handleClose()
-    showAlert('error', 'Please sign in to continue')
-  }
+    handleClose();
+    showAlert('error', 'Please sign in to continue');
+  };
 
   return (
     <>
@@ -44,6 +45,12 @@ export default function ActionMenu({ row, url, Edit, actions = [], mutate }) {
             sx={{ mr: 1, color: (theme) => theme.palette.text.secondary }}
           />{' '}
           Report
+        </MenuItem>
+        <MenuItem onClick={handleReport}>
+          <EditIcon
+            sx={{ mr: 1, color: (theme) => theme.palette.text.secondary }}
+          />{' '}
+          Correct it
         </MenuItem>
       </Menu>
     </>

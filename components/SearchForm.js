@@ -28,10 +28,10 @@ export default function SearchForm({ isLoading, initialValues, onSubmit }) {
             borderRadius: '20px',
             border: '1px groove lightgrey',
           }}
-          placeholder="Search..."
+          placeholder="Search: Try road accidents in chennai"
         />
         <IconButton type="submit">
-          {isLoading ? <CircularProgress /> : <SearchIcon />}
+          {isLoading ? <CircularProgress size={25} /> : <SearchIcon />}
         </IconButton>
       </Box>
     </Box>
