@@ -35,6 +35,26 @@ export default function Home({ data }) {
           <Box>
             <Tools />
           </Box>
+          <Typography
+            variant="h6"
+            sx={{ display: 'flex', alignItems: 'center' }}
+          >
+            <ChevronRightIcon /> Useful Links
+          </Typography>
+          <Divider />
+          <Box>
+            <ul>
+              <li>
+                <a href="/work-pipeline">Work Pipeline</a>
+              </li>
+              <li>
+                <a href="/open-discussions">Open Discussions</a>
+              </li>
+              <li>
+                <a href="/archival-records">Archival Records</a>
+              </li>
+            </ul>
+          </Box>
         </Paper>
       </Box>
     </Layout>
