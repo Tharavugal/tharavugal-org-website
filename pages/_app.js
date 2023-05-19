@@ -28,7 +28,7 @@ export default function App({ Component, pageProps }) {
 
     function authCheck(url) {
       // redirect to login page if accessing a private page and not logged in
-      const publicPaths = ['/', '/signin', '/search'];
+      const publicPaths = ['/', '/signin', '/search', '/visualizer'];
       const path = url.split('?')[0];
       const user = localStorage.getItem('user');
       if (!user && !publicPaths.includes(path)) {
@@ -102,6 +102,17 @@ export default function App({ Component, pageProps }) {
           </SnackbarProvider>
         </LocalizationProvider>
       </main>
+      <style global jsx>
+        {`
+          html,
+          body,
+          body > div:first-child,
+          div#__next,
+          div#__next > main {
+            height: 100%;
+          }
+        `}
+      </style>
     </>
   );
 }

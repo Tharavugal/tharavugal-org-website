@@ -6,6 +6,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { IconButton } from '@mui/material';
 import ReportIcon from '@mui/icons-material/Report';
 import EditIcon from '@mui/icons-material/Edit';
+import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined';
 
 export default function ActionMenu({ row, url, Edit, actions = [], mutate }) {
   const [editOpen, setEditOpen] = useState(false);
@@ -51,6 +52,12 @@ export default function ActionMenu({ row, url, Edit, actions = [], mutate }) {
             sx={{ mr: 1, color: (theme) => theme.palette.text.secondary }}
           />{' '}
           Correct it
+        </MenuItem>
+        <MenuItem onClick={handleReport}>
+          <TranslateOutlinedIcon
+            sx={{ mr: 1, color: (theme) => theme.palette.text.secondary }}
+          />{' '}
+          Translate
         </MenuItem>
       </Menu>
     </>

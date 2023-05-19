@@ -28,7 +28,7 @@ export default function Events({ data, styles }) {
       <Box m={3}>
         <Timeline>{renderEvents()}</Timeline>
       </Box>
-      <Alert severity="warning">Currently, only organization members can view unlimited events.</Alert>
+      <Alert severity="warning">Currently, only members can view unlimited events.</Alert>
     </Paper>
   );
 }

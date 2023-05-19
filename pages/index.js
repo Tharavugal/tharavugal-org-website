@@ -39,7 +39,7 @@ export default function Home({ data }) {
             variant="h6"
             sx={{ display: 'flex', alignItems: 'center' }}
           >
-            <ChevronRightIcon /> Useful Links
+            <ChevronRightIcon /> Resources
           </Typography>
           <Divider />
           <Box>
@@ -51,7 +51,28 @@ export default function Home({ data }) {
                 <a href="/open-discussions">Open Discussions</a>
               </li>
               <li>
+                <a href="/translations">Translations</a>
+              </li>
+              <li>
                 <a href="/archival-records">Archival Records</a>
+              </li>
+              <li>
+                <a href="/images">Images</a>
+              </li>
+              <li>
+                <a href="/videos">Videos</a>
+              </li>
+              <li>
+                <a href="/documents">Documents</a>
+              </li>
+              <li>
+                <a href="/contributing-process">Contributing Process</a>
+              </li>
+              <li>
+                <a href="/entities">Entities</a>
+              </li>
+              <li>
+                <a href="/literatures">Literatures</a>
               </li>
             </ul>
           </Box>

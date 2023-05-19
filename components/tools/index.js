@@ -5,6 +5,7 @@ import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 import ScienceOutlinedIcon from '@mui/icons-material/ScienceOutlined';
 import BookOutlinedIcon from '@mui/icons-material/BookOutlined';
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
+import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 
 import ToolBox from './ToolBox';
 
@@ -31,6 +32,11 @@ export default function Tools() {
         icon={PushPinOutlinedIcon}
         label="On This Day"
         path="/on-this-day"
+      />
+      <ToolBox
+        icon={CalendarMonthOutlinedIcon}
+        label="Thamizhl Calendar"
+        path="/thamizhl-calendar"
       />
     </Box>
   );

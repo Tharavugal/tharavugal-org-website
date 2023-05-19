@@ -3,10 +3,15 @@ import AppHeader from './AppHeader';
 
 export default function DefaultLayout({ children }) {
   return (
-    <>
+    <Box sx={{ height: '100%' }}>
       <AppHeader />
       <Toolbar variant="dense" />
-      <Box p={3} pb={15} bgcolor="#E7EBF0">
+      <Box
+        p={3}
+        pb={15}
+        sx={{ minHeight: 'calc(100% - 50px)' }}
+        bgcolor="#E7EBF0"
+      >
         {children}
       </Box>
       <Box component="footer">
@@ -17,6 +22,6 @@ export default function DefaultLayout({ children }) {
           © 2023 Tharavugal.org
         </Box>
       </Box>
-    </>
+    </Box>
   );
 }
