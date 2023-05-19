@@ -21,7 +21,11 @@ export default function Home({ data }) {
         }}
       />
       <Box
-        sx={{ display: 'grid', gridTemplateColumns: '70% 30%', columnGap: 2 }}
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: '70fr 30fr',
+          columnGap: 2,
+        }}
       >
         <Events data={data.events} styles={styles} />
         <Paper sx={{ p: 2 }}>
