@@ -35,8 +35,8 @@ export default function Tools() {
         <ToolBox icon={ScienceOutlinedIcon} label="Research" path="/research" />
         <ToolBox
           icon={BookOutlinedIcon}
-          label="Thirukural"
-          path="/thirukural"
+          label="Thirukkural"
+          path="/thirukkural"
         />
         <ToolBox
           icon={PushPinOutlinedIcon}

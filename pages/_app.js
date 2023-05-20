@@ -28,7 +28,29 @@ export default function App({ Component, pageProps }) {
 
     function authCheck(url) {
       // redirect to login page if accessing a private page and not logged in
-      const publicPaths = ['/', '/signin', '/search', '/visualizer'];
+      const publicPaths = [
+        '/',
+        '/signin',
+        '/search',
+        '/visualizer',
+        '/work-pipeline',
+        '/thamizhl-dictionary',
+        '/explore',
+        '/research',
+        '/thirukkural',
+        '/on-this-day',
+        '/thamizhl-calendar',
+        '/open-discussions',
+        '/translations',
+        '/archival-records',
+        '/images',
+        '/videos',
+        '/documents',
+        '/contributing-process',
+        '/entities',
+        '/literatures',
+        '/statistics',
+      ];
       const path = url.split('?')[0];
       const user = localStorage.getItem('user');
       if (!user && !publicPaths.includes(path)) {

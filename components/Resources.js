@@ -40,6 +40,9 @@ export default function Resources() {
           <li>
             <a href="/literatures">Literatures</a>
           </li>
+          <li>
+            <a href="/statistics">Statistics</a>
+          </li>
         </ul>
       </Box>
     </Box>
