@@ -1,4 +1,4 @@
-import { Alert, Box } from '@mui/material';
+import { Alert, Box, CircularProgress } from '@mui/material';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -19,7 +19,7 @@ ChartJS.register(
   Legend
 );
 
-export default function Charts({ title, data }) {
+export default function Charts({ title, data, isLoading }) {
   const options = {
     responsive: true,
     plugins: {
@@ -41,6 +41,22 @@ export default function Charts({ title, data }) {
       },
     ],
   };
+
+  if (isLoading) {
+    return (
+      <Box
+        sx={{
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   return (
     <Box p={2}>
