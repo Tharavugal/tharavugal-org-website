@@ -1,5 +1,4 @@
-import { Box, Divider, Paper, Typography } from '@mui/material';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { Box, Paper } from '@mui/material';
 import { useRouter } from 'next/router';
 
 import Layout from '../components/layouts/DefaultLayout';
@@ -9,6 +8,7 @@ import { connect } from '@/utils/db';
 import styles from './index.module.css';
 import SearchForm from '@/components/SearchForm';
 import Tools from '@/components/tools';
+import Resources from '@/components/Resources';
 
 export default function Home({ data }) {
   const router = useRouter();
@@ -28,59 +28,14 @@ export default function Home({ data }) {
         }}
       >
         <Events data={data.events} styles={styles} />
-        <Paper sx={{ p: 2 }}>
-          <Typography
-            variant="h6"
-            sx={{ display: 'flex', alignItems: 'center' }}
-          >
-            <ChevronRightIcon /> Tools
-          </Typography>
-          <Divider />
-          <Box>
+        <Box>
+          <Paper>
             <Tools />
-          </Box>
-          <Typography
-            variant="h6"
-            sx={{ display: 'flex', alignItems: 'center' }}
-          >
-            <ChevronRightIcon /> Resources
-          </Typography>
-          <Divider />
-          <Box>
-            <ul>
-              <li>
-                <a href="/work-pipeline">Work Pipeline</a>
-              </li>
-              <li>
-                <a href="/open-discussions">Open Discussions</a>
-              </li>
-              <li>
-                <a href="/translations">Translations</a>
-              </li>
-              <li>
-                <a href="/archival-records">Archival Records</a>
-              </li>
-              <li>
-                <a href="/images">Images</a>
-              </li>
-              <li>
-                <a href="/videos">Videos</a>
-              </li>
-              <li>
-                <a href="/documents">Documents</a>
-              </li>
-              <li>
-                <a href="/contributing-process">Contributing Process</a>
-              </li>
-              <li>
-                <a href="/entities">Entities</a>
-              </li>
-              <li>
-                <a href="/literatures">Literatures</a>
-              </li>
-            </ul>
-          </Box>
-        </Paper>
+          </Paper>
+          <Paper sx={{ mt: 2 }}>
+            <Resources />
+          </Paper>
+        </Box>
       </Box>
     </Layout>
   );
@@ -117,8 +72,17 @@ export async function getServerSideProps(context) {
           },
         },
       },
+      {
+        $project: {
+          records: 1,
+        },
+      },
+      {
+        $sort: {
+          _id: -1,
+        },
+      },
     ])
-    .sort({ startedAt: -1 })
     .limit(10);
 
   const events = JSON.parse(JSON.stringify(await cursor.toArray()));

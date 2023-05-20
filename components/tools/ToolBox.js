@@ -19,6 +19,9 @@ export default function ToolBox({ icon: Icon, label, path }) {
         cursor: 'pointer',
         m: 1,
         p: 1,
+        '&:hover': (theme) => ({
+          background: theme.palette.grey[200],
+        }),
       }}
     >
       <Icon sx={{ fontSize: '35px', mt: '10px' }} />

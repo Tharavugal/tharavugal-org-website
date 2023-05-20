@@ -26,7 +26,6 @@ export default function MUIAsyncSelectField({ name, label, url, multiple }) {
       multiple={multiple}
       disablePortal
       options={options}
-      sx={{ width: 300, mt: 2 }}
       renderInput={(params) => (
         <TextField
           {...params}

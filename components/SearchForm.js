@@ -20,14 +20,15 @@ export default function SearchForm({ isLoading, initialValues, onSubmit }) {
       >
         <Box
           name="searchText"
-          type='search'
+          type="search"
           component={Field}
-          sx={{
+          sx={(theme) => ({
             width: '40%',
             padding: '15px',
             borderRadius: '20px',
-            border: '1px groove lightgrey',
-          }}
+            border: 'none',
+            outlineColor: theme.palette.primary.light,
+          })}
           placeholder="Search: Try road accidents in chennai"
         />
         <IconButton type="submit">
