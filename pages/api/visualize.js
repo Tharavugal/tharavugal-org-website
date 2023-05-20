@@ -6,6 +6,21 @@ export default async function handler(req, res) {
   const collection = client.db(DB_NAME).collection('events');
   let output;
 
+  const getFormatByView = () => {
+    switch (req.body.view) {
+      case 'Date':
+        return '%Y-%m-%d'    
+      case 'Week':
+        return '%u'    
+      case 'Month':
+        return '%m'    
+      case 'Year':
+        return '%Y'    
+      default:
+        break;
+    }
+  }
+
   switch (req.method) {
     case 'POST':
       const cursor = await collection.aggregate([
@@ -53,7 +68,7 @@ export default async function handler(req, res) {
             _id: {
               $dateToString: {
                 date: '$startedAt',
-                format: '%Y-%m-%d',
+                format: getFormatByView(),
                 timezone: '$startTz',
               },
             },
