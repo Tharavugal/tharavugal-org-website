@@ -1,5 +1,6 @@
 import { Box, Divider, Typography } from "@mui/material";
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import Link from "next/link";
 
 export default function Resources() {
   return (
@@ -11,37 +12,37 @@ export default function Resources() {
       <Box>
         <ul>
           <li>
-            <a href="/work-pipeline">Work Pipeline</a>
+            <Link href="/work-pipeline">Work Pipeline</Link>
           </li>
           <li>
-            <a href="/open-discussions">Open Discussions</a>
+            <Link href="/open-discussions">Open Discussions</Link>
           </li>
           <li>
-            <a href="/translations">Translations</a>
+            <Link href="/translations">Translations</Link>
           </li>
           <li>
-            <a href="/archival-records">Archival Records</a>
+            <Link href="/archival-records">Archival Records</Link>
           </li>
           <li>
-            <a href="/images">Images</a>
+            <Link href="/images">Images</Link>
           </li>
           <li>
-            <a href="/videos">Videos</a>
+            <Link href="/videos">Videos</Link>
           </li>
           <li>
-            <a href="/documents">Documents</a>
+            <Link href="/documents">Documents</Link>
           </li>
           <li>
-            <a href="/contributing-process">Contributing Process</a>
+            <Link href="/contributing-process">Contributing Process</Link>
           </li>
           <li>
-            <a href="/entities">Entities</a>
+            <Link href="/entities">Entities</Link>
           </li>
           <li>
-            <a href="/literatures">Literatures</a>
+            <Link href="/literatures">Literatures</Link>
           </li>
           <li>
-            <a href="/statistics">Statistics</a>
+            <Link href="/statistics">Statistics</Link>
           </li>
         </ul>
       </Box>

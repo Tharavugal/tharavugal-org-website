@@ -1,5 +1,6 @@
 import Layout from '@/components/layouts/DefaultLayout';
 import { Alert, Box, Typography } from '@mui/material';
+import Link from 'next/link';
 
 export default function ThamizhlDictionary() {
   return (
@@ -9,7 +10,7 @@ export default function ThamizhlDictionary() {
       </Box>
       <Alert severity="warning">
         Work in Pipeline, please follow the{' '}
-        <a href="/work-pipeline">Work Pipeline</a> for updates.
+        <Link href="/work-pipeline">Work Pipeline</Link> for updates.
       </Alert>
     </Layout>
   );
