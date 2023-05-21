@@ -18,6 +18,9 @@ export default function ContactUs() {
             />
           </Box>
           <Box>
+            <Typography variant="subtitle1">
+              For any queries or support, please write to us.
+            </Typography>
             <Typography variant="body1">
               Email ID:{' '}
               <Link href="mailto:admin@tharavugal.org">

@@ -54,6 +54,10 @@ export default function App({ Component, pageProps }) {
         '/contribution-logs',
         '/knowledge-base',
         '/contact-us',
+        '/about-us',
+        '/faqs',
+        '/terms-conditions',
+        '/privacy-policy',
       ];
       const path = url.split('?')[0];
       const user = localStorage.getItem('user');
