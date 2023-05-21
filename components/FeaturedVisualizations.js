@@ -10,7 +10,7 @@ export default function FeaturedVisualizations() {
       </Typography>
       <Divider />
       <Box mt={1}>
-        <Alert severity="info">Work in Pipeline.</Alert>
+        <Alert severity="info">No Data.</Alert>
       </Box>
     </Box>
   );

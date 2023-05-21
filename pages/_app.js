@@ -53,6 +53,7 @@ export default function App({ Component, pageProps }) {
         '/events/[slug]',
         '/contribution-logs',
         '/knowledge-base',
+        '/contact-us',
       ];
       const path = url.split('?')[0];
       const user = localStorage.getItem('user');
