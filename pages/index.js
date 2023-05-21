@@ -9,6 +9,7 @@ import styles from './index.module.css';
 import SearchForm from '@/components/SearchForm';
 import Tools from '@/components/tools';
 import Resources from '@/components/Resources';
+import FeaturedVisualizations from '@/components/FeaturedVisualizations';
 
 export default function Home({ data }) {
   const router = useRouter();
@@ -31,6 +32,9 @@ export default function Home({ data }) {
         <Box>
           <Paper>
             <Tools />
+          </Paper>
+          <Paper sx={{ mt: 2 }}>
+            <FeaturedVisualizations />
           </Paper>
           <Paper sx={{ mt: 2 }}>
             <Resources />
