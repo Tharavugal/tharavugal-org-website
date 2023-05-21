@@ -9,6 +9,7 @@ const routesConfig = {
     '/api/event-categories',
     '/api/event-locations',
     '/api/visualize',
+    '/api/events/.+',
   ],
   protected: [
     { path: '/api/admin', roles: [USER_ROLES.ADMIN] },
@@ -19,7 +20,7 @@ const routesConfig = {
 };
 
 async function authorize(path, req) {
-  if (routesConfig.public.includes(path)) {
+  if (routesConfig.public.some(p => new RegExp(p).test(path))) {
     return true;
   }
 
@@ -42,8 +43,9 @@ export const config = {
 
 export async function middleware(req, res) {
   const path = req.nextUrl.pathname;
+
   if (
-    routesConfig.public.includes(path) ||
+    routesConfig.public.some(p => new RegExp(p).test(path)) ||
     routesConfig.protected.map((r) => r.path).includes(path)
   ) {
     const isAllowed = await authorize(path, req);

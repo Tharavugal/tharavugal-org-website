@@ -1,7 +1,11 @@
-import { Box, Toolbar } from '@mui/material';
+import { Backdrop, Box, Toolbar } from '@mui/material';
 import AppHeader from './AppHeader';
+import { InfinitySpin } from 'react-loader-spinner';
+import { useAppState } from '@/store';
 
 export default function DefaultLayout({ children }) {
+  const isLoading = useAppState((s) => s.loading);
+
   return (
     <Box sx={{ height: '100%' }}>
       <AppHeader />
@@ -14,6 +18,12 @@ export default function DefaultLayout({ children }) {
       >
         {children}
       </Box>
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={isLoading}
+      >
+        <InfinitySpin width="200" color="#FF851B" />
+      </Backdrop>
       <Box component="footer">
         <Box
           textAlign="center"

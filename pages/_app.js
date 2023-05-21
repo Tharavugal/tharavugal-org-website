@@ -50,6 +50,9 @@ export default function App({ Component, pageProps }) {
         '/entities',
         '/literatures',
         '/statistics',
+        '/events/[slug]',
+        '/contribution-logs',
+        '/knowledge-base',
       ];
       const path = url.split('?')[0];
       const user = localStorage.getItem('user');

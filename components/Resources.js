@@ -44,6 +44,12 @@ export default function Resources() {
           <li>
             <Link href="/statistics">Statistics</Link>
           </li>
+          <li>
+            <Link href="/contribution-logs">Contribution Logs</Link>
+          </li>
+          <li>
+            <Link href="/knowledge-base">Knowledge Base</Link>
+          </li>
         </ul>
       </Box>
     </Box>
