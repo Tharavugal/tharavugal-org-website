@@ -15,6 +15,20 @@ export default function AboutUs() {
           tools.
         </Typography>
 
+        <Typography variant="body1" mt={1}>
+          Some of the significant features include:
+        </Typography>
+
+        <ul>
+          <li>Open source</li>
+          <li>Ad free (Always)</li>
+          <li>Research-Oriented</li>
+          <li>
+            Privacy focused (
+            <Link href="/privacy-policy">Click here to learn more</Link>)
+          </li>
+        </ul>
+
         <Typography variant="body1" mt={2}>
           Please <Link href="/contact-us">contact us</Link> for more info.
         </Typography>
