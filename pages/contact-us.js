@@ -21,7 +21,7 @@ export default function ContactUs() {
             <Typography variant="subtitle1">
               For any queries or support, please write to us.
             </Typography>
-            <Typography variant="body1">
+            <Typography variant="body1" mt={2}>
               Email ID:{' '}
               <Link href="mailto:admin@tharavugal.org">
                 admin@tharavugal.org
@@ -36,7 +36,9 @@ export default function ContactUs() {
             />
           </Box>
           <Box>
-            <Typography variant="body1">Address:</Typography>
+            <Typography variant="body1" sx={{ textDecoration: 'underline' }}>
+              Address
+            </Typography>
             <Box component="address" mt={2}>
               Chennai
               <br />
