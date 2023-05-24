@@ -42,7 +42,7 @@ export default function ContactUs() {
               <br />
               Thamizhl Naadu
               <br />
-              Republic of India
+              Republic of India (Union of States)
             </Box>
           </Box>
         </Box>
