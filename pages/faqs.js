@@ -17,11 +17,9 @@ function QA({ q, a }) {
         aria-controls="panel1a-content"
         id="panel1a-header"
       >
-        <Typography>{q}</Typography>
+        <Typography variant='h6'>{q}</Typography>
       </AccordionSummary>
-      <AccordionDetails>
-        <Typography>{a}</Typography>
-      </AccordionDetails>
+      <AccordionDetails>{a}</AccordionDetails>
     </Accordion>
   );
 }
@@ -35,7 +33,12 @@ export default function FAQs() {
       <Box sx={{ p: 5, mt: 2 }}>
         <QA
           q="What is the meaning of `Tharavugal`?"
-          a="`Tharavugal` is a Thamizhl language word, which means `Data`"
+          a={
+            <Box>
+              <b>Tharavugal</b> is a <b>Thamizhl</b> language word, which means{' '}
+              <b>Data</b>.
+            </Box>
+          }
         />
       </Box>
     </Layout>

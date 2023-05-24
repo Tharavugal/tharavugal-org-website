@@ -10,6 +10,7 @@ import SearchForm from '@/components/SearchForm';
 import Tools from '@/components/tools';
 import Resources from '@/components/Resources';
 import FeaturedVisualizations from '@/components/FeaturedVisualizations';
+import RecentDiscussions from '@/components/RecentDiscussions';
 
 export default function Home({ data }) {
   const router = useRouter();
@@ -35,6 +36,9 @@ export default function Home({ data }) {
           </Paper>
           <Paper sx={{ mt: 2 }}>
             <FeaturedVisualizations />
+          </Paper>
+          <Paper sx={{ mt: 2 }}>
+            <RecentDiscussions />
           </Paper>
           <Paper sx={{ mt: 2 }}>
             <Resources />
