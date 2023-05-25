@@ -1,8 +1,47 @@
 import Layout from '@/components/layouts/DefaultLayout';
-import { Alert, Box, Typography } from '@mui/material';
+import { Masonry } from '@mui/lab';
+import { Alert, Box, Icon, Paper, Tooltip, Typography } from '@mui/material';
 import Link from 'next/link';
+import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
+
+function DiscussionBox({ title }) {
+  return (
+    <Paper sx={{ p: 2, mt: 2 }}>
+      <Typography variant="h6">{title}</Typography>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          mt: 2,
+          justifyContent: 'space-between',
+        }}
+      >
+        <Tooltip title="Positive">
+          <Box sx={{ display: 'flex' }}>
+            0<ChatOutlinedIcon sx={{ ml: 1, color: 'success.main' }} />
+          </Box>
+        </Tooltip>
+        <Tooltip title="Neutral">
+          <Box sx={{ display: 'flex' }}>
+            0 <ChatOutlinedIcon sx={{ ml: 1, color: 'primary.main' }} />
+          </Box>
+        </Tooltip>
+        <Tooltip title="Negative">
+          <Box sx={{ display: 'flex' }}>
+            0 <ChatOutlinedIcon sx={{ ml: 1, color: 'error.main' }} />
+          </Box>
+        </Tooltip>
+      </Box>
+    </Paper>
+  );
+}
 
 export default function OpenDiscussions() {
+  const data = [
+    'Government should undertake private orphanages?',
+    'Is palm toddy should be made open to the public in thamizl naadu?',
+  ];
+
   return (
     <Layout>
       <Box textAlign="center">
@@ -12,6 +51,13 @@ export default function OpenDiscussions() {
         Work in Pipeline, please follow the{' '}
         <Link href="/work-pipeline">Work Pipeline</Link> for updates.
       </Alert>
+      <Box mt={2}>
+        <Masonry columns={{ xs: 2, sm: 3, md: 4 }} spacing={2}>
+          {data.map((d, i) => (
+            <DiscussionBox key={i} title={d} />
+          ))}
+        </Masonry>
+      </Box>
     </Layout>
   );
 }
