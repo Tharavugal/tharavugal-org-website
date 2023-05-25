@@ -7,20 +7,28 @@ export default async function handler(req, res) {
   let output;
 
   switch (req.method) {
-    case 'GET':
+    case 'POST':
+      const query = {
+        status: 'Published',
+        $text: { $search: req.body.title },
+      };
+
+      if (req.body.locations.length > 0) {
+        query.locations = {
+          $in: req.body.locations.map((i) => new RegExp(i.trim(), 'i')),
+        };
+      }
+
       const cursor = await collection
-        .find(
-          { title: { $regex: req.query.q, $options: 'i' } },
-          {
-            projection: {
-              _id: 0,
-              title: 1,
-              slug: 1,
-              locations: 1,
-              startedAt: 1,
-            },
-          }
-        )
+        .find(query, {
+          projection: {
+            _id: 0,
+            title: 1,
+            slug: 1,
+            locations: 1,
+            startedAt: 1,
+          },
+        })
         .sort({ startedAt: -1 })
         .limit(10);
       const data = await cursor.toArray();

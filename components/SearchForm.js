@@ -29,7 +29,7 @@ export default function SearchForm({ isLoading, initialValues, onSubmit }) {
             border: 'none',
             outlineColor: theme.palette.primary.light,
           })}
-          placeholder="Search..."
+          placeholder="Type here to search..."
         />
         <IconButton type="submit">
           {isLoading ? <CircularProgress size={25} /> : <SearchIcon />}
