@@ -18,6 +18,9 @@ export default function Resources() {
             <Link href="/open-discussions">Open Discussions</Link>
           </li>
           <li>
+            <Link href="/social-issues">Social Issues</Link>
+          </li>
+          <li>
             <Link href="/translations">Translations</Link>
           </li>
           <li>

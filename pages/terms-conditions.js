@@ -131,8 +131,8 @@ export default function TermsConditions() {
         <Box mt={2}>
           <Typography variant="h5">Limitation of Liability</Typography>
           <Typography variant="subtitle1">
-            These terms and conditions of this organization do not liable
-            for any losses, death, personal injury, fraud, misinterpretation,
+            These terms and conditions of this organization do not liable for
+            any losses, death, personal injury, fraud, misinterpretation,
             negligence, willful misconduct.
             <br />
             To the maximum extent permitted by applicable law, in no event shall
@@ -161,7 +161,8 @@ export default function TermsConditions() {
         <Box mt={2}>
           <Typography variant="h5">Contact Us</Typography>
           <Typography variant="subtitle1">
-            If you have any queries about these Terms and Conditions, Click <Link href="/contact-us">here to contact us.</Link>
+            If you have any queries about these Terms and Conditions, please
+            click <Link href="/contact-us">here to contact us.</Link>
           </Typography>
         </Box>
         <Alert severity="info" sx={{ mt: 2 }}>
