@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { Alert, Box, Chip, Paper, Typography } from '@mui/material';
+import { Alert, Box, Chip, Divider, Paper, Typography } from '@mui/material';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 import Layout from '@/components/layouts/DefaultLayout';
 import { setAppState, useAppState } from '@/store';
@@ -112,6 +113,26 @@ export default function EventView() {
                 </tr>
               </tbody>
             </table>
+          </Box>
+          <Box mt={2}>
+            <Typography
+              variant="h6"
+              sx={{ display: 'flex', alignItems: 'center' }}
+            >
+              <ChevronRightIcon /> Linked Events
+            </Typography>
+            <Divider />
+            <Alert severity="info">No data</Alert>
+          </Box>
+          <Box mt={2}>
+            <Typography
+              variant="h6"
+              sx={{ display: 'flex', alignItems: 'center' }}
+            >
+              <ChevronRightIcon /> Event Entities
+            </Typography>
+            <Divider />
+            <Alert severity="info">No data</Alert>
           </Box>
         </Paper>
       </Box>
