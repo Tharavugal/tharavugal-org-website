@@ -24,14 +24,19 @@ export default function Event({ data }) {
         <Box
           sx={{
             display: 'grid',
-            gridTemplateColumns: '1fr 250px',
+            gridTemplateColumns: '50% 50%',
             width: '100%',
             overflow: 'auto',
           }}
         >
           <Box>
             {data.locations.map((l, i) => (
-              <Chip key={i} label={l} sx={{ mr: '2px' }} size="small" />
+              <Chip
+                key={i}
+                label={l}
+                sx={{ mt: { xs: 1 }, mr: '2px' }}
+                size="small"
+              />
             ))}
           </Box>
           <Box sx={{ textAlign: 'right' }}>

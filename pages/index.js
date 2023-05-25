@@ -24,13 +24,13 @@ export default function Home({ data }) {
       />
       <Box
         sx={{
-          display: 'grid',
+          display: { md: 'grid' },
           gridTemplateColumns: '70fr 30fr',
           columnGap: 2,
         }}
       >
         <Events data={data.events} styles={styles} />
-        <Box>
+        <Box sx={{ mt: { xs: 2, md: 0 } }}>
           <Paper>
             <Tools />
           </Paper>

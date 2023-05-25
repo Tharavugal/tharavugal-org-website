@@ -25,7 +25,7 @@ export default function Visualizer() {
       </Alert>
       <Box
         sx={{
-          display: 'grid',
+          display: { md: 'grid' },
           gridTemplateColumns: '300px 1fr',
           gridGap: '10px',
           my: 2,
@@ -41,7 +41,7 @@ export default function Visualizer() {
           <Divider />
           <Filters setState={setState} />
         </Paper>
-        <Paper>
+        <Paper sx={{ mt: { xs: 2, md: 0 }, minHeight: { xs: '300px' } }}>
           <Charts
             data={state.data}
             title={state.category}

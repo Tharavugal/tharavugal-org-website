@@ -5,7 +5,7 @@ export default function TimelineContent({ children }) {
     <Box sx={{ display: 'grid', gridTemplateColumns: '2px 1fr' }}>
       <Box
         sx={{
-          margin: '5px 5px 15px 5px',
+          margin: '5px 5px 5px 5px',
           background: 'rgb(189, 189, 189)',
           width: '2px',
         }}

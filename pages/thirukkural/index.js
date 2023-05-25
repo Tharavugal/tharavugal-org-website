@@ -77,7 +77,7 @@ export default function Thirukkural() {
             <Typography color="primary">Chapters</Typography>
           </Paper>
           <Paper sx={{ minHeight: '50px', p: 2, textAlign: 'center' }}>
-            <Typography color="primary">Parts</Typography>
+            <Typography color="primary">Sections</Typography>
             <Box sx={{ textAlign: 'left' }}>
               <ul>
                 <li>Virtue</li>

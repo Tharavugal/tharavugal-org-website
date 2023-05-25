@@ -23,7 +23,7 @@ export default function SearchForm({ isLoading, initialValues, onSubmit }) {
           type="search"
           component={Field}
           sx={(theme) => ({
-            width: '40%',
+            width: { xs: '75%', md: '40%' },
             padding: '15px',
             borderRadius: '20px',
             border: 'none',

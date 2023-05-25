@@ -37,7 +37,7 @@ export default function DefaultLayout({ children }) {
         sx={{ bgcolor: 'text.primary', color: 'white', p: 3 }}
       >
         <Grid container px={3}>
-          <Grid item xs>
+          <Grid item xs={12} sm={6} md={4}>
             <Typography variant="body1" sx={{ textDecoration: 'underline' }}>
               ORGANIZATION
             </Typography>
@@ -70,7 +70,7 @@ export default function DefaultLayout({ children }) {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs>
+          <Grid item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={4}>
             <Typography variant="body1" sx={{ textDecoration: 'underline' }}>
               USEFUL LINKS
             </Typography>
@@ -103,7 +103,7 @@ export default function DefaultLayout({ children }) {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs>
+          <Grid item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={4}>
             <Typography variant="body1" sx={{ textDecoration: 'underline' }}>
               LEGAL
             </Typography>

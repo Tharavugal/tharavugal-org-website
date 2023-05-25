@@ -25,7 +25,7 @@ export default function Events({ data, styles }) {
         Events
       </Typography>
       <Divider />
-      <Box m={3}>
+      <Box my={2}>
         <Timeline>{renderEvents()}</Timeline>
       </Box>
       <Alert severity="warning">Currently, only members can view unlimited events.</Alert>
