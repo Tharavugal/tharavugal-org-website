@@ -30,3 +30,17 @@
     box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
   }
 }
+
+.heart {
+  display: inline-block;
+  font-size: 25px;
+  animation: beat 0.5s infinite alternate;
+  transform-origin: center;
+}
+
+/* Heart beat animation */
+@keyframes beat {
+  to {
+    transform: scale(0.75);
+  }
+}

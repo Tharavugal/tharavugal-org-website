@@ -62,6 +62,7 @@ export default function App({ Component, pageProps }) {
         '/terms-conditions',
         '/privacy-policy',
         '/social-issues',
+        '/contribute',
       ];
       const path = url.split('?')[0];
       const user = localStorage.getItem('user');
