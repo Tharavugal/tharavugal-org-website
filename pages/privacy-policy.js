@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function PrivacyPolicy() {
   return (
-    <Layout>
+    <Layout title="Privacy Policy">
       <Box textAlign="center">
         <Typography variant="h4" fontWeight="bold">
           Privacy Policy

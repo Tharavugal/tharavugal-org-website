@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Link from 'next/link';
 import {
   Avatar,
@@ -49,12 +48,7 @@ export default function Signin() {
   };
 
   return (
-    <Layout>
-      <Head>
-        <title>Sign In</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Layout title="Sign In">
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Card

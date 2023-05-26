@@ -6,7 +6,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 export default function Thirukkural() {
   return (
-    <Layout>
+    <Layout title="Thirukkural">
       <Box textAlign="center">
         <Typography variant="h4">Thirukkural</Typography>
       </Box>

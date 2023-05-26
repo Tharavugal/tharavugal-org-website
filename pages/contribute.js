@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Contribute() {
   return (
-    <Layout>
+    <Layout title="Contribute">
       <Typography variant="h4" textAlign="center">
         Contribute
       </Typography>

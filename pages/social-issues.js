@@ -40,7 +40,7 @@ export default function SocialIssues() {
   ];
 
   return (
-    <Layout>
+    <Layout title="Social Issues">
       <Box textAlign="center">
         <Typography variant="h4">Social Issues</Typography>
       </Box>

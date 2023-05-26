@@ -26,7 +26,7 @@ function QA({ q, a }) {
 
 export default function FAQs() {
   return (
-    <Layout>
+    <Layout title="FAQs">
       <Box textAlign="center">
         <Typography variant="h4">FAQs</Typography>
       </Box>

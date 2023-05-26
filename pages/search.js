@@ -32,7 +32,7 @@ export default function Search({ data }) {
   }, [router.query.q]);
 
   return (
-    <Layout>
+    <Layout title="Search">
       <SearchForm
         isLoading={isLoading}
         initialValues={{ searchText: router.query.q }}

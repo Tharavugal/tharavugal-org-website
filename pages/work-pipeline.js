@@ -3,7 +3,7 @@ import { Alert, Box, Typography } from '@mui/material';
 
 export default function WorkPipeline() {
   return (
-    <Layout>
+    <Layout title="Work Pipeline">
       <Box textAlign="center">
         <Typography variant="h4">Work Pipeline</Typography>
       </Box>

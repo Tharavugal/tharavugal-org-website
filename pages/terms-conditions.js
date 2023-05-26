@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function TermsConditions() {
   return (
-    <Layout>
+    <Layout title="Terms & Conditions">
       <Box textAlign="center">
         <Typography variant="h4" fontWeight="bold">
           Terms & Conditions

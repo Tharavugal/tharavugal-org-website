@@ -6,7 +6,7 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
 export default function ContactUs() {
   return (
-    <Layout>
+    <Layout title="Contact Us">
       <Box textAlign="center">
         <Typography variant="h4">Contact Us</Typography>
       </Box>

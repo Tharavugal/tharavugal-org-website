@@ -1,7 +1,7 @@
+import Head from 'next/head';
 import {
   Backdrop,
   Box,
-  Alert,
   Grid,
   Toolbar,
   Typography,
@@ -12,13 +12,17 @@ import { InfinitySpin } from 'react-loader-spinner';
 import { useAppState } from '@/store';
 import Link from 'next/link';
 import { useState } from 'react';
+import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
 
-export default function DefaultLayout({ children }) {
+export default function DefaultLayout({ children, title }) {
   const [agreement, setAgreement] = useState(localStorage.getItem('agreement'));
   const isLoading = useAppState((s) => s.loading);
 
   return (
     <Box sx={{ height: '100%' }}>
+      <Head>
+        <title>{title + ' - தரவுகள் | Tharavugal'}</title>
+      </Head>
       <AppHeader />
       <Toolbar variant="dense" />
       <Box
@@ -105,7 +109,7 @@ export default function DefaultLayout({ children }) {
                     '&:hover': { textDecoration: 'underline' },
                   }}
                 >
-                  Github
+                  Github <OpenInNewOutlinedIcon sx={{ fontSize: '12px' }} />
                 </Box>
               </Box>
             </Box>
@@ -171,7 +175,7 @@ export default function DefaultLayout({ children }) {
           </Typography>
           <Button
             variant="outlined"
-            sx={{ mt: 1 }}
+            sx={{ mt: 1, background: 'white', color: 'black' }}
             onClick={() => {
               localStorage.setItem('agreement', true);
               setAgreement(true);

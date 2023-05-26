@@ -43,7 +43,7 @@ export default function OpenDiscussions() {
   ];
 
   return (
-    <Layout>
+    <Layout title="Open Discussions">
       <Box textAlign="center">
         <Typography variant="h4">Open Discussions</Typography>
       </Box>

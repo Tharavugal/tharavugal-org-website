@@ -1,7 +1,7 @@
-import { Box, Paper } from '@mui/material';
 import { useRouter } from 'next/router';
+import { Box, Paper } from '@mui/material';
 
-import Layout from '../components/layouts/DefaultLayout';
+import Layout from '@/components/layouts/DefaultLayout';
 import Events from '@/components/Events';
 import { connect } from '@/utils/db';
 
@@ -16,7 +16,7 @@ export default function Home({ data }) {
   const router = useRouter();
 
   return (
-    <Layout>
+    <Layout title="Home">
       <SearchForm
         onSubmit={(values) => {
           router.push('/search?q=' + values.searchText);

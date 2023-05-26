@@ -63,7 +63,7 @@ export default function EventView() {
   }
 
   return (
-    <Layout>
+    <Layout title={state.event.title}>
       <Box>
         <Typography variant="h3">{state.event.title}</Typography>
         <Paper sx={{ mt: 2, p: 2 }}>

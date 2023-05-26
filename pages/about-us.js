@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function AboutUs() {
   return (
-    <Layout>
+    <Layout title="About Us">
       <Box textAlign="center">
         <Typography variant="h4">About Us</Typography>
       </Box>

@@ -14,7 +14,7 @@ export default function Visualizer() {
   });
 
   return (
-    <Layout>
+    <Layout title="Visualizer">
       <Box textAlign="center">
         <Badge badgeContent="ALPHA" color="secondary">
           <Typography variant="h4">Visualizer</Typography>
