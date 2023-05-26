@@ -1,17 +1,20 @@
 import {
   Backdrop,
   Box,
-  Divider,
+  Alert,
   Grid,
   Toolbar,
   Typography,
+  Button,
 } from '@mui/material';
 import AppHeader from './AppHeader';
 import { InfinitySpin } from 'react-loader-spinner';
 import { useAppState } from '@/store';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function DefaultLayout({ children }) {
+  const [agreement, setAgreement] = useState(localStorage.getItem('agreement'));
   const isLoading = useAppState((s) => s.loading);
 
   return (
@@ -34,7 +37,11 @@ export default function DefaultLayout({ children }) {
       </Backdrop>
       <Box
         component="footer"
-        sx={{ bgcolor: 'text.primary', color: 'white', p: 3 }}
+        sx={{
+          bgcolor: 'text.primary',
+          color: 'white',
+          p: 3,
+        }}
       >
         <Grid container px={3}>
           <Grid item xs={12} sm={6} md={4}>
@@ -141,6 +148,39 @@ export default function DefaultLayout({ children }) {
           © 2023 Tharavugal.org
         </Box>
       </Box>
+      {!agreement && (
+        <Box
+          sx={{
+            position: 'sticky',
+            bottom: 0,
+            left: 0,
+            zIndex: 1000,
+            width: '100%',
+            height: '100px',
+            background: (theme) => theme.palette.warning.light,
+            p: 2,
+            color: 'white',
+            textAlign: 'center',
+          }}
+        >
+          <Typography variant="h5">
+            Please read and accept these{' '}
+            <Link href="/terms-conditions">Terms & Conditions</Link> and{' '}
+            <Link href="/privacy-policy">Privacy Policy</Link> before continuing
+            to the web app.
+          </Typography>
+          <Button
+            variant="outlined"
+            sx={{ mt: 1 }}
+            onClick={() => {
+              localStorage.setItem('agreement', true);
+              setAgreement(true);
+            }}
+          >
+            I have read & accept
+          </Button>
+        </Box>
+      )}
     </Box>
   );
 }

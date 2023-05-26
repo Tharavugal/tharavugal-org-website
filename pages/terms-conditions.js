@@ -6,48 +6,58 @@ export default function TermsConditions() {
   return (
     <Layout>
       <Box textAlign="center">
-        <Typography variant="h4">Terms & Conditions</Typography>
+        <Typography variant="h4" fontWeight="bold">
+          Terms & Conditions
+        </Typography>
       </Box>
       <Paper sx={{ p: 5, mt: 2 }}>
+        <Box sx={{ textAlign: 'right' }}>Last updated: May 26, 2023</Box>
         <Alert severity="warning">
           Please read these terms and conditions carefully before using our
           service.
         </Alert>
 
         <Box mt={2}>
-          <Typography variant="h5">About Us</Typography>
+          <Typography variant="h5" fontWeight="bold">
+            About Us
+          </Typography>
           Please <Link href="/about-us">click here to read.</Link>
         </Box>
 
         <Box mt={2}>
-          <Typography variant="h5">Terms</Typography>
+          <Typography variant="h5" fontWeight="bold">
+            Definitions
+          </Typography>
+          <p>For the purposes of this terms & conditions:</p>
           <ul>
             <li>
-              <strong>Web App/Web application</strong>
-              &nbsp; It refers to Tharavugal.org (https://tharavugal.org).
+              <p>
+                <strong>Organization/Web Application</strong> (&quot;We&quot;,
+                &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to
+                https://tharavugal.org.
+              </p>
             </li>
             <li>
-              <strong>Organization</strong>
-              &nbsp;It refers to this web application.
+              <p>
+                <strong>Service</strong> refers to this website/web
+                application/organization.
+              </p>
             </li>
             <li>
-              <strong>Service</strong>
-              &nbsp;It refers to this web applicaton and any actions within it.
-            </li>
-            <li>
-              <strong>We/Our</strong>
-              &nbsp;It refers to this organization, service or this web app.
-            </li>
-            <li>
-              <strong>You</strong>
-              &nbsp;It refers to anybody(Individual, Service, or Bot) who
-              access, use or consume this service.
+              <p>
+                <strong>You</strong> means the individual accessing or using the
+                Service, or the organization, or other legal entity on behalf of
+                which such individual is accessing or using the Service, as
+                applicable.
+              </p>
             </li>
           </ul>
         </Box>
 
         <Box mt={2}>
-          <Typography variant="h5">Using Our Services</Typography>
+          <Typography variant="h5" fontWeight="bold">
+            Using Our Services
+          </Typography>
           <ul>
             <li>
               The minimum age required to create an account in this web app is
@@ -77,7 +87,9 @@ export default function TermsConditions() {
         </Box>
 
         <Box mt={2}>
-          <Typography variant="h5">Our Rights</Typography>
+          <Typography variant="h5" fontWeight="bold">
+            Our Rights
+          </Typography>
           <Typography variant="subtitle1">
             We want to hold some rights to run our services, such as:
             <ul>
@@ -99,7 +111,9 @@ export default function TermsConditions() {
         </Box>
 
         <Box mt={2}>
-          <Typography variant="h5">Warranty</Typography>
+          <Typography variant="h5" fontWeight="bold">
+            Warranty
+          </Typography>
           <Typography variant="subtitle1">
             We provide our services with atmost care and concern. You can
             contact us for any issues to be resolved and unless required by law,
@@ -108,7 +122,9 @@ export default function TermsConditions() {
         </Box>
 
         <Box mt={2}>
-          <Typography variant="h5">Disclaimers</Typography>
+          <Typography variant="h5" fontWeight="bold">
+            Disclaimers
+          </Typography>
           <Typography variant="subtitle1">
             <ul>
               <li>
@@ -129,7 +145,9 @@ export default function TermsConditions() {
         </Box>
 
         <Box mt={2}>
-          <Typography variant="h5">Limitation of Liability</Typography>
+          <Typography variant="h5" fontWeight="bold">
+            Limitation of Liability
+          </Typography>
           <Typography variant="subtitle1">
             These terms and conditions of this organization do not liable for
             any losses, death, personal injury, fraud, misinterpretation,
@@ -147,7 +165,9 @@ export default function TermsConditions() {
         </Box>
 
         <Box mt={2}>
-          <Typography variant="h5">Changes</Typography>
+          <Typography variant="h5" fontWeight="bold">
+            Changes
+          </Typography>
           <Typography variant="subtitle1">
             We reserve the right to modify or replace these Terms and Conditions
             at any time. If a revision is made, we will provide you reasonable
@@ -159,7 +179,9 @@ export default function TermsConditions() {
         </Box>
 
         <Box mt={2}>
-          <Typography variant="h5">Contact Us</Typography>
+          <Typography variant="h5" fontWeight="bold">
+            Contact Us
+          </Typography>
           <Typography variant="subtitle1">
             If you have any queries about these Terms and Conditions, please
             click <Link href="/contact-us">here to contact us.</Link>
