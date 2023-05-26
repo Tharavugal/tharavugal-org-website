@@ -8,6 +8,7 @@ import {
   Checkbox,
   Container,
   CssBaseline,
+  Divider,
   FormControlLabel,
   Grid,
   TextField,
@@ -39,7 +40,9 @@ export default function Signin() {
         user: result.data.user,
       }));
       localStorage.setItem('user', JSON.stringify(result.data.user));
-      router.replace(result.data.user.role === USER_ROLES.ADMIN ? '/admin' : '/')
+      router.replace(
+        result.data.user.role === USER_ROLES.ADMIN ? '/admin' : '/'
+      );
     } else {
       showAlert('error', result.data.message);
     }
@@ -114,6 +117,13 @@ export default function Signin() {
                 </Link>
               </Grid>
             </Grid>
+
+            <Box mt={3}>
+              <Divider>Or</Divider>
+              <Button variant="contained" fullWidth sx={{ mt: 3 }} disabled>
+                Create account
+              </Button>
+            </Box>
           </Box>
         </Card>
       </Container>
