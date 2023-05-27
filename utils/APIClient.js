@@ -2,7 +2,7 @@ export default class APIClient {
   static async get(url, headers = {}) {
     const res = await fetch(url, {
       headers: {
-        Authorization: localStorage.getItem("authToken"),
+        Authorization: JSON.parse(localStorage.getItem('user'))?.authToken,
         ...headers,
       },
     });
@@ -12,7 +12,7 @@ export default class APIClient {
       error.status = res.status;
       if (res.status === 401) {
         localStorage.clear();
-        window.location = "/";
+        window.location = '/';
       }
       throw error;
     }
@@ -22,10 +22,10 @@ export default class APIClient {
 
   static async post(url, data, patch = false, headers = {}) {
     const response = await fetch(url, {
-      method: patch ? "PATCH" : "POST",
+      method: patch ? 'PATCH' : 'POST',
       headers: {
-        "Content-Type": "application/json",
-        Authorization: localStorage.getItem("authToken"),
+        'Content-Type': 'application/json',
+        Authorization: JSON.parse(localStorage.getItem('user'))?.authToken,
         ...headers,
       },
       body: JSON.stringify(data),
@@ -39,14 +39,14 @@ export default class APIClient {
   }
 
   static async delete(url, data, headers = {}) {
-    const response = await fetch(url, {
-      method: "DELETE",
+    const response = await fetch(url + `?id=${data.id}`, {
+      method: 'DELETE',
       headers: {
-        "Content-Type": "application/json",
-        Authorization: localStorage.getItem("authToken"),
+        'Content-Type': 'application/json',
+        Authorization: JSON.parse(localStorage.getItem('user'))?.authToken,
         ...headers,
       },
-      body: JSON.stringify(data),
+      body: null,
     });
 
     return {

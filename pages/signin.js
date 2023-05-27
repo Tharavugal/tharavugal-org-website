@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Link from 'next/link';
 import {
   Avatar,
@@ -8,20 +7,23 @@ import {
   Checkbox,
   Container,
   CssBaseline,
+  Divider,
   FormControlLabel,
   Grid,
   TextField,
   Typography,
 } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { useRouter } from 'next/router';
 
 import APIClient from '@/utils/APIClient';
 import useAlert from '@/hooks/useAlert';
-import Layout from '@/components/Layout';
+import Layout from '@/components/layouts/DefaultLayout';
+import { setAppState } from '@/store';
+import { useRouter } from 'next/router';
+import { USER_ROLES } from '@/constants';
 
 export default function Signin() {
-  const router = useRouter()
+  const router = useRouter();
   const showAlert = useAlert();
 
   const handleSubmit = async (event) => {
@@ -32,20 +34,21 @@ export default function Signin() {
       Object.fromEntries(data)
     );
     if (result.ok) {
-      localStorage.setItem('authToken', result.data.authToken);
-      router.push('/admin')
+      setAppState((s) => ({
+        ...s,
+        user: result.data.user,
+      }));
+      localStorage.setItem('user', JSON.stringify(result.data.user));
+      router.replace(
+        result.data.user.role === USER_ROLES.ADMIN ? '/admin' : '/'
+      );
     } else {
       showAlert('error', result.data.message);
     }
   };
 
   return (
-    <Layout>
-      <Head>
-        <title>Sign In</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Layout title="Sign In">
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Card
@@ -108,6 +111,13 @@ export default function Signin() {
                 </Link>
               </Grid>
             </Grid>
+
+            <Box mt={3}>
+              <Divider>Or</Divider>
+              <Button variant="contained" fullWidth sx={{ mt: 3 }} disabled>
+                Create account
+              </Button>
+            </Box>
           </Box>
         </Card>
       </Container>
