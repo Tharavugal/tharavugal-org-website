@@ -39,7 +39,7 @@ function DiscussionBox({ title }) {
 export default function OpenDiscussions() {
   const data = [
     'Government should undertake private orphanages?',
-    'Is palm toddy should be made open to the public in thamizl naadu?',
+    'Is palm toddy should be made open to the public in thamizhl naadu?',
   ];
 
   return (
