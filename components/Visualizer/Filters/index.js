@@ -19,7 +19,7 @@ function TabPanel(props) {
   );
 }
 
-export default function Filters({ setState }) {
+export default function Filters({ initialValues, onChange }) {
   const [value, setValue] = useState(0);
 
   const handleChange = (e, newValue) => {
@@ -40,7 +40,7 @@ export default function Filters({ setState }) {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <Basic setState={setState} />
+        <Basic initialValues={initialValues} onChange={onChange} />
       </TabPanel>
       <TabPanel value={value} index={1}>
         <Advanced />
