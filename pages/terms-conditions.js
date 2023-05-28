@@ -11,7 +11,7 @@ export default function TermsConditions() {
         </Typography>
       </Box>
       <Paper sx={{ p: 5, mt: 2 }}>
-        <Box sx={{ textAlign: 'right' }}>Last updated: May 26, 2023</Box>
+        <Box sx={{ textAlign: 'right' }}>Last updated: May 27, 2023</Box>
         <Alert severity="warning">
           Please read these terms and conditions carefully before using our
           service.
@@ -169,7 +169,7 @@ export default function TermsConditions() {
             Changes
           </Typography>
           <Typography variant="subtitle1">
-            We reserve the right to modify or replace these Terms and Conditions
+            We reserve the right to modify or replace this Terms and Conditions
             at any time. If a revision is made, we will provide you reasonable
             time for notice prior to any new terms and conditions taking effect.
             <br />
@@ -183,7 +183,7 @@ export default function TermsConditions() {
             Contact Us
           </Typography>
           <Typography variant="subtitle1">
-            If you have any queries about these Terms and Conditions, please
+            If you have any queries about this Terms and Conditions, please
             click <Link href="/contact-us">here to contact us.</Link>
           </Typography>
         </Box>

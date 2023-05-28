@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
         </Typography>
       </Box>
       <Paper sx={{ p: 5, mt: 2 }}>
-        <Box sx={{ textAlign: 'right' }}>Last updated: May 26, 2023</Box>
+        <Box sx={{ textAlign: 'right' }}>Last updated: May 27, 2023</Box>
 
         <Alert severity="warning">
           Please read these privacy policy carefully before using our service.
@@ -293,7 +293,7 @@ export default function PrivacyPolicy() {
             under the age of 18. If You are a parent or guardian and You are
             aware that Your child has provided Us with Personal Data, please
             contact Us. If We become aware that We have collected Personal Data
-            from anyone under the age of 13 without verification of parental
+            from anyone under the age of 18 without verification of parental
             consent, We take steps to remove that information from Our servers.
           </p>
           <p>

@@ -37,6 +37,7 @@ export default function SocialIssues() {
   const data = [
     'Sexual abuse of girl children.',
     'Untouchability between people.',
+    'Malnutrition among children.'
   ];
 
   return (
