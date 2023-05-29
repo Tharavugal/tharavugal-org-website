@@ -160,7 +160,6 @@ export default function DefaultLayout({ children, title }) {
             left: 0,
             zIndex: 1000,
             width: '100%',
-            height: '100px',
             background: (theme) => theme.palette.warning.light,
             p: 2,
             color: 'white',
