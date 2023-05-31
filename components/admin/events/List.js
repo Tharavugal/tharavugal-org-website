@@ -45,7 +45,10 @@ export default function List({
                     true
                   );
                   const indexNowResponse = await fetch(
-                    'https://www.bing.com/indexnow?url=https://tharavugal.org/&key=d166f00bf74c43f39e61a3fd848ee389'
+                    'https://www.bing.com/indexnow?url=https://tharavugal.org/&key=d166f00bf74c43f39e61a3fd848ee389',
+                    {
+                      mode: 'no-cors',
+                    }
                   );
                   console.log(indexNowResponse);
                 },
