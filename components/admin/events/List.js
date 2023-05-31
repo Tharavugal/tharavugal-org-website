@@ -38,12 +38,16 @@ export default function List({
             actions={[
               {
                 label: 'Publish',
-                handler: () => {
-                  APIClient.post(
+                handler: async () => {
+                  await APIClient.post(
                     '/api/events',
                     { id: params.row.id, status: EVENTS_STATUS.PUBLISHED },
                     true
                   );
+                  const indexNowResponse = await fetch(
+                    'https://www.bing.com/indexnow?url=https://tharavugal.org/&key=d166f00bf74c43f39e61a3fd848ee389'
+                  );
+                  console.log(indexNowResponse);
                 },
               },
             ]}
