@@ -2,6 +2,8 @@ import { Box, Card, Divider, Typography } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useRouter } from 'next/router';
 import useAlert from '@/hooks/useAlert';
+import { format } from 'date-fns-tz';
+import { endOfMonth, startOfMonth } from 'date-fns';
 
 function FeaturedBox({ data }) {
   const router = useRouter();
@@ -47,13 +49,19 @@ function FeaturedBox({ data }) {
 }
 
 export default function FeaturedVisualizations() {
+  const currentMonth = format(new Date(), 'MM', {
+    timeZone: Intl.DateTimeFormat().resolvedOptions(),
+  });
+  const currentYear = format(new Date(), 'yyyy', {
+    timeZone: Intl.DateTimeFormat().resolvedOptions(),
+  });
   const list = [
     {
       title: '🐘 Elephant Deaths this Year',
       severity: 'error.main',
       filters: {
         category: 'Elephant Death',
-        from: new Date(`01-01-${new Date().getUTCFullYear()}`),
+        from: new Date(`${currentYear}-01-01`),
         to: new Date(),
         locations: [],
         view: 'Date',
@@ -66,10 +74,8 @@ export default function FeaturedVisualizations() {
       severity: 'error.main',
       filters: {
         category: 'Road Accident',
-        from: new Date(
-          `01-${new Date().getUTCMonth()}-${new Date().getUTCFullYear()}`
-        ),
-        to: new Date(),
+        from: startOfMonth(new Date()),
+        to: endOfMonth(new Date()),
         locations: [],
         view: 'Week',
         chartType: 'Doughnut Chart',
@@ -87,7 +93,7 @@ export default function FeaturedVisualizations() {
       severity: 'warning.main',
       filters: {
         category: 'Fire Accident',
-        from: new Date(`01-01-${new Date().getUTCFullYear()}`),
+        from: new Date(`01-01-${currentYear}`),
         to: new Date(),
         locations: [],
         view: 'Month',
