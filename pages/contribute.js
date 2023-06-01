@@ -49,6 +49,12 @@ export default function Contribute() {
         </Alert>
 
         <Alert variant="outlined" severity="info" sx={{ mt: 2 }}>
+          <AlertTitle>Vote Up</AlertTitle>
+          Join hands with others to raise your voice against issues in society,
+          like <Link href="/social-issues">Social Issues</Link>.
+        </Alert>
+
+        <Alert variant="outlined" severity="info" sx={{ mt: 2 }}>
           <AlertTitle>PRs are welcome</AlertTitle>
           If you are a developer or technical person, please report any bugs you
           encounter.

@@ -12,6 +12,12 @@ export default function ContributionLogs() {
         Work in Pipeline, please follow the{' '}
         <Link href="/work-pipeline">Work Pipeline</Link> for updates.
       </Alert>
+      <Box mt={2}>
+        <Alert severity="info">
+          Contributions made by members are logged in the system, so you can
+          view all types of contributions here.
+        </Alert>
+      </Box>
     </Layout>
   );
 }
