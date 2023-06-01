@@ -91,7 +91,7 @@ export default function Thirukkural() {
             <Typography variant="h3">_</Typography>
           </Paper>
           <Paper sx={{ minHeight: '50px', p: 2, textAlign: 'center' }}>
-            <Typography color="primary">Unique words</Typography>
+            <Typography color="primary">List of Unique words</Typography>
             <Typography variant="h3">_</Typography>
           </Paper>
           <Paper sx={{ minHeight: '50px', p: 2, textAlign: 'center' }}>
