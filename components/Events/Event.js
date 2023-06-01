@@ -1,7 +1,7 @@
 import {
   Box,
   Card,
-  CardActions,
+  CardContent,
   CardHeader,
   Chip,
   Typography,
@@ -20,33 +20,24 @@ export default function Event({ data }) {
           </Typography>
         }
       />
-      <CardActions>
-        <Box
-          sx={{
-            display: 'grid',
-            gridTemplateColumns: '50% 50%',
-            width: '100%',
-            overflow: 'auto',
-          }}
-        >
-          <Box>
-            {data.locations.map((l, i) => (
-              <Chip
-                key={i}
-                label={l}
-                sx={{ mt: { xs: 1 }, mr: '2px' }}
-                size="small"
-              />
-            ))}
-          </Box>
-          <Box sx={{ textAlign: 'right' }}>
-            <Typography variant="span" fontSize={12} color="text.secondary">
-              {format(new Date(data.startedAt), 'yyyy-MM-dd hh:mm:ss aa')}{' '}
-              {data.startTz}
-            </Typography>
-          </Box>
+      <CardContent>
+        <Box>
+          {data.locations.map((l, i) => (
+            <Chip
+              key={i}
+              label={l}
+              sx={{ mt: { xs: 1 }, mr: '2px' }}
+              size="small"
+            />
+          ))}
         </Box>
-      </CardActions>
+        <Box mt={1}>
+          <Typography variant="span" fontSize={12} color="text.secondary">
+            {format(new Date(data.startedAt), 'yyyy-MM-dd hh:mm:ss aa')}{' '}
+            {data.startTz}
+          </Typography>
+        </Box>
+      </CardContent>
     </Card>
   );
 }

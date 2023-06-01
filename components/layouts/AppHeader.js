@@ -3,9 +3,11 @@ import LockIcon from '@mui/icons-material/Lock';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+
 import { useAppState } from '@/store';
 import { USER_ROLES } from '@/constants';
 import styles from '../../pages/index.module.css';
+import AppDrawer from './AppDrawer';
 
 function logout() {
   localStorage.clear();
@@ -22,14 +24,17 @@ export default function AppHeader() {
         variant="dense"
         sx={{ display: 'flex', justifyContent: 'space-between' }}
       >
-        <Typography
-          variant="h6"
-          noWrap
-          sx={{ fontWeight: 'bold', cursor: 'pointer', letterSpacing: '3px' }}
-          onClick={() => router.push('/')}
-        >
-          தரவுகள்
-        </Typography>
+        <Box sx={{ display: 'flex', alignItems: 'baseline' }}>
+          <AppDrawer />
+          <Typography
+            variant="h6"
+            noWrap
+            sx={{ fontWeight: 'bold', cursor: 'pointer', letterSpacing: '3px' }}
+            onClick={() => router.push('/')}
+          >
+            தரவுகள்
+          </Typography>
+        </Box>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           {user && user.role === USER_ROLES.ADMIN && (
             <Box mr={2} component={Link} href="/admin" sx={{ color: 'white' }}>
@@ -76,6 +81,7 @@ export default function AppHeader() {
               size="small"
               startIcon={<LockIcon />}
               onClick={() => router.push('/signin')}
+              sx={{ display: { xs: 'none', sm: 'inherit' } }}
             >
               Sign in
             </Button>

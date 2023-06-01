@@ -9,27 +9,32 @@ export default async function handler(req, res) {
   const getFormatByView = () => {
     switch (req.body.view) {
       case 'Date':
-        return '%Y-%m-%d'    
+        return '%Y-%m-%d';
       case 'Week':
-        return '%u'    
+        return '%u';
       case 'Month':
-        return '%m'    
+        return '%m';
       case 'Year':
-        return '%Y'    
+        return '%Y';
       default:
         break;
     }
-  }
+  };
 
   switch (req.method) {
     case 'POST':
+      const matchQuery = {
+        status: 'Published',
+        categories: req.body.category,
+      };
+
+      if (req.body.locations.length > 0) {
+        matchQuery.locations = { $in: req.body.locations };
+      }
+
       const cursor = await collection.aggregate([
         {
-          $match: {
-            status: 'Published',
-            categories: req.body.categories,
-            locations: { $in: req.body.locations },
-          },
+          $match: matchQuery,
         },
         {
           $match: {

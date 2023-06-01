@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Alert,
   Box,
@@ -14,8 +14,14 @@ import LineChart from './charts/Line';
 import PieChart from './charts/Pie';
 import DoughnutChart from './charts/DoughnutChart';
 
-export default function Charts({ title, data, isLoading }) {
-  const [state, setState] = useState({ chartType: 'Bar Chart' });
+export default function Charts({ chartType, title, data, isLoading }) {
+  const [state, setState] = useState({ chartType });
+
+  useEffect(() => {
+    if (state.chartType !== chartType) {
+      setState((s) => ({ ...s, chartType }));
+    }
+  }, [chartType]);
 
   if (isLoading) {
     return (
