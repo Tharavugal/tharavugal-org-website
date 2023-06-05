@@ -60,6 +60,14 @@ export default function Contribute() {
         </Alert>
 
         <Alert variant="outlined" severity="info" sx={{ mt: 2 }}>
+          <AlertTitle>File Issues</AlertTitle>
+          Members can file issues of any kind, track updates, etc.
+          <br />
+          <br />
+          <Link href="/open-issues">Please file your issues here.</Link>.
+        </Alert>
+
+        <Alert variant="outlined" severity="info" sx={{ mt: 2 }}>
           <AlertTitle>PRs are welcome</AlertTitle>
           If you are a developer or technical person, please report any bugs you
           encounter.
