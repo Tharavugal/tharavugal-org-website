@@ -78,6 +78,11 @@ export default function Contribute() {
         </Alert>
 
         <Alert variant="outlined" severity="info" sx={{ mt: 2 }}>
+          <AlertTitle>Support Accessibility</AlertTitle>
+          Help people with disabilities use the app.
+        </Alert>
+
+        <Alert variant="outlined" severity="info" sx={{ mt: 2 }}>
           <AlertTitle>Infrastructure upgrade</AlertTitle>
           Currently, our system runs on low resources, and due to this, we are
           limiting user access to this web app.
