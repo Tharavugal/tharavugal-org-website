@@ -101,7 +101,7 @@ export default function FeaturedVisualizations() {
       },
     },
     {
-      title: '🧒 Sexual Abuse of Children',
+      title: '🧒 Children Sexual Abuses',
       severity: 'primary.main',
       filters: {},
       disabled: true,
