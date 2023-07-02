@@ -63,6 +63,7 @@ export default function App({ Component, pageProps }) {
         '/social-issues',
         '/contribute',
         '/open-issues',
+        '/food-ingredients',
       ];
       const path = url.split('?')[0];
       const user = localStorage.getItem('user');

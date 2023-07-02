@@ -7,6 +7,7 @@ import BookOutlinedIcon from '@mui/icons-material/BookOutlined';
 import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import FastfoodIcon from '@mui/icons-material/Fastfood';
 
 import ToolBox from './ToolBox';
 
@@ -47,6 +48,11 @@ export default function Tools() {
           icon={CalendarMonthOutlinedIcon}
           label="Thamizhl Calendar"
           path="/thamizhl-calendar"
+        />
+        <ToolBox
+          icon={FastfoodIcon}
+          label="Food Ingredients"
+          path="/food-ingredients"
         />
       </Box>
     </Box>
