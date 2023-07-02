@@ -44,8 +44,27 @@ export default function Contribute() {
         <Alert variant="outlined" severity="info" sx={{ mt: 2 }}>
           <AlertTitle>Participate in open-discussions</AlertTitle>
           There are many things in society that conflict with each other, so if
-          you are experienced in particular fields, please participate in{' '}
+          you are experienced in particular fields.
+          <br />
+          <br />
+          Please participate in{' '}
           <Link href="/open-discussions"> open discussions</Link>.
+        </Alert>
+
+        <Alert variant="outlined" severity="info" sx={{ mt: 2 }}>
+          <AlertTitle>Vote Up</AlertTitle>
+          Join hands with others to raise your voice against issues in society.
+          <br />
+          <br />
+          <Link href="/social-issues">Please vote up here.</Link>.
+        </Alert>
+
+        <Alert variant="outlined" severity="info" sx={{ mt: 2 }}>
+          <AlertTitle>File Issues</AlertTitle>
+          Members can file issues of any kind, track updates, etc.
+          <br />
+          <br />
+          <Link href="/open-issues">Please file your issues here.</Link>.
         </Alert>
 
         <Alert variant="outlined" severity="info" sx={{ mt: 2 }}>
@@ -53,15 +72,23 @@ export default function Contribute() {
           If you are a developer or technical person, please report any bugs you
           encounter.
           <br />
+          <br />
           Try to fix any issues reported on{' '}
           <Link href="https://github.com/Tharavugal/web">GitHub</Link>.
         </Alert>
 
         <Alert variant="outlined" severity="info" sx={{ mt: 2 }}>
+          <AlertTitle>Support Accessibility</AlertTitle>
+          Help people with disabilities use the app.
+        </Alert>
+
+        <Alert variant="outlined" severity="info" sx={{ mt: 2 }}>
           <AlertTitle>Infrastructure upgrade</AlertTitle>
           Currently, our system runs on low resources, and due to this, we are
-          limiting user access to this web app. Please{' '}
-          <Link href="/contact-us">contact us</Link> for more details.
+          limiting user access to this web app.
+          <br />
+          <br />
+          Please <Link href="/contact-us">contact us</Link> for more details.
         </Alert>
 
         <Alert variant="outlined" severity="info" sx={{ mt: 2 }}>

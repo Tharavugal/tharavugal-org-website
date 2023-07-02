@@ -3,7 +3,12 @@ import { Box, CircularProgress, IconButton } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import { Form, Field } from '@opentf/react-form';
 
-export default function SearchForm({ isLoading, initialValues, onSubmit }) {
+export default function SearchForm({
+  isLoading,
+  initialValues,
+  onSubmit,
+  placeholder = 'Type here to search...',
+}) {
   const [values, setValues] = useState(initialValues || { searchText: '' });
 
   useEffect(() => {
@@ -29,7 +34,7 @@ export default function SearchForm({ isLoading, initialValues, onSubmit }) {
             border: 'none',
             outlineColor: theme.palette.primary.light,
           })}
-          placeholder="Type here to search..."
+          placeholder={placeholder}
         />
         <IconButton type="submit">
           {isLoading ? <CircularProgress size={25} /> : <SearchIcon />}

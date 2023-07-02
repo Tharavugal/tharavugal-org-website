@@ -11,16 +11,14 @@ import Link from 'next/link';
 
 function QA({ q, a }) {
   return (
-    <Accordion>
-      <AccordionSummary
-        expandIcon={<ExpandMoreIcon />}
-        aria-controls="panel1a-content"
-        id="panel1a-header"
-      >
-        <Typography variant='h6'>{q}</Typography>
-      </AccordionSummary>
-      <AccordionDetails>{a}</AccordionDetails>
-    </Accordion>
+    <Box sx={{ mb: 2 }}>
+      <Accordion>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+          <Typography variant="h6">{q}</Typography>
+        </AccordionSummary>
+        <AccordionDetails>{a}</AccordionDetails>
+      </Accordion>
+    </Box>
   );
 }
 
@@ -40,6 +38,7 @@ export default function FAQs() {
             </Box>
           }
         />
+        <QA q="Is this a NEWS site?" a={<Box>No.</Box>} />
       </Box>
     </Layout>
   );

@@ -2,24 +2,16 @@ import Layout from '@/components/layouts/DefaultLayout';
 import { Alert, Box, Typography } from '@mui/material';
 import Link from 'next/link';
 
-export default function ContributingProcess() {
+export default function FoodIngredients() {
   return (
     <Layout>
       <Box textAlign="center">
-        <Typography variant="h4">Contributing Process</Typography>
+        <Typography variant="h4">Food Ingredients</Typography>
       </Box>
       <Alert severity="warning">
         Work in Pipeline, please follow the{' '}
         <Link href="/work-pipeline">Work Pipeline</Link> for updates.
       </Alert>
-      <Box mt={2}>
-        <Alert severity="info">
-          Every contribution here must follow a process to ensure reliability.
-          <br />
-          <br />
-          *The members of the organization will create the processes.
-        </Alert>
-      </Box>
     </Layout>
   );
 }

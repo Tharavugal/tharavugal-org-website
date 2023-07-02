@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { Box, Paper } from '@mui/material';
+import { Box, Paper, Alert } from '@mui/material';
 
 import Layout from '@/components/layouts/DefaultLayout';
 import Events from '@/components/Events';
@@ -33,6 +33,20 @@ export default function Home({ data }) {
         <Events data={data.events} styles={styles} />
         <Box sx={{ mt: { xs: 2, md: 0 } }}>
           <Paper>
+            <Box
+              sx={{
+                fontSize: '25px',
+                backgroundColor: (t) => t.palette.error.dark,
+                textAlign: 'center',
+                color: 'white',
+                p: 3,
+                fontWeight: 'bold',
+              }}
+            >
+              🙏 HELP MANIPUR THAMIZHL PEOPLE
+            </Box>
+          </Paper>
+          <Paper sx={{ mt: 2 }}>
             <Tools />
           </Paper>
           <Paper sx={{ mt: 2 }}>

@@ -40,6 +40,7 @@ export default function OpenDiscussions() {
   const data = [
     'Government should undertake private orphanages?',
     'Is palm toddy should be made open to the public in thamizhl naadu?',
+    'Should we rename Brahmi script into Thamizhi script?'
   ];
 
   return (
@@ -52,7 +53,7 @@ export default function OpenDiscussions() {
         <Link href="/work-pipeline">Work Pipeline</Link> for updates.
       </Alert>
       <Box mt={2}>
-        <Masonry columns={{ xs: 2, sm: 3, md: 4 }} spacing={2}>
+        <Masonry columns={{ xs: 1, sm: 2, md: 3 }} spacing={2}>
           {data.map((d, i) => (
             <DiscussionBox key={i} title={d} />
           ))}
