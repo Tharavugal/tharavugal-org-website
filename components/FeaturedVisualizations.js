@@ -111,7 +111,7 @@ export default function FeaturedVisualizations() {
   return (
     <Box p={1}>
       <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
-        <ChevronRightIcon /> Featured (Visualizations)
+        <ChevronRightIcon /> Visualizations (Featured)
       </Typography>
       <Divider />
       <Box p={2}>
