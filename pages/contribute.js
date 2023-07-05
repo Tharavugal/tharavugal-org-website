@@ -85,7 +85,13 @@ export default function Contribute() {
         <Alert variant="outlined" severity="info" sx={{ mt: 2 }}>
           <AlertTitle>Infrastructure upgrade</AlertTitle>
           Currently, our system runs on low resources, and due to this, we are
-          limiting user access to this web app.
+          limiting user access to this web app features.
+          <br />
+          <br />
+          Our web app is currently running on the free tier of <Link href="https://vercel.com/">Vercel.com</Link>
+          <br />
+          <br />
+          Thanks to <Link href="https://vercel.com/">Vercel.com</Link> for the free web hosting.
           <br />
           <br />
           Please <Link href="/contact-us">contact us</Link> for more details.
