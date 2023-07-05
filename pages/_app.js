@@ -8,7 +8,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { Box, CircularProgress } from '@mui/material';
+import { Box, CircularProgress, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 import { setAppState } from '@/store';
 import { SWRConfig } from 'swr';
@@ -103,7 +103,18 @@ export default function App({ Component, pageProps }) {
           transform: 'translate(-50%, -50%)',
         }}
       >
-        <CircularProgress />
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <CircularProgress />
+          <Typography variant="subtitle1" sx={{ mt: 2, color: 'red' }}>
+            Please wait, it may take up to 10 seconds to load.
+          </Typography>
+        </Box>
       </Box>
     );
   }
