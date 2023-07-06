@@ -55,9 +55,7 @@ export default function WorkPipeline() {
   return (
     <Layout title="Work Pipeline">
       <Box textAlign="center">
-        <Typography variant="h5" sx={{ color: (t) => t.palette.primary.main }}>
-          Work Pipeline
-        </Typography>
+        <Typography variant="h5">Work Pipeline</Typography>
       </Box>
       <Box sx={{ overflowX: 'auto', width: '100%', mt: 2 }}>
         <Box sx={{ display: 'inline-flex', pb: 2 }}>

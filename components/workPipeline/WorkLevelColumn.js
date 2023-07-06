@@ -11,9 +11,13 @@ export default function WorkLevelColumn({ level }) {
       }}
     >
       <Typography
-        textAlign="center"
-        variant="h6"
-        sx={{ p: 1, backgroundColor: '#DDDDDD' }}
+        variant="subtitle1"
+        sx={{
+          backgroundColor: (t) => t.palette.primary.light,
+          textAlign: 'center',
+          fontWeight: 'bold',
+          color: 'white',
+        }}
       >
         {level.title.toUpperCase()}
       </Typography>
