@@ -20,15 +20,23 @@ export default function Events({ data, styles }) {
 
   return (
     <Paper sx={{ p: 2 }}>
-      <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
-        <Box mr={1} className={styles.blob + ' ' + styles.green} />
-        Events
-      </Typography>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
+          Real-time Events
+        </Typography>
+
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Box component="span">LIVE</Box>
+          <Box ml={1} className={styles.blob + ' ' + styles.green} />
+        </Box>
+      </Box>
       <Divider />
       <Box my={2}>
         <Timeline>{renderEvents()}</Timeline>
       </Box>
-      <Alert severity="warning">Currently, only members can view unlimited events.</Alert>
+      <Alert severity="warning">
+        Currently, only members can view unlimited events.
+      </Alert>
     </Paper>
   );
 }
