@@ -57,7 +57,8 @@ export default function FeaturedVisualizations() {
   });
   const list = [
     {
-      title: '🐘 Elephant Deaths this Year',
+      title: '🐘 Elephant Deaths',
+      subtitle: `(${format(new Date(), 'yyyy')})`,
       severity: 'error.main',
       filters: {
         category: 'Elephant Death',
@@ -69,8 +70,8 @@ export default function FeaturedVisualizations() {
       },
     },
     {
-      title: '🛣️ Road Accidents this Month',
-      subtitle: '(Week Day View)',
+      title: '🛣️ Road Accidents',
+      subtitle: `(${format(new Date(), 'MMMM')} - Week Day View)`,
       severity: 'error.main',
       filters: {
         category: 'Road Accident',
@@ -82,14 +83,15 @@ export default function FeaturedVisualizations() {
       },
     },
     {
-      title: '🛵 E-Bike Explosions this Year',
+      title: '🚗 EV Explosions 🛵',
+      subtitle: `(${format(new Date(), 'yyyy')})`,
       severity: 'warning.main',
       filters: {},
       disabled: true,
     },
     {
       title: '🔥 Fire Accidents',
-      subtitle: '(Months View)',
+      subtitle: `(${format(new Date(), 'yyyy')} - Months View)`,
       severity: 'warning.main',
       filters: {
         category: 'Fire Accident',
