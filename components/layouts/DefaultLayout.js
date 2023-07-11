@@ -49,7 +49,17 @@ export default function DefaultLayout({ children, title }) {
       >
         <Grid container px={3}>
           <Grid item xs={12} sm={6} md={4}>
-            <Typography variant="body1" sx={{ textDecoration: 'underline' }}>
+            <Typography
+              variant="body2"
+              sx={{
+                background: 'white',
+                color: 'black',
+                textDecoration: 'none',
+                display: 'inline',
+                padding: '3px 10px',
+                fontWeight: 'bold',
+              }}
+            >
               ORGANIZATION
             </Typography>
             <Box mt={2}>
@@ -82,7 +92,17 @@ export default function DefaultLayout({ children, title }) {
             </Box>
           </Grid>
           <Grid item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={4}>
-            <Typography variant="body1" sx={{ textDecoration: 'underline' }}>
+            <Typography
+              variant="body2"
+              sx={{
+                background: 'white',
+                color: 'black',
+                textDecoration: 'none',
+                display: 'inline',
+                padding: '3px 10px',
+                fontWeight: 'bold',
+              }}
+            >
               USEFUL LINKS
             </Typography>
             <Box mt={2}>
@@ -115,7 +135,17 @@ export default function DefaultLayout({ children, title }) {
             </Box>
           </Grid>
           <Grid item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={4}>
-            <Typography variant="body1" sx={{ textDecoration: 'underline' }}>
+            <Typography
+              variant="body2"
+              sx={{
+                background: 'white',
+                color: 'black',
+                textDecoration: 'none',
+                display: 'inline',
+                padding: '3px 10px',
+                fontWeight: 'bold',
+              }}
+            >
               LEGAL
             </Typography>
             <Box mt={2}>

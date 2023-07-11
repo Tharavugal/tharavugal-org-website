@@ -7,14 +7,19 @@ export default function TimelineTitle({ title }) {
         component="span"
         sx={{
           display: 'inline-block',
-          width: '11px',
-          height: '11px',
+          width: '8px',
+          height: '8px',
           background: '#AAAAAA',
           borderRadius: '50%',
         }}
       />
       <Box component="span" sx={{ marginLeft: '10px' }}>
-        <Chip color="primary" size="small" variant="outlined" label={title} />
+        <Chip
+          size="small"
+          variant="outlined"
+          label={title}
+          sx={{ color: '#FF851B' }}
+        />
       </Box>
     </Box>
   );

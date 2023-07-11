@@ -52,28 +52,30 @@ export default function AppHeader() {
               Sign Out
             </Button>
           )}
-          <Box
-            component={Link}
-            href="/contribute"
-            sx={{
-              alignItems: 'center',
-              border: 'none',
-              borderRadius: '20px',
-              display: 'flex',
-              flexDirection: 'row',
-              padding: '0 10px',
-              textDecoration: 'none',
-              color: 'white',
-              background: 'black',
-              fontWeight: 'bold',
-              mx: 1,
-              letterSpacing: '1px',
-              fontSize: '15px',
-            }}
-          >
-            CONTRIBUTE
-            <Box className={styles.heart}>❤️</Box>
-          </Box>
+          {!user && (
+            <Box
+              component={Link}
+              href="/contribute"
+              sx={{
+                alignItems: 'center',
+                border: 'none',
+                borderRadius: '20px',
+                display: 'flex',
+                flexDirection: 'row',
+                padding: '0 10px',
+                textDecoration: 'none',
+                color: 'white',
+                background: 'black',
+                fontWeight: 'bold',
+                mx: 1,
+                letterSpacing: '1px',
+                fontSize: '15px',
+              }}
+            >
+              CONTRIBUTE
+              <Box className={styles.heart}>❤️</Box>
+            </Box>
+          )}
           {!user && (
             <Button
               color="inherit"
