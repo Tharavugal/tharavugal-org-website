@@ -62,8 +62,8 @@ export default function DefaultLayout({ children, title }) {
             >
               ORGANIZATION
             </Typography>
-            <Box mt={2}>
-              <Box>
+            <Box mt={2} component="ul">
+              <Box component="li">
                 <Box
                   component={Link}
                   href="/about-us"
@@ -76,7 +76,7 @@ export default function DefaultLayout({ children, title }) {
                   About Us
                 </Box>
               </Box>
-              <Box>
+              <Box component="li">
                 <Box
                   component={Link}
                   href="/contact-us"
@@ -105,8 +105,8 @@ export default function DefaultLayout({ children, title }) {
             >
               USEFUL LINKS
             </Typography>
-            <Box mt={2}>
-              <Box>
+            <Box mt={2} component="ul">
+              <Box component="li">
                 <Box
                   component={Link}
                   href="/faqs"
@@ -119,7 +119,7 @@ export default function DefaultLayout({ children, title }) {
                   FAQs
                 </Box>
               </Box>
-              <Box>
+              <Box component="li">
                 <Box
                   component={Link}
                   href="https://github.com/Tharavugal/web"
@@ -148,8 +148,8 @@ export default function DefaultLayout({ children, title }) {
             >
               LEGAL
             </Typography>
-            <Box mt={2}>
-              <Box>
+            <Box mt={2} component="ul">
+              <Box component="li">
                 <Box
                   component={Link}
                   href="/terms-conditions"
@@ -162,7 +162,7 @@ export default function DefaultLayout({ children, title }) {
                   Terms & Conditions
                 </Box>
               </Box>
-              <Box>
+              <Box component="li">
                 <Box
                   component={Link}
                   href="/privacy-policy"
