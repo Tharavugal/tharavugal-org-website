@@ -28,17 +28,22 @@ export default function Tools() {
           path="/visualizer"
         />
         <ToolBox
+          icon={FastfoodIcon}
+          label="Food Ingredients"
+          path="/food-ingredients"
+        />
+        <ToolBox
           icon={ImportContactsIcon}
           label="Thamizhl Dictionary"
           path="/thamizhl-dictionary"
         />
-        <ToolBox icon={ExploreOutlinedIcon} label="Explore" path="/explore" />
-        <ToolBox icon={ScienceOutlinedIcon} label="Research" path="/research" />
         <ToolBox
           icon={BookOutlinedIcon}
           label="Thirukkural"
           path="/thirukkural"
         />
+        <ToolBox icon={ExploreOutlinedIcon} label="Explore" path="/explore" />
+        <ToolBox icon={ScienceOutlinedIcon} label="Research" path="/research" />
         <ToolBox
           icon={PushPinOutlinedIcon}
           label="On This Day"
@@ -48,11 +53,6 @@ export default function Tools() {
           icon={CalendarMonthOutlinedIcon}
           label="Thamizhl Calendar"
           path="/thamizhl-calendar"
-        />
-        <ToolBox
-          icon={FastfoodIcon}
-          label="Food Ingredients"
-          path="/food-ingredients"
         />
       </Box>
     </Box>
