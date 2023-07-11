@@ -22,7 +22,7 @@ export default function Events({ data, styles }) {
     <Paper sx={{ p: 2 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
-          Real-time Events
+          Real-Time Events
         </Typography>
 
         <Box sx={{ display: 'flex', alignItems: 'center' }}>

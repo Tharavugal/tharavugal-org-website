@@ -129,7 +129,8 @@ export default function DefaultLayout({ children, title }) {
                     '&:hover': { textDecoration: 'underline' },
                   }}
                 >
-                  Github <OpenInNewOutlinedIcon sx={{ fontSize: '12px' }} />
+                  Code Repository - Github{' '}
+                  <OpenInNewOutlinedIcon sx={{ fontSize: '12px' }} />
                 </Box>
               </Box>
             </Box>
