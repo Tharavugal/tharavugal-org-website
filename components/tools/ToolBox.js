@@ -8,7 +8,7 @@ export default function ToolBox({ icon: Icon, label, path }) {
     <Box
       onClick={() => router.push(path)}
       sx={{
-        width: '125px',
+        width: '120px',
         minHeight: '100px',
         justifyContent: 'center',
         display: 'flex',
