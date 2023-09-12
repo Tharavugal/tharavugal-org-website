@@ -18,7 +18,7 @@ export default function TimelineTitle({ title }) {
           size="small"
           variant="outlined"
           label={title}
-          sx={{ color: '#FF851B' }}
+          sx={{ color: '#FF851B', fontWeight: 'bold' }}
         />
       </Box>
     </Box>

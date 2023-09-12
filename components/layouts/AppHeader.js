@@ -19,7 +19,7 @@ export default function AppHeader() {
   const user = useAppState((s) => s.user);
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed" sx={{backgroundColor: '#FF851B'}}>
       <Toolbar
         variant="dense"
         sx={{ display: 'flex', justifyContent: 'space-between' }}

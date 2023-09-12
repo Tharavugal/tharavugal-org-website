@@ -31,22 +31,8 @@ export default function Home({ data }) {
         }}
       >
         <Events data={data.events} styles={styles} />
-        <Box sx={{ mt: { xs: 2, md: 0 } }}>
-          <Paper>
-            <Box
-              sx={{
-                fontSize: '25px',
-                backgroundColor: (t) => t.palette.error.dark,
-                textAlign: 'center',
-                color: 'white',
-                p: 3,
-                fontWeight: 'bold',
-              }}
-            >
-              🙏 HELP MANIPUR THAMIZHL PEOPLE
-            </Box>
-          </Paper>
-          <Paper sx={{ mt: 2 }}>
+        <Box>
+          <Paper sx={{ mt: 0 }}>
             <Tools />
           </Paper>
           <Paper sx={{ mt: 2 }}>
