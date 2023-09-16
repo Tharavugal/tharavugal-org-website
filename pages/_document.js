@@ -7,7 +7,7 @@ export default function Document() {
         <meta name="title" content="தரவுகள் | Tharavugal" />
         <meta
           name="description"
-          content="Tharavugal.org is a non-profit web application & social platform, with the members of the organization primarily providing real-time events based on a timeline and other information.Based on the available data, the web app provides tools for visualizations, research, and others."
+          content="Tharavugal.org is a non-profit social platform, with the members of the organization primarily providing real-time events based on a timeline. The web app also provides tools for data visualization, research, etc."
         />
 
         <meta property="og:type" content="website" />
@@ -15,7 +15,7 @@ export default function Document() {
         <meta property="og:title" content="தரவுகள் | Tharavugal" />
         <meta
           property="og:description"
-          content="Tharavugal.org is a non-profit web application & social platform, with the members of the organization primarily providing real-time events based on a timeline and other information.Based on the available data, the web app provides tools for visualizations, research, and others."
+          content="Tharavugal.org is a non-profit social platform, with the members of the organization primarily providing real-time events based on a timeline. The web app also provides tools for data visualization, research, etc."
         />
         <meta property="og:image" content="" />
       </Head>

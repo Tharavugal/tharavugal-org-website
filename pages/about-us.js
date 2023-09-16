@@ -10,13 +10,12 @@ export default function AboutUs() {
       </Box>
       <Paper sx={{ p: 5, mt: 2 }}>
         <Typography variant="body1">
-          Tharavugal.org is a non-profit web application & social platform,
-          with the members of the organization primarily providing real-time
-          events based on a timeline and other information.
+          Tharavugal.org is a non-profit social platform, with the members of
+          the organization primarily providing real-time events based on a
+          timeline.
         </Typography>
         <Typography variant="body1" mt={1}>
-          Based on the available data, the web app provides tools for
-          visualizations, research, and others.
+          The web app also provides tools for data visualization, research, etc.
         </Typography>
 
         <Typography variant="body1" mt={2}>
