@@ -1,12 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-  <url>
-    <loc>https://tharavugal.org/</loc>
-    <lastmod>2023-09-16</lastmod>
-  </url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+ <url>
+  <loc>https://tharavugal.org/</loc>
+  <lastmod>2023-09-16</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/events/the-tharavugal-org-web-application-launched-chennai-thamizhl-naadu-republic-of-india-c5df718a</loc>
+  <lastmod>2023-05-27</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/events/three-elephants-were-electrocuted-to-death-gendanahalli-dharmapuri-thamizhl-naadu-republic-of-india-eab5e08e</loc>
+  <lastmod>2023-05-27</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/events/an-elephant-died-after-being-electrocuted--kelavalli-dharmapuri-thamizhl-naadu-republic-of-india-e923d04b</loc>
+  <lastmod>2023-05-27</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/events/an-elephant-died-after-being-electrocuted-poochiyur-coimbatore-thamizhl-naadu-republic-of-india-5bdb31e2</loc>
+  <lastmod>2023-05-27</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/events/an-elephant-died-after-being-electrocuted-sivagiri-tenkasi-thamizhl-naadu-republic-of-india-1a1064a3</loc>
+  <lastmod>2023-05-27</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/events/an-8-year-old-girl-was-killed-after-a-mobile-phone-exploded-thiruvilwamala-thrissur-kerala-republic-of-india-08e6a2b3</loc>
+  <lastmod>2023-05-28</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/events/a-mobile-phone-exploded-from-a-man's-shirt-pocket-thrissur-kerala-republic-of-india-48be7052</loc>
+  <lastmod>2023-05-28</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/events/a-toddler-died-of-a-snake-bite-athimarathu-kollai-alleri-vellore-thamizhl-naadu-republic-of-india-cf45e5c3</loc>
+  <lastmod>2023-05-29</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/events/a-woman-died-in-a-car-accident-maraimalai-nagar-chengalpattu-thamizhl-naadu-republic-of-india-b6857df7</loc>
+  <lastmod>2023-05-29</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/events/a-village-administrative-officer-died-of-an-insect-bite-mullai-nagar-srivilliputhur-virudhunagar-thamizhl-naadu-republic-of-india-0a94b05d</loc>
+  <lastmod>2023-06-05</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/events/a-15-year-old-boy-died-of-an-infection-caused-by-brain-eating-amoebae-panavally-alappuzha-kerala-republic-of-india-8a87b0a7</loc>
+  <lastmod>2023-07-10</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/events/a-4-year-old-boy-died-of-dengue-fever-in-a-hospital-egmore-chennai-thamizhl-naadu-republic-of-india-0d317694</loc>
+  <lastmod>2023-09-12</lastmod>
+ </url>
 </urlset>
