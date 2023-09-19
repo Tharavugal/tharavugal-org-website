@@ -64,9 +64,6 @@ export async function getServerSideProps(context) {
       },
     },
     {
-      $limit: 10,
-    },
-    {
       $group: {
         _id: {
           $dateToString: {
@@ -87,13 +84,16 @@ export async function getServerSideProps(context) {
       },
     },
     {
-      $project: {
-        records: 1,
-      },
+      $limit: 10,
     },
     {
       $sort: {
         _id: -1,
+      },
+    },
+    {
+      $project: {
+        records: 1,
       },
     },
   ]);
