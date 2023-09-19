@@ -64,42 +64,51 @@ export async function getServerSideProps(context) {
       },
     },
     {
-      $group: {
-        _id: {
-          $dateToString: {
-            date: '$startedAt',
-            format: '%G-%m-%d',
-            timezone: '$startTz',
-          },
-        },
-        records: {
-          $push: {
-            title: '$title',
-            slug: '$slug',
-            locations: '$locations',
-            startedAt: '$startedAt',
-            startTz: '$startTz',
-          },
-        },
+      $sort: {
+        startedAt: -1,
       },
     },
     {
       $limit: 10,
     },
-    {
-      $sort: {
-        _id: -1,
-      },
-    },
+    // {
+    //   $group: {
+    //     _id: {
+    //       $dateToString: {
+    //         date: '$startedAt',
+    //         format: '%G-%m-%d',
+    //         timezone: '$startTz',
+    //       },
+    //     },
+    //     records: {
+    //       $push: {
+    //         title: '$title',
+    //         slug: '$slug',
+    //         locations: '$locations',
+    //         startedAt: '$startedAt',
+    //         startTz: '$startTz',
+    //       },
+    //     },
+    //   },
+    // },
+    // {
+    //   $project: {
+    //     records: 1,
+    //   },
+    // },
     {
       $project: {
-        records: 1,
+        title: 1,
+        slug: 1,
+        locations: 1,
+        startedAt: 1,
+        startTz: 1,
       },
     },
   ]);
 
   const events = JSON.parse(JSON.stringify(await cursor.toArray()));
-    return {
+  return {
     props: {
       data: {
         events,

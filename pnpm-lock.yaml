@@ -40,6 +40,9 @@ dependencies:
   '@opentf/react-state':
     specifier: ^0.13.1
     version: 0.13.1(react-dom@18.2.0)(react@18.2.0)
+  '@opentf/utils':
+    specifier: ^0.21.0
+    version: 0.21.0
   bcrypt:
     specifier: ^5.1.0
     version: 5.1.0
@@ -1550,6 +1553,11 @@ packages:
 
   /@opentf/utils@0.18.0:
     resolution: {integrity: sha512-bQprYWdwajXZlGvw95ZE6fQkpcJ3vKczj9V0nMnbk8guzFrAnwAvC/s6bb5Vb1fHe7MIZCzHXRZiYnzGpOP2MQ==}
+    engines: {node: ^14.17.0 || >=16.0.0}
+    dev: false
+
+  /@opentf/utils@0.21.0:
+    resolution: {integrity: sha512-n4GfQ4Jz3oytKFF4hXO4y0sVmxv0fqnbiLHEDLBbHZMLC63L0bImH9ERaFRhKLnmjdMlKEmKhidC/vZBbueJaQ==}
     engines: {node: ^14.17.0 || >=16.0.0}
     dev: false
 

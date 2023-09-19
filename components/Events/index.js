@@ -3,14 +3,21 @@ import Event from './Event';
 import Timeline from '../Timeline';
 import TimelineTitle from '../Timeline/TimelineTitle';
 import TimelineContent from '../Timeline/TimelineContent';
+import { format } from 'date-fns';
+import { groupBy } from '@opentf/utils';
 
 export default function Events({ data, styles }) {
   const renderEvents = () => {
-    return data.map((g, i) => (
+    const eventsWithDate = data.map((e) => ({
+      ...e,
+      date: format(new Date(e.startedAt), 'yyyy-MM-dd'),
+    }));
+    const groups = groupBy(eventsWithDate, 'date')
+    return Object.keys(groups).sort().reverse().map((g, i) => (
       <div key={i}>
-        <TimelineTitle title={g._id} />
+        <TimelineTitle title={g} />
         <TimelineContent>
-          {g.records.map((e, i) => (
+          {groups[g].map((e, i) => (
             <Event key={i} data={e} />
           ))}
         </TimelineContent>
