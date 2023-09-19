@@ -14,7 +14,7 @@ import RecentDiscussions from '@/components/RecentDiscussions';
 import RecentEntities from '@/components/RecentEntities';
 
 export default function Home({ data }) {
-  const router = useRouter();
+    const router = useRouter();
 
   return (
     <Layout title="Home">
@@ -57,48 +57,49 @@ export async function getServerSideProps(context) {
   const client = await connect();
   const DB_NAME = process.env.DB_NAME;
   const eventsCol = client.db(DB_NAME).collection('events');
-  const cursor = eventsCol
-    .aggregate([
-      {
-        $match: {
-          status: 'Published',
-        },
+  const cursor = eventsCol.aggregate([
+    {
+      $match: {
+        status: 'Published',
       },
-      {
-        $group: {
-          _id: {
-            $dateToString: {
-              date: '$startedAt',
-              format: '%G-%m-%d',
-              timezone: '$startTz',
-            },
-          },
-          records: {
-            $push: {
-              title: '$title',
-              slug: '$slug',
-              locations: '$locations',
-              startedAt: '$startedAt',
-              startTz: '$startTz',
-            },
+    },
+    {
+      $limit: 10,
+    },
+    {
+      $group: {
+        _id: {
+          $dateToString: {
+            date: '$startedAt',
+            format: '%G-%m-%d',
+            timezone: '$startTz',
           },
         },
-      },
-      {
-        $project: {
-          records: 1,
+        records: {
+          $push: {
+            title: '$title',
+            slug: '$slug',
+            locations: '$locations',
+            startedAt: '$startedAt',
+            startTz: '$startTz',
+          },
         },
       },
-      {
-        $sort: {
-          _id: -1,
-        },
+    },
+    {
+      $project: {
+        records: 1,
       },
-    ])
-    .limit(10);
+    },
+    {
+      $sort: {
+        _id: -1,
+      },
+    },
+  ]);
 
   const events = JSON.parse(JSON.stringify(await cursor.toArray()));
-  return {
+    return {
     props: {
       data: {
         events,
