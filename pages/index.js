@@ -103,6 +103,7 @@ export async function getServerSideProps(context) {
         locations: 1,
         startedAt: 1,
         startTz: 1,
+        categories: 1
       },
     },
   ]);
