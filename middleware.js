@@ -4,34 +4,31 @@ import Auth from './utils/Auth';
 
 const routesConfig = {
   public: [
-    '/api/signin',
-    '/api/search-events',
-    '/api/event-categories',
-    '/api/event-locations',
-    '/api/visualize',
-    '/api/events/.+',
+    { path: '/api/signin' },
+    { path: '/api/search-events' },
+    { path: '/api/event-categories' },
+    { path: '/api/event-locations' },
+    { path: '/api/visualize' },
+    { path: '/api/events/.+' },
   ],
   protected: [
     { path: '/api/admin', roles: [USER_ROLES.ADMIN] },
     { path: '/api/entities', roles: [USER_ROLES.ADMIN] },
     { path: '/api/entity-types', roles: [USER_ROLES.ADMIN] },
     { path: '/api/events', roles: [USER_ROLES.ADMIN] },
+    { path: '/api/food-ingredients', roles: [USER_ROLES.ADMIN] },
+    { path: '/api/food-ingredients/.+', roles: [USER_ROLES.ADMIN] },
+    { path: '/api/uploads', roles: [USER_ROLES.ADMIN] },
   ],
 };
 
-async function authorize(path, req) {
-  if (routesConfig.public.some(p => new RegExp(p).test(path))) {
-    return true;
-  }
-
+async function authorize(req, route) {
   const authPayload = await Auth.isAuthenticated(
     req.headers.get('authorization')
   );
 
   if (authPayload) {
-    const matchedPath = routesConfig.protected.find((r) => r.path === path);
-
-    return matchedPath.roles.includes(authPayload.role);
+    return route.roles.includes(authPayload.role);
   }
 
   return false;
@@ -41,14 +38,25 @@ export const config = {
   matcher: '/api/:function*',
 };
 
+function matchRoute(path, arr) {
+  return arr.find((p) => {
+    const arr = path.match(p.path);
+    if (arr && arr[0] === path) return true;
+  });
+}
+
 export async function middleware(req, res) {
   const path = req.nextUrl.pathname;
+  const publicRoute = matchRoute(path, routesConfig.public);
 
-  if (
-    routesConfig.public.some(p => new RegExp(p).test(path)) ||
-    routesConfig.protected.map((r) => r.path).includes(path)
-  ) {
-    const isAllowed = await authorize(path, req);
+  if (publicRoute) {
+    return NextResponse.next();
+  }
+
+  const protectedRoute = matchRoute(path, routesConfig.protected);
+
+  if (protectedRoute) {
+    const isAllowed = await authorize(req, protectedRoute);
 
     if (!isAllowed) {
       return new NextResponse(

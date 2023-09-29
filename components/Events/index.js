@@ -12,17 +12,20 @@ export default function Events({ data, styles }) {
       ...e,
       date: format(new Date(e.startedAt), 'yyyy-MM-dd'),
     }));
-    const groups = groupBy(eventsWithDate, 'date')
-    return Object.keys(groups).sort().reverse().map((g, i) => (
-      <div key={i}>
-        <TimelineTitle title={g} />
-        <TimelineContent>
-          {groups[g].map((e, i) => (
-            <Event key={i} data={e} />
-          ))}
-        </TimelineContent>
-      </div>
-    ));
+    const groups = groupBy(eventsWithDate, 'date');
+    return Object.keys(groups)
+      .sort()
+      .reverse()
+      .map((g, i) => (
+        <div key={i}>
+          <TimelineTitle title={g} />
+          <TimelineContent>
+            {groups[g].map((e, i) => (
+              <Event key={i} data={e} />
+            ))}
+          </TimelineContent>
+        </div>
+      ));
   };
 
   return (

@@ -41,3 +41,34 @@ export const eventsSchema = z.object({
     .min(1, '*Required')
     .transform((val) => JSON.parse(val)),
 });
+
+const IngredientsSchema = z
+  .object({
+    label: z.string().min(1, '*Required'),
+    name: z.string().min(1, '*Required'),
+  })
+  .passthrough();
+
+export const foodIngredientsSchema = z.object({
+  id: z.string().uuid(),
+  name: z.string().min(1, '*Required'),
+  manufacturer: z.string().min(1, '*Required'),
+  foodType: z.string().min(1, '*Required'),
+  originCountry: z.string().min(1, '*Required'),
+  pkg: z.object({
+    materials: z.array(z.string().min(1, '*Required')).nonempty(),
+    bioDegradeable: z.boolean(),
+  }),
+  items: z.array(
+    z.object({
+      name: z.string().min(1, '*Required'),
+      ingredients: z.array(IngredientsSchema).nonempty(),
+    })
+  ),
+  traces: z.array(IngredientsSchema),
+  image: z.string().min(1, '*Required'),
+  data: z
+    .string()
+    .min(1, '*Required')
+    .transform((val) => JSON.parse(val)),
+});
