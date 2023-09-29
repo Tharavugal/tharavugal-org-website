@@ -28,6 +28,7 @@ export default function New({ onClose }) {
         name: '',
         manufacturer: '',
         foodType: '',
+        slug: '',
         originCountry: '',
         image: '',
         pkg: {

@@ -59,9 +59,11 @@ export default function Form({ initialValues, onSubmit, update = false }) {
         <Box>
           <MUITextField name="name" label="Name" />
         </Box>
+
         <Box>
           <MUITextField name="manufacturer" label="Manufacturer" />
         </Box>
+
         <Box mt={2}>
           <MUISelectField
             name="foodType"
@@ -69,6 +71,20 @@ export default function Form({ initialValues, onSubmit, update = false }) {
             options={foodIngredientsData.types}
           />
         </Box>
+
+        <Box>
+          <MUITextField name="slug" label="Slug" />
+        </Box>
+
+        <Box mt={2}>
+          <MUISelectField
+            multiple
+            name="categories"
+            label="Categories"
+            options={foodIngredientsData.categories}
+          />
+        </Box>
+
         <Box mt={2}>
           <MUISelectField
             name="originCountry"

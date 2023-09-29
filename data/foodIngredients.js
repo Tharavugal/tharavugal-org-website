@@ -1,4 +1,13 @@
 export const foodIngredientsData = {
+  categories: [
+    'Vegetables',
+    'Fruits',
+    'Grains, legumes, nuts and seeds',
+    'Meat and poultry',
+    'Fish and seafood',
+    'Dairy foods',
+    'Eggs',
+  ],
   types: ['Noodles with Seasoning'],
   pkgMaterials: ['Plastics'],
   ingredients: [

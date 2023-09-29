@@ -54,6 +54,8 @@ export const foodIngredientsSchema = z.object({
   name: z.string().min(1, '*Required'),
   manufacturer: z.string().min(1, '*Required'),
   foodType: z.string().min(1, '*Required'),
+  slug: z.string().min(1, '*Required'),
+  categories: z.array(z.string()).nonempty(),
   originCountry: z.string().min(1, '*Required'),
   pkg: z.object({
     materials: z.array(z.string().min(1, '*Required')).nonempty(),
