@@ -16,7 +16,7 @@ import Ingredient from '@/components/foodIngredients/Ingredient';
 
 const CATEGORY_COLORS = {
   Vegetables: '#2ECC40',
-  'Grains, legumes, nuts and seeds': '#FFDC00',
+  'Grains, legumes, nuts and seeds': 'rgb(102, 60, 0)',
   Fruits: '#FF851B',
   'Meat and poultry': '#FF4136',
   'Fish and seafood': '#0074D9',
@@ -82,7 +82,7 @@ export default function Page({ data }) {
         <Box
           sx={{
             display: { md: 'grid' },
-            gridTemplateColumns: '50% 50%',
+            gridTemplateColumns: '40% 60%',
             columnGap: 2,
           }}
         >
@@ -93,6 +93,9 @@ export default function Page({ data }) {
               alt="Image"
               sx={{ width: '100%', aspectRatio: '1 / 1' }}
             />
+            <Alert severity="warning">
+              The image displayed here is only for illustration purposes.
+            </Alert>
           </Box>
           <Box sx={{ p: 2 }}>
             <Typography variant="h4">{data.record.name}</Typography>
@@ -146,7 +149,7 @@ export default function Page({ data }) {
             </Box>
 
             <Box mt={2}>
-              <Card variant="outlined">
+              <Card variant="outlined" sx={{ width: 'max-content' }}>
                 <CardContent>
                   <Typography variant="h6">Packaging</Typography>
                   <Typography variant="body2" mt={2}>

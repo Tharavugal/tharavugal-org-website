@@ -5,6 +5,7 @@ import {
   Card,
   CardActions,
   CardContent,
+  CardMedia,
   Chip,
   Divider,
   Paper,
@@ -15,7 +16,7 @@ import Link from 'next/link';
 
 const CATEGORY_COLORS = {
   Vegetables: '#2ECC40',
-  'Grains, legumes, nuts and seeds': '#FFDC00',
+  'Grains, legumes, nuts and seeds': 'rgb(102, 60, 0)',
   Fruits: '#FF851B',
   'Meat and poultry': '#FF4136',
   'Fish and seafood': '#0074D9',
@@ -23,23 +24,32 @@ const CATEGORY_COLORS = {
   Eggs: '#85144b',
 };
 
-function FICard({ food }) {
+function FICard({ food, R2_DOMAIN }) {
   return (
-    <Card
-      sx={{ minWidth: 200, m: 1 }}
-      variant="outlined"
-    >
+    <Card sx={{ minWidth: 200, m: 1 }} variant="outlined">
       <CardContent>
-        <Typography
-          variant="h6"
-          component={Link}
-          href={`/food-ingredients/${food.slug}`}
-        >
-          {food.name}
-        </Typography>
-        <Typography sx={{ mt: 2 }} color="text.secondary">
-          {food.foodType}
-        </Typography>
+        <Box sx={{ display: 'flex' }}>
+          <Box sx={{ width: '100px', height: '150px' }}>
+            <CardMedia
+              component="img"
+              sx={{ height: 150, width: 100 }}
+              image={`${R2_DOMAIN}/${food.image}`}
+              title="Product Thumbnail"
+            />
+          </Box>
+          <Box sx={{ px: 2 }}>
+            <Typography
+              variant="h6"
+              component={Link}
+              href={`/food-ingredients/${food.slug}`}
+            >
+              {food.name}
+            </Typography>
+            <Typography sx={{ mt: 2 }} color="text.secondary">
+              {food.foodType}
+            </Typography>
+          </Box>
+        </Box>
       </CardContent>
       <CardActions sx={{ display: 'flex' }}>
         {food.categories?.map((c, i) => (
@@ -73,7 +83,7 @@ export default function FoodIngredients({ data }) {
         <Divider />
         <Box sx={{ mt: 3, display: 'flex' }}>
           {data.foods.map((f, i) => (
-            <FICard key={i} food={f} />
+            <FICard key={i} food={f} R2_DOMAIN={data.R2_DOMAIN} />
           ))}
         </Box>
       </Paper>
@@ -87,7 +97,16 @@ export async function getServerSideProps(context) {
   const col = client.db(DB_NAME).collection('food-ingredients');
   const cursor = col.find(
     {},
-    { projection: { _id: 0, name: 1, foodType: 1, categories: 1, slug: 1 } }
+    {
+      projection: {
+        _id: 0,
+        name: 1,
+        foodType: 1,
+        categories: 1,
+        slug: 1,
+        image: 1,
+      },
+    }
   );
 
   const foods = JSON.parse(JSON.stringify(await cursor.toArray()));
@@ -95,6 +114,7 @@ export async function getServerSideProps(context) {
     props: {
       data: {
         foods,
+        R2_DOMAIN: process.env.R2_DOMAIN,
       },
     },
   };
