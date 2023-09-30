@@ -5,6 +5,7 @@ import TimelineTitle from '../Timeline/TimelineTitle';
 import TimelineContent from '../Timeline/TimelineContent';
 import { format } from 'date-fns';
 import { groupBy } from '@opentf/utils';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 export default function Events({ data, styles }) {
   const renderEvents = () => {
@@ -32,7 +33,7 @@ export default function Events({ data, styles }) {
     <Paper sx={{ p: 2 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
-          Real-Time Events
+          <ChevronRightIcon /> Real-Time Events
         </Typography>
 
         <Box sx={{ display: 'flex', alignItems: 'center' }}>

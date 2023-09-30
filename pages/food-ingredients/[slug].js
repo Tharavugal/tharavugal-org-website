@@ -187,6 +187,19 @@ export default function Page({ data }) {
           <Box sx={{ p: 2, mt: 2 }}>{renderIngredients()}</Box>
           <Box sx={{ p: 2, mt: 2 }}>{renderTraces()}</Box>
         </Box>
+        <Alert severity="warning" sx={{ mt: 2 }}>
+          Here, the `Organic` tag does not mean the product is grown organically
+          (without using chemicals, artificial fertilizers, etc.).
+        </Alert>
+        <Alert severity="info" sx={{ mt: 2 }}>
+          <ul>
+            <li>
+              The `INS No` refers to the The International Numbering System for
+              Food Additives.
+            </li>
+            <li>The `Additive` tag refers to the Food Additives.</li>
+          </ul>
+        </Alert>
       </Paper>
     </Layout>
   );

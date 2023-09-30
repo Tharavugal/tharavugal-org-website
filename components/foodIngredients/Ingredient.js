@@ -56,14 +56,12 @@ export default function Ingredient({ data }) {
         )}
       </CardContent>
       <CardActions>
-        {data.organic && (
-          <Chip
-            variant="outlined"
-            size="small"
-            label="Organic"
-            color="success"
-          />
-        )}
+        <Chip
+          variant="outlined"
+          size="small"
+          label={data.organic ? 'Organic' : 'Inorganic'}
+          color={data.organic ? 'success' : 'warning'}
+        />
         {data.additive && (
           <Chip
             variant="outlined"
