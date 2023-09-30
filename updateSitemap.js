@@ -5,7 +5,7 @@ import { connect } from './utils/db';
 
 const baseUrl = {
   loc: 'https://tharavugal.org/',
-  lastmod: '2023-09-16',
+  lastmod: '2023-10-01',
 };
 
 const urlset = {
@@ -19,6 +19,8 @@ async function run() {
   console.log('Updating sitemap...');
   const client = await connect();
   const DB_NAME = 'tharavugal';
+
+  // Events
   const collection = client.db(DB_NAME).collection('events');
   const cursor = await collection.find(
     {},
@@ -31,8 +33,28 @@ async function run() {
       lastmod: format(e.updatedAt, 'yyyy-MM-dd'),
     },
   }));
+
+  // Food Ingredients
+  const foodIngCol = client.db(DB_NAME).collection('food-ingredients');
+  const foodIngCursor = await foodIngCol.find(
+    {},
+    { projection: { _id: 0, slug: 1, updatedAt: 1 } }
+  );
+  const foodIngredients = await foodIngCursor.toArray();
+  const xmlFoodIngredients = foodIngredients.map((e) => ({
+    url: {
+      loc: 'https://tharavugal.org/food-ingredients/' + e.slug,
+      lastmod: format(e.updatedAt, 'yyyy-MM-dd'),
+    },
+  }));
+
+  // XML
   const xml = toXML(
-    { _name: 'urlset', _attrs: urlset, _content: [{url: baseUrl}, ...xmlEvents] },
+    {
+      _name: 'urlset',
+      _attrs: urlset,
+      _content: [{ url: baseUrl }, ...xmlEvents, ...xmlFoodIngredients],
+    },
     { header: true, indent: ' ' }
   );
   console.log('Writing xml into sitemap.xml');

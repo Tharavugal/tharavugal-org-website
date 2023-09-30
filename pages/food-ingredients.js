@@ -40,7 +40,7 @@ function FICard({ food, R2_DOMAIN }) {
           <Box sx={{ px: 2 }}>
             <Typography
               variant="h6"
-              component={Link}
+              component="a"
               href={`/food-ingredients/${food.slug}`}
             >
               {food.name}

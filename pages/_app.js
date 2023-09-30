@@ -64,6 +64,7 @@ export default function App({ Component, pageProps }) {
         '/contribute',
         '/open-issues',
         '/food-ingredients',
+        '/food-ingredients/[slug]',
       ];
       const path = url.split('?')[0];
       const user = localStorage.getItem('user');
@@ -77,7 +78,7 @@ export default function App({ Component, pageProps }) {
       }
     }
     // run auth check on initial load
-    authCheck(router.asPath);
+    authCheck(router.pathname);
 
     // set authorized to false to hide page content while changing routes
     const hideContent = () => setAuthorized(false);

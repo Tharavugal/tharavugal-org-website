@@ -125,6 +125,12 @@ export const foodIngredientsData = {
       processed: ['Powdered'],
     },
     {
+      label: 'Toasted Onion Flakes',
+      name: 'Onion',
+      organic: true,
+      processed: ['Toasted', 'Flaked'],
+    },
+    {
       label: 'Coriander Powder',
       name: 'Coriander',
       organic: true,
