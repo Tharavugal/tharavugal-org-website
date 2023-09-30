@@ -77,7 +77,7 @@ export default function Page({ data }) {
   };
 
   return (
-    <Layout>
+    <Layout title={data.record.slug + ' | Food Ingredients'}>
       <Paper sx={{ mt: 2, p: 3 }}>
         <Box
           sx={{
