@@ -77,7 +77,7 @@ export default function Page({ data }) {
   };
 
   return (
-    <Layout title={data.record.slug + ' | Food Ingredients'}>
+    <Layout title={data.record.name + ' | Food Ingredients'}>
       <Paper sx={{ mt: 2, p: 3 }}>
         <Box
           sx={{
@@ -192,7 +192,7 @@ export default function Page({ data }) {
         </Box>
         <Alert severity="warning" sx={{ mt: 2 }}>
           Here, the `Organic` tag does not mean the product is grown organically
-          (without using chemicals, artificial fertilizers, etc.).
+          (without using chemicals, including pesticides, fertilizers, etc.).
         </Alert>
         <Alert severity="info" sx={{ mt: 2 }}>
           <ul>
