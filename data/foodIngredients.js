@@ -317,6 +317,17 @@ export const foodIngredientsData = {
       gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=19',
     },
     {
+      label: '472 e',
+      organic: true,
+      name: 'Diacetyltartaric and fatty acid esters of glycerol',
+      additive: true,
+      groups: [
+        'Emulsifier', 'Sequestrant', 'Stabilizer',
+      ],
+      insNo: '472e',
+      gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=61',
+    },
+    {
       label: '500 (ii)',
       name: 'Sodium hydrogen carbonate',
       additive: true,
@@ -362,6 +373,16 @@ export const foodIngredientsData = {
       gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=185',
     },
     {
+      label: '223',
+      name: 'Sodium metabisulfite',
+      additive: true,
+      groups: [
+        'Antioxidant', 'Bleaching agent', 'Flour treatment agent', 'Preservative',
+      ],
+      insNo: '223',
+      gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=225',
+    },
+    {
       label: '339 (ii)',
       name: 'Disodium hydrogen phosphate',
       additive: true,
@@ -385,6 +406,15 @@ export const foodIngredientsData = {
       groups: ['Antioxidant', 'Emulsifier', 'Flour treatment agent'],
       insNo: '322(i)',
       gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=77',
+    },
+    {
+      label: '1101 (i)',
+      name: 'Protease from Aspergillus orizae var',
+      organic: true,
+      additive: true,
+      groups: ['Flavour enhancer', 'Flour treatment agent', 'Stabilizer'],
+      insNo: '1101 (i)',
+      gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=297',
     },
     {
       label: '450 (iii)',
@@ -568,6 +598,14 @@ export const foodIngredientsData = {
     {
       label: 'Milk Flavour',
       name: 'Milk Flavour',
+      data: {
+        source: 'Unknown',
+        organic: 'Unknown',
+      },
+    },
+    {
+      label: 'Sulfite',
+      name: 'Sulfite',
       data: {
         source: 'Unknown',
         organic: 'Unknown',
