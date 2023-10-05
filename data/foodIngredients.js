@@ -511,6 +511,7 @@ export const foodIngredientsData = {
       name: 'Caramel Flavour',
       data: {
         source: 'Unknown',
+        organic: 'Unknown'
       },
     },
     {
@@ -518,6 +519,7 @@ export const foodIngredientsData = {
       name: 'Vanila Flavour',
       data: {
         source: 'Unknown',
+        organic: 'Unknown'
       },
     },
   ],
