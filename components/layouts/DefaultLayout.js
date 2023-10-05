@@ -26,9 +26,8 @@ export default function DefaultLayout({ children, title }) {
       <AppHeader />
       <Toolbar variant="dense" />
       <Box
-        p={2}
         pb={15}
-        sx={{ minHeight: 'calc(100% - 50px)' }}
+        sx={{ minHeight: 'calc(100% - 50px)', p: {sm: 1, md: 2} }}
         bgcolor="#E7EBF0"
       >
         {children}

@@ -139,6 +139,11 @@ export default function Page({ data }) {
                           borderColor: CATEGORY_COLORS[c],
                           fontWeight: 'bold',
                           m: 1,
+                          height: 'auto',
+                          '& .MuiChip-label': {
+                            display: 'block',
+                            whiteSpace: 'normal',
+                          },
                         }}
                         variant="outlined"
                       />
