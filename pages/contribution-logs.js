@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function ContributionLogs() {
   return (
-    <Layout>
+    <Layout title="Contribution Logs">
       <Box textAlign="center">
         <Typography variant="h4">Contribution Logs</Typography>
       </Box>

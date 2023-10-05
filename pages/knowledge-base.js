@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function KnowledgeBase() {
   return (
-    <Layout>
+    <Layout title="KnowledgeBase">
       <Box textAlign="center">
         <Typography variant="h4">Knowledge Base</Typography>
       </Box>

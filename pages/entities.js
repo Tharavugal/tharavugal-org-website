@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Entities() {
   return (
-    <Layout>
+    <Layout title="Entities">
       <Box textAlign="center">
         <Typography variant="h4">Entities</Typography>
       </Box>

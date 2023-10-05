@@ -138,7 +138,7 @@ export default function Page({ data }) {
                           color: CATEGORY_COLORS[c],
                           borderColor: CATEGORY_COLORS[c],
                           fontWeight: 'bold',
-                          mr: 1,
+                          m: 1,
                         }}
                         variant="outlined"
                       />

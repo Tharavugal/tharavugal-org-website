@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function ThamizhlDictionary() {
   return (
-    <Layout>
+    <Layout title="Thamizhl Dictionary">
       <Box textAlign="center">
         <Typography variant="h4">Thamizhl Dictionary</Typography>
       </Box>

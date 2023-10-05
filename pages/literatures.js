@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Literatures() {
   return (
-    <Layout>
+    <Layout title="Literatures">
       <Box textAlign="center">
         <Typography variant="h4">Literatures</Typography>
       </Box>

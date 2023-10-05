@@ -51,7 +51,7 @@ function FICard({ food, R2_DOMAIN }) {
           </Box>
         </Box>
       </CardContent>
-      <CardActions sx={{ display: 'flex' }}>
+      <CardActions sx={{ display: 'flex', flexWrap: 'wrap' }}>
         {food.categories?.map((c, i) => (
           <Chip
             key={i}
@@ -61,6 +61,7 @@ function FICard({ food, R2_DOMAIN }) {
               color: CATEGORY_COLORS[c],
               borderColor: CATEGORY_COLORS[c],
               fontWeight: 'bold',
+              m: 1,
             }}
             variant="outlined"
           />
@@ -72,7 +73,7 @@ function FICard({ food, R2_DOMAIN }) {
 
 export default function FoodIngredients({ data }) {
   return (
-    <Layout>
+    <Layout title="Food Ingredients">
       <Box textAlign="center">
         <Typography variant="h5">Food Ingredients</Typography>
       </Box>
@@ -81,7 +82,7 @@ export default function FoodIngredients({ data }) {
           <ChevronRightIcon /> Featured
         </Typography>
         <Divider />
-        <Box sx={{ mt: 3, display: 'flex' }}>
+        <Box sx={{ mt: 3, display: 'flex', flexWrap: 'wrap' }}>
           {data.foods.map((f, i) => (
             <FICard key={i} food={f} R2_DOMAIN={data.R2_DOMAIN} />
           ))}
