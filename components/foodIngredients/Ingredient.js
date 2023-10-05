@@ -56,7 +56,7 @@ export default function Ingredient({ data }) {
         )}
       </CardContent>
       <CardActions>
-        {data.data?.source !== 'Unknown' && (
+        {data.data?.organic !== 'Unknown' && (
           <Chip
             variant="outlined"
             size="small"
