@@ -8,7 +8,7 @@ export const foodIngredientsData = {
     'Dairy foods',
     'Eggs',
   ],
-  types: ['Noodles with Seasoning', 'Chocolates'],
+  types: ['Noodles with Seasoning', 'Chocolates', 'Biscuits & Cookies'],
   pkgMaterials: ['Plastics'],
   ingredients: [
     {
