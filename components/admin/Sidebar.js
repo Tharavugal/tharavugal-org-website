@@ -25,6 +25,7 @@ export default function Sidebar() {
     { menu: 'Entity Types', path: '/admin/entity-types' },
     { menu: 'Entities', path: '/admin/entities' },
     { menu: 'Food Ingredients', path: '/admin/food-ingredients' },
+    { menu: 'Contribution Logs', path: '/admin/contribution-logs' },
   ];
 
   return (

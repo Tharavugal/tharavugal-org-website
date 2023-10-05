@@ -74,3 +74,16 @@ export const foodIngredientsSchema = z.object({
     .min(1, '*Required')
     .transform((val) => JSON.parse(val)),
 });
+
+const ContributorsSchema = z.object({
+  name: z.string().min(1, '*Required'),
+  role: z.string().min(1, '*Required'),
+});
+
+export const contributionLogsSchema = z.object({
+  id: z.string().uuid(),
+  title: z.string().min(1, '*Required'),
+  image: z.string().min(1, '*Required'),
+  contributionDate: z.date(),
+  contributors: z.array(ContributorsSchema).nonempty(),
+});

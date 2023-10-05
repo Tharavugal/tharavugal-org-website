@@ -78,7 +78,7 @@ export default function Page({ data }) {
 
   return (
     <Layout title={data.record.name + ' | Food Ingredients'}>
-      <Paper sx={{ mt: 2, p: 3 }}>
+      <Paper sx={{ mt: 2, p: { xs: 2, sm: 2, md: 3 } }}>
         <Box
           sx={{
             display: { md: 'grid' },
@@ -86,7 +86,7 @@ export default function Page({ data }) {
             columnGap: 2,
           }}
         >
-          <Box sx={{ p: 2 }}>
+          <Box sx={{ p: { xs: 1, sm: 1, md: 2 } }}>
             <Box
               component="img"
               src={`${data.R2_DOMAIN}/${data.record.image}`}
@@ -97,7 +97,7 @@ export default function Page({ data }) {
               The image displayed here is only for illustration purposes.
             </Alert>
           </Box>
-          <Box sx={{ p: 2 }}>
+          <Box sx={{ p: { xs: 1, sm: 1, md: 2 } }}>
             <Typography variant="h4">{data.record.name}</Typography>
 
             <Box component="table" sx={{ mt: 2 }}>
@@ -192,20 +192,25 @@ export default function Page({ data }) {
             <ChevronRightIcon /> Ingredients
           </Typography>
           <Divider />
-          <Box sx={{ p: 2, mt: 2 }}>{renderIngredients()}</Box>
-          <Box sx={{ p: 2, mt: 2 }}>{renderTraces()}</Box>
+          <Box sx={{ p: { xs: 1, sm: 1, md: 2 }, mt: 2 }}>
+            {renderIngredients()}
+          </Box>
+          <Box sx={{ p: { xs: 1, sm: 1, md: 2 }, mt: 2 }}>{renderTraces()}</Box>
         </Box>
         <Alert severity="warning" sx={{ mt: 2 }}>
-          Here, the <strong>Organic</strong> tag does not mean the product is grown organically
-          (without using chemicals, including pesticides, fertilizers, etc.).
+          Here, the <strong>Organic</strong> tag does not mean the product is
+          grown organically (without using chemicals, including pesticides,
+          fertilizers, etc.).
         </Alert>
         <Alert severity="info" sx={{ mt: 2 }}>
           <ul>
             <li>
-              The <strong>INS No</strong> refers to the The International Numbering System for
-              Food Additives.
+              The <strong>INS No</strong> refers to the The International
+              Numbering System for Food Additives.
             </li>
-            <li>The <strong>Additive</strong> tag refers to the Food Additives.</li>
+            <li>
+              The <strong>Additive</strong> tag refers to the Food Additives.
+            </li>
           </ul>
         </Alert>
       </Paper>
