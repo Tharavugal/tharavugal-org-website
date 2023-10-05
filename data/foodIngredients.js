@@ -558,8 +558,8 @@ export const foodIngredientsData = {
       },
     },
     {
-      label: 'Vanila Flavour',
-      name: 'Vanila Flavour',
+      label: 'Vanilla Flavour',
+      name: 'Vanilla Flavour',
       data: {
         source: 'Unknown',
         organic: 'Unknown',
