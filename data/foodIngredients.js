@@ -495,6 +495,10 @@ export const foodIngredientsData = {
       name: 'Mineral',
     },
     {
+      label: 'Minerals',
+      name: 'Minerals',
+    },
+    {
       label: 'Milk',
       name: 'Milk',
       organic: true,
