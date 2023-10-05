@@ -46,6 +46,9 @@ export const foodIngredientsData = {
       name: 'Milk',
       processed: ['Powdered'],
       organic: true,
+      data: {
+        source: 'Unknown',
+      },
     },
     {
       label: 'Palm Oil',
@@ -150,7 +153,7 @@ export const foodIngredientsData = {
       label: 'Inverted Sugar Syrup',
       name: 'Sugar',
       organic: true,
-      processed: ["Syrup", "Inverted"],
+      processed: ['Syrup', 'Inverted'],
       data: {
         source: 'Unknown',
       },
@@ -304,7 +307,12 @@ export const foodIngredientsData = {
       organic: true,
       name: 'Mono- and di-glycerides of fatty acids',
       additive: true,
-      groups: ['Antifoaming agent', 'Emulsifier', 'Glazing agent', 'Stabilizer'],
+      groups: [
+        'Antifoaming agent',
+        'Emulsifier',
+        'Glazing agent',
+        'Stabilizer',
+      ],
       insNo: '471',
       gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=19',
     },
@@ -326,10 +334,7 @@ export const foodIngredientsData = {
       label: '503 (ii)',
       name: 'Ammonium hydrogen carbonate',
       additive: true,
-      groups: [
-        'Acidity regulator',
-        'Raising agent',
-      ],
+      groups: ['Acidity regulator', 'Raising agent'],
       insNo: '503(ii)',
       gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=333',
     },
@@ -377,11 +382,7 @@ export const foodIngredientsData = {
       name: 'Lecithin',
       organic: true,
       additive: true,
-      groups: [
-        'Antioxidant',
-        'Emulsifier',
-        'Flour treatment agent',
-      ],
+      groups: ['Antioxidant', 'Emulsifier', 'Flour treatment agent'],
       insNo: '322(i)',
       gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=77',
     },
@@ -553,7 +554,7 @@ export const foodIngredientsData = {
       name: 'Caramel Flavour',
       data: {
         source: 'Unknown',
-        organic: 'Unknown'
+        organic: 'Unknown',
       },
     },
     {
@@ -561,7 +562,7 @@ export const foodIngredientsData = {
       name: 'Vanila Flavour',
       data: {
         source: 'Unknown',
-        organic: 'Unknown'
+        organic: 'Unknown',
       },
     },
     {
@@ -569,7 +570,7 @@ export const foodIngredientsData = {
       name: 'Milk Flavour',
       data: {
         source: 'Unknown',
-        organic: 'Unknown'
+        organic: 'Unknown',
       },
     },
   ],
