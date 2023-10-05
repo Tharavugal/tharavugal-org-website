@@ -8,7 +8,7 @@ export const foodIngredientsData = {
     'Dairy foods',
     'Eggs',
   ],
-  types: ['Noodles with Seasoning'],
+  types: ['Noodles with Seasoning', 'Chocolates'],
   pkgMaterials: ['Plastics'],
   ingredients: [
     {
@@ -19,9 +19,32 @@ export const foodIngredientsData = {
       organic: true,
     },
     {
+      label: 'Wheat',
+      name: 'Wheat',
+      organic: true,
+    },
+    {
       label: 'Wheat Gluten',
       name: 'Wheat',
       processed: ['Gluten'],
+      organic: true,
+    },
+    {
+      label: 'Coco Butter',
+      name: 'Coco',
+      processed: ['Butter'],
+      organic: true,
+    },
+    {
+      label: 'Coco powder',
+      name: 'Coco',
+      processed: ['Powdered'],
+      organic: true,
+    },
+    {
+      label: 'Milk powder',
+      name: 'Milk',
+      processed: ['Powdered'],
       organic: true,
     },
     {
@@ -118,6 +141,14 @@ export const foodIngredientsData = {
     {
       label: 'Sugar',
       name: 'Sugar',
+      organic: true,
+      data: {
+        source: 'Unknown',
+      },
+    },
+    {
+      label: 'Lactose',
+      name: 'Lactose',
       organic: true,
       data: {
         source: 'Unknown',
@@ -251,6 +282,15 @@ export const foodIngredientsData = {
       gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=173',
     },
     {
+      label: '476',
+      organic: true,
+      name: 'Polyglycerol esters of interesterified ricinoleic acid',
+      additive: true,
+      groups: ['Emulsifier'],
+      insNo: '476',
+      gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=191',
+    },
+    {
       label: '500 (ii)',
       name: 'Sodium hydrogen carbonate',
       additive: true,
@@ -268,9 +308,7 @@ export const foodIngredientsData = {
       label: '551',
       name: 'Silicon dioxide, amorphous',
       additive: true,
-      groups: [
-        'Anticaking agent', 'Antifoaming agent', 'Carrier'
-      ],
+      groups: ['Anticaking agent', 'Antifoaming agent', 'Carrier'],
       insNo: '551',
       gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=284',
     },
@@ -348,6 +386,14 @@ export const foodIngredientsData = {
       gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=280',
     },
     {
+      label: '442',
+      name: 'Ammonium salts of phosphatidic acid',
+      additive: true,
+      groups: ['Emulsifier'],
+      insNo: '442',
+      gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=126',
+    },
+    {
       label: '631',
       name: "Disodium 5'-inosinate",
       additive: true,
@@ -403,7 +449,7 @@ export const foodIngredientsData = {
       label: 'Yeast',
       name: 'Yeast',
       organic: true,
-      processed: ["Extracted"],
+      processed: ['Extracted'],
       data: {
         source: 'Unknown',
       },
@@ -421,6 +467,19 @@ export const foodIngredientsData = {
     {
       label: 'Soy',
       name: 'Soy',
+      organic: true,
+    },
+    {
+      label: 'Tree nuts',
+      name: 'Tree Nuts',
+      organic: true,
+      data: {
+        source: 'Unknown',
+      },
+    },
+    {
+      label: 'Barley',
+      name: 'Barley',
       organic: true,
     },
     {
@@ -446,6 +505,20 @@ export const foodIngredientsData = {
       name: 'Onion',
       organic: true,
       processed: ['Dehydrated'],
+    },
+    {
+      label: 'Caramel Flavour',
+      name: 'Caramel Flavour',
+      data: {
+        source: 'Unknown',
+      },
+    },
+    {
+      label: 'Vanila Flavour',
+      name: 'Vanila Flavour',
+      data: {
+        source: 'Unknown',
+      },
     },
   ],
 };
