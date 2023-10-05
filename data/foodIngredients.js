@@ -231,6 +231,12 @@ export const foodIngredientsData = {
       processed: ['Powdered'],
     },
     {
+      label: 'Cinnamon Powder',
+      name: 'Cinnamon',
+      organic: true,
+      processed: ['Powdered'],
+    },
+    {
       label: '330',
       organic: true,
       name: 'Citric acid',
