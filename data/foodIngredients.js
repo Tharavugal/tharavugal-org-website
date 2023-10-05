@@ -147,6 +147,15 @@ export const foodIngredientsData = {
       },
     },
     {
+      label: 'Inverted Sugar Syrup',
+      name: 'Sugar',
+      organic: true,
+      processed: ["Syrup", "Inverted"],
+      data: {
+        source: 'Unknown',
+      },
+    },
+    {
       label: 'Lactose',
       name: 'Lactose',
       organic: true,
@@ -291,6 +300,15 @@ export const foodIngredientsData = {
       gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=191',
     },
     {
+      label: '471',
+      organic: true,
+      name: 'Mono- and di-glycerides of fatty acids',
+      additive: true,
+      groups: ['Antifoaming agent', 'Emulsifier', 'Glazing agent', 'Stabilizer'],
+      insNo: '471',
+      gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=19',
+    },
+    {
       label: '500 (ii)',
       name: 'Sodium hydrogen carbonate',
       additive: true,
@@ -303,6 +321,17 @@ export const foodIngredientsData = {
       ],
       insNo: '500(ii)',
       gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=201',
+    },
+    {
+      label: '503 (ii)',
+      name: 'Ammonium hydrogen carbonate',
+      additive: true,
+      groups: [
+        'Acidity regulator',
+        'Raising agent',
+      ],
+      insNo: '503(ii)',
+      gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=333',
     },
     {
       label: '551',
@@ -342,6 +371,19 @@ export const foodIngredientsData = {
       ],
       insNo: '339(ii)',
       gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=23',
+    },
+    {
+      label: '322 (i)',
+      name: 'Lecithin',
+      organic: true,
+      additive: true,
+      groups: [
+        'Antioxidant',
+        'Emulsifier',
+        'Flour treatment agent',
+      ],
+      insNo: '322(i)',
+      gsfaUrl: 'https://www.fao.org/gsfaonline/additives/details.html?id=77',
     },
     {
       label: '450 (iii)',
@@ -517,6 +559,14 @@ export const foodIngredientsData = {
     {
       label: 'Vanila Flavour',
       name: 'Vanila Flavour',
+      data: {
+        source: 'Unknown',
+        organic: 'Unknown'
+      },
+    },
+    {
+      label: 'Milk Flavour',
+      name: 'Milk Flavour',
       data: {
         source: 'Unknown',
         organic: 'Unknown'
