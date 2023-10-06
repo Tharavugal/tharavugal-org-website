@@ -8,6 +8,7 @@ import {
   Card,
   CardActions,
   CardContent,
+  Chip,
   Paper,
   Typography,
 } from '@mui/material';
@@ -38,7 +39,9 @@ function ContributionLog({ data, setState }) {
                   </tr>
                   <tr>
                     <td>Role: </td>
-                    <td>{c.role}</td>
+                    <td>
+                      <Chip label={c.role} size="small" color="secondary" />
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -71,8 +74,8 @@ export default function ContributionLogs({ logs, R2_DOMAIN }) {
       </Box>
       <Box mt={2}>
         <Alert severity="info">
-          Contributions made by people are logged in the system, so you can view
-          all types of contributions here.
+          Contributions made by people to the platform are logged in the system, so you can view
+          all types (except a few) of contributions here.
         </Alert>
       </Box>
       <Box mt={2} sx={{ p: { xs: 1, sm: 1, md: 2 } }}>
