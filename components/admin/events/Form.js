@@ -13,7 +13,7 @@ import { useEffect } from 'react';
 
 function slugify(str, locations, id) {
   str =
-    str.replaceAll('.', '-').trim() +
+    str.replaceAll('.', '-').replaceAll(',', '').trim() + 
     ' ' +
     locations.join(' ') +
     ' ' +
