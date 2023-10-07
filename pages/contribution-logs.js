@@ -1,4 +1,5 @@
 import DialogWindow from '@/components/DialogWindow';
+import ProgressiveImg from '@/components/ProgressiveImg';
 import Layout from '@/components/layouts/DefaultLayout';
 import { connect } from '@/utils/db';
 import {
@@ -74,8 +75,8 @@ export default function ContributionLogs({ logs, R2_DOMAIN }) {
       </Box>
       <Box mt={2}>
         <Alert severity="info">
-          Contributions made by people to the platform are logged in the system, so you can view
-          all types (except a few) of contributions here.
+          Contributions made by people to the platform are logged in the system,
+          so you can view all types (except a few) of contributions here.
         </Alert>
       </Box>
       <Box mt={2} sx={{ p: { xs: 1, sm: 1, md: 2 } }}>
@@ -89,7 +90,7 @@ export default function ContributionLogs({ logs, R2_DOMAIN }) {
         title="Attachments"
       >
         {state.src ? (
-          <img
+          <ProgressiveImg
             src={R2_DOMAIN + '/' + state.src}
             alt="Contribution Attachments"
           />
