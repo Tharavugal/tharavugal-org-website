@@ -69,6 +69,7 @@ export const foodIngredientsSchema = z.object({
   ),
   traces: z.array(IngredientsSchema),
   image: z.string().min(1, '*Required'),
+  thumb: z.string().min(1, '*Required'),
   data: z
     .string()
     .min(1, '*Required')

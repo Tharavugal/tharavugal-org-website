@@ -37,7 +37,7 @@ export default function AppHeader() {
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           {user && user.role === USER_ROLES.ADMIN && (
-            <Box mr={2} component={Link} href="/admin" sx={{ color: 'white' }}>
+            <Box mr={2} component={Link} href="/admin">
               Dashboard
             </Box>
           )}

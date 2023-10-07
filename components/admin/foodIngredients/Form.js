@@ -114,6 +114,14 @@ export default function Form({ initialValues, onSubmit, update = false }) {
           />
         </Box>
 
+        <Box mt={2}>
+          <UploadField
+            name="thumb"
+            label="Thumb"
+            uploadPath="food_ingredients"
+          />
+        </Box>
+
         <Box>
           <ItemsField />
         </Box>

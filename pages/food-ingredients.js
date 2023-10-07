@@ -3,7 +3,6 @@ import { connect } from '@/utils/db';
 import {
   Box,
   Card,
-  CardActions,
   CardContent,
   Chip,
   Divider,
@@ -27,10 +26,18 @@ function FICard({ food, R2_DOMAIN }) {
   return (
     <Card sx={{ minWidth: 200, m: 1 }} variant="outlined">
       <CardContent>
-        <Box sx={{ display: 'flex' }}>
-          <Box sx={{ width: '100px', height: '150px' }}>
+        <Box sx={{ display: 'grid', gridTemplateColumns: '100px 1fr' }}>
+          <Box
+            sx={{
+              width: '100px',
+              height: '150px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          >
             <ProgressiveImg
-              src={`${R2_DOMAIN}/${food.image}`}
+              src={`${R2_DOMAIN}/${food.thumb ? food.thumb : food.image}`}
               alt="Product Thumbnail"
             />
           </Box>
@@ -45,25 +52,31 @@ function FICard({ food, R2_DOMAIN }) {
             <Typography sx={{ mt: 2 }} color="text.secondary">
               {food.foodType}
             </Typography>
+            <Box sx={{}}>
+              {food.categories?.map((c, i) => (
+                <Box key={i}>
+                  <Chip
+                    label={c}
+                    size="small"
+                    sx={{
+                      color: CATEGORY_COLORS[c],
+                      borderColor: CATEGORY_COLORS[c],
+                      fontWeight: 'bold',
+                      mt: 1,
+                      height: 'auto',
+                      '& .MuiChip-label': {
+                        display: 'block',
+                        whiteSpace: 'normal',
+                      },
+                    }}
+                    variant="outlined"
+                  />
+                </Box>
+              ))}
+            </Box>
           </Box>
         </Box>
       </CardContent>
-      <CardActions sx={{ display: 'flex', flexWrap: 'wrap' }}>
-        {food.categories?.map((c, i) => (
-          <Chip
-            key={i}
-            label={c}
-            size="small"
-            sx={{
-              color: CATEGORY_COLORS[c],
-              borderColor: CATEGORY_COLORS[c],
-              fontWeight: 'bold',
-              m: 1,
-            }}
-            variant="outlined"
-          />
-        ))}
-      </CardActions>
     </Card>
   );
 }
@@ -74,7 +87,7 @@ export default function FoodIngredients({ data }) {
       <Box textAlign="center">
         <Typography variant="h5">Food Ingredients</Typography>
       </Box>
-      <Paper sx={{ mt: 2, p: 3 }}>
+      <Paper sx={{ mt: { xs: 1, sm: 1, md: 2 }, p: { xs: 2, sm: 2, md: 3 } }}>
         <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
           <ChevronRightIcon /> Featured
         </Typography>
@@ -103,6 +116,7 @@ export async function getServerSideProps(context) {
         categories: 1,
         slug: 1,
         image: 1,
+        thumb: 1,
       },
     }
   );

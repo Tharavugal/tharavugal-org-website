@@ -14,15 +14,17 @@ import RecentDiscussions from '@/components/RecentDiscussions';
 import RecentEntities from '@/components/RecentEntities';
 
 export default function Home({ data }) {
-    const router = useRouter();
+  const router = useRouter();
 
   return (
     <Layout title="Home">
-      <SearchForm
-        onSubmit={(values) => {
-          router.push('/search?q=' + values.searchText);
-        }}
-      />
+      <Box sx={{ mt: { xs: 2, sm: 1, md: 0 } }}>
+        <SearchForm
+          onSubmit={(values) => {
+            router.push('/search?q=' + values.searchText);
+          }}
+        />
+      </Box>
       <Box
         sx={{
           display: { md: 'grid' },
@@ -103,7 +105,7 @@ export async function getServerSideProps(context) {
         locations: 1,
         startedAt: 1,
         startTz: 1,
-        categories: 1
+        categories: 1,
       },
     },
   ]);
