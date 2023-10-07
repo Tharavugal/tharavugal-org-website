@@ -5,14 +5,13 @@ import {
   Card,
   CardActions,
   CardContent,
-  CardMedia,
   Chip,
   Divider,
   Paper,
   Typography,
 } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import Link from 'next/link';
+import ProgressiveImg from '@/components/ProgressiveImg';
 
 const CATEGORY_COLORS = {
   Vegetables: '#2ECC40',
@@ -30,11 +29,9 @@ function FICard({ food, R2_DOMAIN }) {
       <CardContent>
         <Box sx={{ display: 'flex' }}>
           <Box sx={{ width: '100px', height: '150px' }}>
-            <CardMedia
-              component="img"
-              sx={{ height: 150, width: 100 }}
-              image={`${R2_DOMAIN}/${food.image}`}
-              title="Product Thumbnail"
+            <ProgressiveImg
+              src={`${R2_DOMAIN}/${food.image}`}
+              alt="Product Thumbnail"
             />
           </Box>
           <Box sx={{ px: 2 }}>

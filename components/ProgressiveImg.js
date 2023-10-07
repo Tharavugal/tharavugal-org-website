@@ -13,7 +13,15 @@ export default function ProgressiveImg({ src, alt, ...otherProps }) {
   }, [src]);
 
   if (imgSrc) {
-    return <img src={imgSrc} alt={alt} {...otherProps} />;
+    return (
+      <Box
+        component="img"
+        src={imgSrc}
+        alt={alt}
+        {...otherProps}
+        sx={{ maxInlineSize: '100%', blockSize: 'auto' }}
+      />
+    );
   }
 
   return (

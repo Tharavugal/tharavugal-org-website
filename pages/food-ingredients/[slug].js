@@ -13,6 +13,7 @@ import {
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import RecyclingIcon from '@mui/icons-material/Recycling';
 import Ingredient from '@/components/foodIngredients/Ingredient';
+import ProgressiveImg from '@/components/ProgressiveImg';
 
 const CATEGORY_COLORS = {
   Vegetables: '#2ECC40',
@@ -87,11 +88,9 @@ export default function Page({ data }) {
           }}
         >
           <Box sx={{ p: { xs: 1, sm: 1, md: 2 } }}>
-            <Box
-              component="img"
+            <ProgressiveImg
               src={`${data.R2_DOMAIN}/${data.record.image}`}
               alt="Image"
-              sx={{ width: '100%', aspectRatio: '1 / 1' }}
             />
             <Alert severity="warning">
               The image displayed here is only for illustration purposes.
