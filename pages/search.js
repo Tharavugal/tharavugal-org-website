@@ -1,35 +1,86 @@
 import { useEffect, useState } from 'react';
-import { Alert, AlertTitle, Box, Paper } from '@mui/material';
+import { Box, Paper, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 
 import Layout from '@/components/layouts/DefaultLayout';
 import SearchForm from '@/components/SearchForm';
 import APIClient from '@/utils/APIClient';
-import Event from '@/components/Events/Event';
+import Link from 'next/link';
+import { format } from 'date-fns';
 
 export default function Search({ data }) {
   const [isLoading, setIsLoading] = useState(false);
-  const [events, setEvents] = useState([]);
+  const [searchData, setSearchData] = useState({});
   const router = useRouter();
 
-  async function fetchData(text) {
-    if (!text) {
+  async function fetchData(query) {
+    if (!query) {
       return;
     }
     setIsLoading(true);
-    const arr = text.split('in');
-    const data = {
-      title: arr[0].trim(),
-      locations: arr[1] ? arr[1].trim().split(' ') : [],
-    };
-    const response = await APIClient.post('/api/search-events', data);
-    setEvents(response.data.data);
+    const response = await APIClient.get('/api/search?q=' + query);
+    setSearchData(response.data);
     setIsLoading(false);
   }
 
   useEffect(() => {
     fetchData(router.query.q);
   }, [router.query.q]);
+
+  const renderRealTimeEvents = () => {
+    if (searchData.events && Object.keys(searchData.events).length > 0) {
+      return (
+        <>
+          <Typography variant="h6">Real-Time Events:</Typography>
+          <Box sx={{ ml: 2 }}>
+            {searchData.events.map((ev, i) => (
+              <Box key={i} sx={{ p: 1, mt: 1, border: '1px solid lightgray' }}>
+                <Box component={Link} href={'/events/' + ev.slug}>
+                  {ev.title}
+                </Box>
+                <Typography
+                  variant="subtitle2"
+                  color="text.secondary"
+                  sx={{ mt: 1 }}
+                >
+                  Date: {format(new Date(ev.startedAt), 'yyyy-MM-dd')}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
+        </>
+      );
+    }
+  };
+
+  const renderFoodIngredients = () => {
+    if (
+      searchData.foodIngredients &&
+      Object.keys(searchData.foodIngredients).length > 0
+    ) {
+      return (
+        <>
+          <Typography variant="h6">Food Ingredients:</Typography>
+          <Box sx={{ ml: 2 }}>
+            {searchData.foodIngredients.map((fi, i) => (
+              <Box key={i} sx={{ p: 1, mt: 1, border: '1px solid lightgray' }}>
+                <Box component={Link} href={'/food-ingredients/' + fi.slug}>
+                  {fi.name}
+                </Box>
+                <Typography
+                  variant="subtitle2"
+                  color="text.secondary"
+                  sx={{ mt: 1 }}
+                >
+                  {fi.foodType}
+                </Typography>
+              </Box>
+            ))}
+          </Box>
+        </>
+      );
+    }
+  };
 
   return (
     <Layout title="Search">
@@ -38,30 +89,10 @@ export default function Search({ data }) {
         initialValues={{ searchText: router.query.q }}
         onSubmit={(values) => fetchData(values.searchText)}
       />
-      <Box mt={2}>
-        <Alert severity="info">
-          <AlertTitle>Info</AlertTitle>
-          You can search using keywords like <strong>
-            `road accident`
-          </strong>, <strong>`child abuse`</strong>, etc.
-          <br />
-          You can also search keywords with locations like,{' '}
-          <strong>road accidents in chennai</strong>
-          <br />
-          For search in multiple locations, use <strong>space</strong> to
-          separate it, like <strong>fire accidents in chennai banglore</strong>
-        </Alert>
-      </Box>
-      <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
-        <Paper sx={{ p: 2, width: '50%', minHeight: '300px' }}>
-          {events.length === 0 && (
-            <Alert severity="info">No events found.</Alert>
-          )}
-          {events.map((e, i) => (
-            <Event key={i} data={e} />
-          ))}
-        </Paper>
-      </Box>
+      <Paper sx={{ p: { xs: 1, sm: 1, md: 2 }, minHeight: '300px' }}>
+        <Box>{renderRealTimeEvents()}</Box>
+        <Box sx={{ mt: 2 }}>{renderFoodIngredients()}</Box>
+      </Paper>
     </Layout>
   );
 }

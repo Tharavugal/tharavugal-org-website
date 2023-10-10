@@ -22,6 +22,7 @@ export default function Tools() {
         py={2}
         sx={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}
       >
+        <ToolBox icon={ExploreOutlinedIcon} label="Explore" path="/explore" />
         <ToolBox
           icon={InsertChartOutlinedTwoToneIcon}
           label="Visualizer"
@@ -42,7 +43,6 @@ export default function Tools() {
           label="Thirukkural"
           path="/thirukkural"
         />
-        <ToolBox icon={ExploreOutlinedIcon} label="Explore" path="/explore" />
         <ToolBox icon={ScienceOutlinedIcon} label="Research" path="/research" />
         <ToolBox
           icon={PushPinOutlinedIcon}

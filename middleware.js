@@ -5,7 +5,7 @@ import Auth from './utils/Auth';
 const routesConfig = {
   public: [
     { path: '/api/signin' },
-    { path: '/api/search-events' },
+    { path: '/api/search' },
     { path: '/api/event-categories' },
     { path: '/api/event-locations' },
     { path: '/api/visualize' },

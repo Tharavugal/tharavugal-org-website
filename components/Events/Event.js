@@ -26,7 +26,7 @@ export default function Event({ data }) {
             <Chip
               key={i}
               label={l}
-              sx={{ mt: { xs: 1 }, mr: '2px' }}
+              sx={{ mt: { xs: 1 }, mr: 1 }}
               size="small"
             />
           ))}
@@ -39,7 +39,7 @@ export default function Event({ data }) {
                 color="info"
                 key={i}
                 label={c}
-                sx={{ mt: { xs: 1 }, mr: '2px' }}
+                sx={{ mt: { xs: 1 }, mr: 1 }}
                 size="small"
               />
             ))}
