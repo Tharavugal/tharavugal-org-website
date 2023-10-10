@@ -46,6 +46,7 @@ function FICard({ food, R2_DOMAIN }) {
               variant="h6"
               component="a"
               href={`/food-ingredients/${food.slug}`}
+              rel="canonical"
             >
               {food.name}
             </Typography>
