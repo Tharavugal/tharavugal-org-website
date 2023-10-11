@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, Paper, Typography, Alert } from '@mui/material';
 import { useRouter } from 'next/router';
 
 import Layout from '@/components/layouts/DefaultLayout';
@@ -82,6 +82,18 @@ export default function Search({ data }) {
     }
   };
 
+  const renderNoData = () => {
+    const arr = Object.keys(searchData).map((key) => searchData[key]);
+    const hasData = arr.some((a) => a.length > 0)
+    if (!hasData) {
+      return (
+        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Alert severity="info">No result</Alert>
+        </Box>
+      );
+    }
+  };
+
   return (
     <Layout title="Search">
       <SearchForm
@@ -90,6 +102,7 @@ export default function Search({ data }) {
         onSubmit={(values) => fetchData(values.searchText)}
       />
       <Paper sx={{ p: { xs: 1, sm: 1, md: 2 }, minHeight: '300px' }}>
+        {renderNoData()}
         <Box>{renderRealTimeEvents()}</Box>
         <Box sx={{ mt: 2 }}>{renderFoodIngredients()}</Box>
       </Paper>
