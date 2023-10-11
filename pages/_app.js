@@ -48,6 +48,7 @@ export default function App({ Component, pageProps }) {
         '/images',
         '/videos',
         '/documents',
+        '/books',
         '/contributing-process',
         '/entities',
         '/literatures',

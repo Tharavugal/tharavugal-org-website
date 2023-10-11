@@ -12,6 +12,7 @@ import Resources from '@/components/Resources';
 import FeaturedVisualizations from '@/components/FeaturedVisualizations';
 import RecentDiscussions from '@/components/RecentDiscussions';
 import RecentEntities from '@/components/RecentEntities';
+import Links from '@/components/Links';
 
 export default function Home({ data }) {
   const router = useRouter();
@@ -41,13 +42,16 @@ export default function Home({ data }) {
             <FeaturedVisualizations />
           </Paper>
           <Paper sx={{ mt: 2 }}>
+            <Resources />
+          </Paper>
+          <Paper sx={{ mt: 2 }}>
             <RecentDiscussions />
           </Paper>
           <Paper sx={{ mt: 2 }}>
             <RecentEntities />
           </Paper>
           <Paper sx={{ mt: 2 }}>
-            <Resources />
+            <Links />
           </Paper>
         </Box>
       </Box>
