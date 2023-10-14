@@ -112,9 +112,14 @@ export default function App({ Component, pageProps }) {
             alignItems: 'center',
           }}
         >
-          <CircularProgress />
-          <Typography variant="subtitle1" sx={{ mt: 2, color: 'red' }}>
-            Please wait, it may take up to 10 seconds to load.
+          <Box sx={{ color: '#FF851B' }}>
+            <CircularProgress color="success" />
+          </Box>
+          <Typography variant="h5" sx={{ mt: 2 }}>
+            Please wait..
+          </Typography>
+          <Typography variant="subtitle2" sx={{ mt: 2, color: 'text.secondary' }}>
+            It may take upto 10 Sec to load.
           </Typography>
         </Box>
       </Box>
