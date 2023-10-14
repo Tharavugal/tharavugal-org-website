@@ -10,6 +10,7 @@ const routesConfig = {
     { path: '/api/event-locations' },
     { path: '/api/visualize' },
     { path: '/api/events/.+' },
+    { path: '/api/explore' },
   ],
   protected: [
     { path: '/api/admin', roles: [USER_ROLES.ADMIN] },
