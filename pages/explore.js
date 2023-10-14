@@ -22,21 +22,22 @@ export default function Explore() {
       <Alert severity="success">
         You can explore <strong>Real-Time</strong> events here...
       </Alert>
-      <Paper
+      <Box
         sx={{
           p: { xs: 1, sm: 1, md: 2 },
           mt: 2,
-          display: 'grid',
+          display: { xs: 'flex', sm: 'flex', md: 'grid' },
+          flexDirection: { xs: 'column', sm: 'column' },
           gridTemplateColumns: '25fr 75fr',
           columnGap: 5,
         }}
       >
-        <Box>
+        <Paper sx={{ p: { xs: 1, sm: 1, md: 2 } }}>
           <ExploreForm
             initialValues={{ text: '', locations: [], tags: [] }}
             onSubmit={handleSubmit}
           />
-        </Box>
+        </Paper>
         <Box>
           {state.events.length === 0 && !state.loading && (
             <Alert severity="info">No result...</Alert>
@@ -48,7 +49,7 @@ export default function Explore() {
           )}
           <Box>{!state.loading && <List events={state.events} />}</Box>
         </Box>
-      </Paper>
+      </Box>
     </Layout>
   );
 }
