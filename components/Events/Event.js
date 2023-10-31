@@ -8,8 +8,15 @@ import {
 } from '@mui/material';
 import { format } from 'date-fns';
 import ActionMenu from './ActionMenu';
+import { useRouter } from 'next/router';
 
 export default function Event({ data }) {
+  const router = useRouter();
+
+  const handleExplore = (name, val) => {
+    router.push(`/explore?${name}=${val}`);
+  };
+
   return (
     <Card variant="outlined" sx={{ mb: 1 }}>
       <CardHeader
@@ -28,6 +35,7 @@ export default function Event({ data }) {
               label={l}
               sx={{ mt: { xs: 1 }, mr: 1 }}
               size="small"
+              onClick={() => handleExplore('location', l)}
             />
           ))}
         </Box>
@@ -41,6 +49,7 @@ export default function Event({ data }) {
                 label={c}
                 sx={{ mt: { xs: 1 }, mr: 1 }}
                 size="small"
+                onClick={() => handleExplore('tag', c)}
               />
             ))}
           </Box>

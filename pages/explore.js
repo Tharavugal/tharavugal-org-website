@@ -6,12 +6,16 @@ import { Alert, Box, Paper, Typography } from '@mui/material';
 import { useState } from 'react';
 
 export default function Explore() {
-  const [state, setState] = useState({ events: [], loading: false });
+  const [state, setState] = useState({
+    events: [],
+    loading: false,
+  });
+  const initialValues = { text: '', locations: [], tags: [] };
 
   const handleSubmit = async (values) => {
     setState({ ...state, loading: true });
     const response = await APIClient.post('/api/explore', values);
-    setState({ events: response.data.events, loading: false });
+    setState({ ...state, events: response.data.events, loading: false });
   };
 
   return (
@@ -34,7 +38,7 @@ export default function Explore() {
       >
         <Paper sx={{ p: { xs: 1, sm: 1, md: 2 } }}>
           <ExploreForm
-            initialValues={{ text: '', locations: [], tags: [] }}
+            initialValues={initialValues}
             onSubmit={handleSubmit}
           />
         </Paper>

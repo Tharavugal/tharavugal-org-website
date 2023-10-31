@@ -90,24 +90,6 @@ export default function Tools() {
         variant="subtitle1"
         sx={{ display: 'flex', alignItems: 'center' }}
       >
-        Others
-      </Typography>
-      <Divider />
-
-      <Box
-        py={2}
-        sx={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}
-      >
-        <ToolBox
-          icon={PushPinOutlinedIcon}
-          label="On This Day"
-          path="/on-this-day"
-        />
-      </Box>
-      <Typography
-        variant="subtitle1"
-        sx={{ display: 'flex', alignItems: 'center' }}
-      >
         Environment
       </Typography>
       <Divider />
@@ -120,6 +102,24 @@ export default function Tools() {
           icon={WaterDropOutlinedIcon}
           label="Water Bodies"
           path="/water-bodies"
+        />
+      </Box>
+      <Typography
+        variant="subtitle1"
+        sx={{ display: 'flex', alignItems: 'center' }}
+      >
+        Others
+      </Typography>
+      <Divider />
+
+      <Box
+        py={2}
+        sx={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}
+      >
+        <ToolBox
+          icon={PushPinOutlinedIcon}
+          label="On This Day"
+          path="/on-this-day"
         />
       </Box>
     </Box>
