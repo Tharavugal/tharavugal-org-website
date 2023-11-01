@@ -4,6 +4,8 @@ import MUITextField from '../forms/MUITextField';
 import { Box, Button } from '@mui/material';
 import MUIAsyncSelectField from '../forms/MUIAsyncSelect';
 import { useRouter } from 'next/router';
+import MUIDateField from '../forms/MUIDateField';
+import MUISelectField from '../forms/MUISelectField';
 
 export default function ExploreForm({ initialValues, onSubmit }) {
   const router = useRouter();
@@ -17,7 +19,7 @@ export default function ExploreForm({ initialValues, onSubmit }) {
           locations: [router.query.location],
         };
         formRef.current.actions.reset(values);
-        onSubmit(values)
+        onSubmit(values);
       }
       if (router.query.tag) {
         const values = {
@@ -25,14 +27,15 @@ export default function ExploreForm({ initialValues, onSubmit }) {
           tags: [router.query.tag],
         };
         formRef.current.actions.reset(values);
-        onSubmit(values)
+        onSubmit(values);
       }
     }
   }, [router.query]);
 
   return (
     <OTFForm initialValues={initialValues} onSubmit={onSubmit} ref={formRef}>
-      <MUITextField name="text" label="Text" />
+      <MUITextField name="text" label="Search text" />
+
       <Box mt={2}>
         <MUIAsyncSelectField
           name="tags"
@@ -41,6 +44,7 @@ export default function ExploreForm({ initialValues, onSubmit }) {
           multiple
         />
       </Box>
+
       <Box mt={2}>
         <MUIAsyncSelectField
           name="locations"
@@ -49,6 +53,23 @@ export default function ExploreForm({ initialValues, onSubmit }) {
           multiple
         />
       </Box>
+
+      <Box mt={2}>
+        <MUIDateField name="from" label="From" />
+      </Box>
+
+      <Box mt={2}>
+        <MUIDateField name="to" label="To" />
+      </Box>
+
+      <Box mt={2}>
+        <MUISelectField
+          name="sort"
+          label="Sort"
+          options={['Ascending', 'Descending']}
+        />
+      </Box>
+
       <Button
         variant="contained"
         size="medium"

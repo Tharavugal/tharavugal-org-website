@@ -24,6 +24,20 @@ export default async function handler(req, res) {
         query = { ...query, categories: { $in: req.body.tags } };
       }
 
+      if (req.body.from && !req.body.to) {
+        query = { ...query, startedAt: { $gte: new Date(req.body.from) } };
+      }
+
+      if (req.body.from && req.body.to) {
+        query = {
+          ...query,
+          startedAt: {
+            $gte: new Date(req.body.from),
+            $lte: new Date(req.body.to),
+          },
+        };
+      }
+
       let cursor = await eventsCol
         .find(query, {
           projection: {
@@ -36,7 +50,7 @@ export default async function handler(req, res) {
             categories: 1,
           },
         })
-        .sort({ startedAt: -1 })
+        .sort({ startedAt: req.body.sort === 'Descending' ? -1 : 1 })
         .limit(10);
       const events = await cursor.toArray();
       output = res.status(200).json({ events });

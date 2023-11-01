@@ -2,20 +2,34 @@ import ExploreForm from '@/components/explore/Form';
 import List from '@/components/explore/List';
 import Layout from '@/components/layouts/DefaultLayout';
 import APIClient from '@/utils/APIClient';
-import { Alert, Box, Paper, Typography } from '@mui/material';
+import { Alert, Box, CircularProgress, Paper, Typography } from '@mui/material';
 import { useState } from 'react';
+import useAlert from '@/hooks/useAlert';
 
 export default function Explore() {
   const [state, setState] = useState({
     events: [],
     loading: false,
   });
-  const initialValues = { text: '', locations: [], tags: [] };
+  const showAlert = useAlert();
+  const initialValues = {
+    text: '',
+    locations: [],
+    tags: [],
+    from: null,
+    to: null,
+    sort: 'Descending',
+  };
 
   const handleSubmit = async (values) => {
     setState({ ...state, loading: true });
-    const response = await APIClient.post('/api/explore', values);
-    setState({ ...state, events: response.data.events, loading: false });
+    try {
+      const response = await APIClient.post('/api/explore', values);
+      setState({ ...state, events: response.data.events, loading: false });
+    } catch (error) {
+      setState({ ...state, loading: false });
+      showAlert('error', 'Server Error, please try again later...');
+    }
   };
 
   return (
@@ -37,10 +51,7 @@ export default function Explore() {
         }}
       >
         <Paper sx={{ p: { xs: 1, sm: 1, md: 2 } }}>
-          <ExploreForm
-            initialValues={initialValues}
-            onSubmit={handleSubmit}
-          />
+          <ExploreForm initialValues={initialValues} onSubmit={handleSubmit} />
         </Paper>
         <Box>
           {state.events.length === 0 && !state.loading && (
@@ -48,10 +59,14 @@ export default function Explore() {
           )}
           {state.loading && (
             <Typography variant="body1" sx={{ textAlign: 'center' }}>
-              Loading...
+              <CircularProgress />
             </Typography>
           )}
           <Box>{!state.loading && <List events={state.events} />}</Box>
+          <Alert severity="warning">
+            Due to our current infrastructure limitations, we can only show a
+            limited set of results here.
+          </Alert>
         </Box>
       </Box>
     </Layout>

@@ -1,9 +1,10 @@
-import { TextField } from "@mui/material";
-import { DatePicker } from "@mui/x-date-pickers";
-import { useField } from "@opentf/react-form";
+import { TextField } from '@mui/material';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { useField } from '@opentf/react-form';
 
 export default function MUIDateField({ name, label, ...otherProps }) {
-  const { field, error, setValue } = useField(name);
+  const { field, error, setValue } = useField(name, null);
+
   return (
     <DatePicker
       {...field}
@@ -17,6 +18,9 @@ export default function MUIDateField({ name, label, ...otherProps }) {
       )}
       onChange={(newValue) => setValue(newValue)}
       format="yyyy-MM-dd"
+      slotProps={{
+        field: { clearable: true },
+      }}
     />
   );
 }
