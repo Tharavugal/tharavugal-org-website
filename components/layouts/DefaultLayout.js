@@ -14,7 +14,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
 
-export default function DefaultLayout({ children, title }) {
+export default function DefaultLayout({ children, title = 'Loading' }) {
   const [agreement, setAgreement] = useState(localStorage.getItem('agreement'));
   const isLoading = useAppState((s) => s.loading);
 
