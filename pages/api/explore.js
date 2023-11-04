@@ -30,10 +30,7 @@ export default async function handler(req, res) {
         query = {
           ...query,
           startedAt: {
-            $gte: zonedTimeToUtc(
-              startOfDay(new Date(req.body.from)),
-              req.body.timezone
-            ),
+            $gte: startOfDay(zonedTimeToUtc(req.body.from, req.body.timezone)),
           },
         };
       }
@@ -42,14 +39,8 @@ export default async function handler(req, res) {
         query = {
           ...query,
           startedAt: {
-            $gte: zonedTimeToUtc(
-              startOfDay(new Date(req.body.from)),
-              req.body.timezone
-            ),
-            $lte: zonedTimeToUtc(
-              endOfDay(new Date(req.body.to)),
-              req.body.timezone
-            ),
+            $gte: startOfDay(zonedTimeToUtc(req.body.from, req.body.timezone)),
+            $lte: endOfDay(zonedTimeToUtc(req.body.to, req.body.timezone)),
           },
         };
       }
