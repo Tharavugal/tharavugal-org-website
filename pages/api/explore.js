@@ -1,4 +1,6 @@
 import { connect } from '@/utils/db';
+import { endOfDay, startOfDay } from 'date-fns';
+import { zonedTimeToUtc } from 'date-fns-tz';
 
 export default async function handler(req, res) {
   const client = await connect();
@@ -25,15 +27,26 @@ export default async function handler(req, res) {
       }
 
       if (req.body.from && !req.body.to) {
-        query = { ...query, startedAt: { $gte: new Date(req.body.from) } };
+        query = {
+          ...query,
+          startedAt: {
+            $gte: startOfDay(
+              zonedTimeToUtc(new Date(req.body.from), req.body.timezone)
+            ),
+          },
+        };
       }
 
       if (req.body.from && req.body.to) {
         query = {
           ...query,
           startedAt: {
-            $gte: new Date(req.body.from),
-            $lte: new Date(req.body.to),
+            $gte: startOfDay(
+              zonedTimeToUtc(new Date(req.body.from), req.body.timezone)
+            ),
+            $lte: endOfDay(
+              zonedTimeToUtc(new Date(req.body.to), req.body.timezone)
+            ),
           },
         };
       }

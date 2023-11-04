@@ -18,6 +18,7 @@ export default function Explore() {
     tags: [],
     from: null,
     to: null,
+    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     sort: 'Descending',
   };
 
