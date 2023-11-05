@@ -5,6 +5,9 @@ import APIClient from '@/utils/APIClient';
 import { Alert, Box, CircularProgress, Paper, Typography } from '@mui/material';
 import { useState } from 'react';
 import useAlert from '@/hooks/useAlert';
+import { produce } from 'immer';
+import { format } from 'date-fns';
+import { setAutoFreeze } from 'immer';
 
 export default function Explore() {
   const [state, setState] = useState({
@@ -18,14 +21,22 @@ export default function Explore() {
     tags: [],
     from: null,
     to: null,
-    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
     sort: 'Descending',
   };
 
   const handleSubmit = async (values) => {
     setState({ ...state, loading: true });
+    setAutoFreeze(false);
+    const data = produce(values, (draft) => {
+      if (draft.from) {
+        draft.from = format(values.from, 'yyyy-MM-dd');
+      }
+      if (draft.to) {
+        draft.to = format(values.to, 'yyyy-MM-dd');
+      }
+    });
     try {
-      const response = await APIClient.post('/api/explore', values);
+      const response = await APIClient.post('/api/explore', data);
       setState({ ...state, events: response.data.events, loading: false });
     } catch (error) {
       setState({ ...state, loading: false });

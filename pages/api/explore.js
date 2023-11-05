@@ -14,10 +14,6 @@ export default async function handler(req, res) {
         status: 'Published',
       };
 
-      if (req.body.text) {
-        query = { ...query, $text: { $search: req.body.text } };
-      }
-
       if (Array.isArray(req.body.locations) && req.body.locations.length > 0) {
         query = { ...query, locations: { $in: req.body.locations } };
       }
@@ -29,8 +25,8 @@ export default async function handler(req, res) {
       if (req.body.from && !req.body.to) {
         query = {
           ...query,
-          startedAt: {
-            $gte: startOfDay(zonedTimeToUtc(req.body.from, req.body.timezone)),
+          dateTz: {
+            $gte: new Date(req.body.from),
           },
         };
       }
@@ -38,16 +34,32 @@ export default async function handler(req, res) {
       if (req.body.from && req.body.to) {
         query = {
           ...query,
-          startedAt: {
-            $gte: startOfDay(zonedTimeToUtc(req.body.from, req.body.timezone)),
-            $lte: endOfDay(zonedTimeToUtc(req.body.to, req.body.timezone)),
+          dateTz: {
+            $gte: new Date(req.body.from),
+            $lte: new Date(req.body.to),
           },
         };
       }
 
-      let cursor = await eventsCol
-        .find(query, {
-          projection: {
+      const aggArr = [
+        { $sort: { startedAt: req.body.sort === 'Descending' ? -1 : 1 } },
+        {
+          $addFields: {
+            dateTz: {
+              $dateFromParts: {
+                year: { $year: '$startedAt' },
+                month: { $month: '$startedAt' },
+                day: { $dayOfMonth: '$startedAt' },
+              },
+            },
+          },
+        },
+        {
+          $match: query,
+        },
+        { $limit: 10 },
+        {
+          $project: {
             _id: 0,
             title: 1,
             slug: 1,
@@ -56,9 +68,19 @@ export default async function handler(req, res) {
             startTz: 1,
             categories: 1,
           },
-        })
-        .sort({ startedAt: req.body.sort === 'Descending' ? -1 : 1 })
-        .limit(10);
+        },
+      ];
+
+      if (req.body.text) {
+        aggArr.unshift({
+          $match: { $text: { $search: req.body.text } },
+        });
+      }
+
+      const cursor = eventsCol.aggregate(aggArr, {
+        maxTimeMS: 60000,
+        allowDiskUse: true,
+      });
       const events = await cursor.toArray();
       output = res.status(200).json({ events });
       break;

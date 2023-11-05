@@ -9,6 +9,7 @@ import {
 import { format } from 'date-fns';
 import ActionMenu from './ActionMenu';
 import { useRouter } from 'next/router';
+import { utcToZonedTime } from 'date-fns-tz';
 
 export default function Event({ data }) {
   const router = useRouter();
@@ -56,7 +57,7 @@ export default function Event({ data }) {
         )}
         <Box mt={1} sx={{ textAlign: 'right' }}>
           <Typography variant="span" fontSize={12} color="text.secondary">
-            {format(new Date(data.startedAt), 'yyyy-MM-dd hh:mm:ss aa')}{' '}
+            {format(utcToZonedTime(data.startedAt, data.startTz), 'yyyy-MM-dd hh:mm:ss aa')}{' '}
             {data.startTz}
           </Typography>
         </Box>

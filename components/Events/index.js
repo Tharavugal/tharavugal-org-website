@@ -6,12 +6,13 @@ import TimelineContent from '../Timeline/TimelineContent';
 import { format } from 'date-fns';
 import { groupBy } from '@opentf/utils';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { utcToZonedTime } from 'date-fns-tz';
 
 export default function Events({ data, styles }) {
   const renderEvents = () => {
     const eventsWithDate = data.map((e) => ({
       ...e,
-      date: format(new Date(e.startedAt), 'yyyy-MM-dd'),
+      date: format(utcToZonedTime(e.startedAt, e.startTz), 'yyyy-MM-dd'),
     }));
     const groups = groupBy(eventsWithDate, 'date');
     return Object.keys(groups)
