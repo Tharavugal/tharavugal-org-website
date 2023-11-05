@@ -47,11 +47,11 @@ export default async function handler(req, res) {
           $addFields: {
             dateTz: {
               $dateFromParts: {
-                year: { $year: '$startedAt' },
-                month: { $month: '$startedAt' },
+                year: { $year: { date: '$startedAt', timezone: '$startTz' } },
+                month: { $month: { date: '$startedAt', timezone: '$startTz' } },
                 day: {
-                  $dayOfMonth: { date: "$startedAt", timezone: '$startTz'},
-                }
+                  $dayOfMonth: { date: '$startedAt', timezone: '$startTz' },
+                },
               },
             },
           },
