@@ -49,7 +49,9 @@ export default async function handler(req, res) {
               $dateFromParts: {
                 year: { $year: '$startedAt' },
                 month: { $month: '$startedAt' },
-                day: { $dayOfMonth: '$startedAt' },
+                day: {
+                  $dayOfMonth: { date: "$startedAt", timezone: '$startTz'},
+                }
               },
             },
           },
