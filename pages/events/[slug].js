@@ -1,14 +1,26 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { Alert, Box, Chip, Divider, Paper, Typography } from '@mui/material';
+import {
+  Alert,
+  Box,
+  Card,
+  CardContent,
+  Chip,
+  Divider,
+  Paper,
+  Typography,
+} from '@mui/material';
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import EventIcon from '@mui/icons-material/Event';
+import LanguageIcon from '@mui/icons-material/Language';
+import { format } from 'date-fns';
 
 import Layout from '@/components/layouts/DefaultLayout';
 import { setAppState, useAppState } from '@/store';
 import APIClient from '@/utils/APIClient';
-import { format } from 'date-fns';
 
 export default function EventView() {
   const isLoading = useAppState((s) => s.loading);
@@ -17,6 +29,9 @@ export default function EventView() {
     error: false,
   });
   const router = useRouter();
+  const handleExplore = (name, val) => {
+    router.push(`/explore?${name}=${val}`);
+  };
 
   useEffect(() => {
     async function fetchData(slug) {
@@ -62,55 +77,159 @@ export default function EventView() {
     <Layout title={state.event?.title}>
       {state.event && (
         <Box>
-          <Typography variant="h3">{state.event.title}</Typography>
-          <Paper sx={{ mt: 2, p: 2 }}>
+          <Paper sx={{ mt: 2, p: { xs: 1, sm: 1, md: 2 } }}>
+            <Typography variant="h3">{state.event.title}</Typography>
             <Box>
-              {state.event.verified ? (
-                <Chip
-                  icon={<CheckCircleOutlinedIcon />}
-                  label="Verified"
-                  color="success"
-                  size="small"
-                />
-              ) : (
-                <Chip
-                  icon={<CancelOutlinedIcon />}
-                  label="Not Verified"
-                  color="error"
-                  size="small"
-                />
-              )}
+              <Card variant="outlined" sx={{ m: 1 }}>
+                <CardContent>
+                  <Typography variant="h6" component="div">
+                    PERIOD
+                  </Typography>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Box sx={{ minWidth: '50px' }}>Start:</Box>
+                    <Box>
+                      <Chip
+                        sx={{ mb: 1, ml: 2, fontWeight: 'bold' }}
+                        icon={<EventIcon />}
+                        color="primary"
+                        label={format(
+                          new Date(state.event.startedAt),
+                          'yyyy-MM-dd'
+                        )}
+                      />
+                      <Chip
+                        sx={{ mb: 1, ml: 2, fontWeight: 'bold' }}
+                        icon={<AccessTimeIcon />}
+                        color="primary"
+                        label={format(
+                          new Date(state.event.startedAt),
+                          'hh:mm:ss aa'
+                        )}
+                      />
+                      <Chip
+                        sx={{ mb: 1, ml: 2, fontWeight: 'bold' }}
+                        icon={<LanguageIcon />}
+                        color="primary"
+                        label={state.event.startTz}
+                        size="small"
+                      />
+                    </Box>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <Box sx={{ minWidth: '50px' }}>End:</Box>
+                    <Box>
+                      <Chip
+                        sx={{ mb: 1, ml: 2, fontWeight: 'bold' }}
+                        icon={<EventIcon />}
+                        color="primary"
+                        label={format(
+                          new Date(state.event.endedAt),
+                          'yyyy-MM-dd'
+                        )}
+                      />
+                      <Chip
+                        sx={{ mb: 1, ml: 2, fontWeight: 'bold' }}
+                        icon={<AccessTimeIcon />}
+                        color="primary"
+                        label={format(
+                          new Date(state.event.endedAt),
+                          'hh:mm:ss aa'
+                        )}
+                      />
+                      <Chip
+                        sx={{ mb: 1, ml: 2, fontWeight: 'bold' }}
+                        icon={<LanguageIcon />}
+                        color="primary"
+                        label={state.event.endTz}
+                        size="small"
+                      />
+                    </Box>
+                  </Box>
+                </CardContent>
+              </Card>
             </Box>
-            <Box mt={1}>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>Location:</td>
-                    <td>{state.event.locations.join(', ')}</td>
-                  </tr>
-                  <tr>
-                    <td>Start Date Time:</td>
-                    <td>
-                      {format(
-                        new Date(state.event.startedAt),
-                        'yyyy-MM-dd hh:mm:ss aa'
-                      )}{' '}
-                      {state.event.startTz}
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>End Date Time:</td>
-                    <td>
-                      {format(
-                        new Date(state.event.endedAt),
-                        'yyyy-MM-dd hh:mm:ss aa'
-                      )}{' '}
-                      {state.event.endTz}
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <Box sx={{ display: 'flex', my: 2, flexWrap: 'wrap' }}>
+              <Card variant="outlined" sx={{ m: 1 }}>
+                <CardContent>
+                  <Typography variant="h6" component="div">
+                    GEO
+                  </Typography>
+                  {state.event.locations.map((l, i) => (
+                    <Chip
+                      key={i}
+                      label={l}
+                      sx={{ mt: { xs: 1 }, mr: 1 }}
+                      size="small"
+                      onClick={() => handleExplore('location', l)}
+                    />
+                  ))}
+                </CardContent>
+              </Card>
+              <Card variant="outlined" sx={{ m: 1 }}>
+                <CardContent>
+                  <Typography variant="h6" component="div">
+                    TAGS
+                  </Typography>
+                  {state.event.categories.map((c, i) => (
+                    <Chip
+                      variant="outlined"
+                      color="info"
+                      key={i}
+                      label={c}
+                      sx={{ mt: { xs: 1 }, mr: 1 }}
+                      size="small"
+                      onClick={() => handleExplore('tag', c)}
+                    />
+                  ))}
+                </CardContent>
+              </Card>
             </Box>
+            <Box>
+              <Card variant="outlined" sx={{ m: 1 }}>
+                <CardContent>
+                  <Typography variant="h6" component="div">
+                    VERIFICATION / VALIDATION
+                  </Typography>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <td>Status:</td>
+                        <td>
+                          {state.event.verified ? (
+                            <Chip
+                              icon={<CheckCircleOutlinedIcon />}
+                              label="Verified"
+                              color="success"
+                              size="small"
+                            />
+                          ) : (
+                            <Chip
+                              icon={<CancelOutlinedIcon />}
+                              label="Not Verified"
+                              color="error"
+                              size="small"
+                            />
+                          )}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </CardContent>
+              </Card>
+            </Box>
+            <Box></Box>
             <Box mt={2}>
               <Typography
                 variant="h6"
