@@ -20,6 +20,7 @@ export default async function handler(req, res) {
             startTz: 1,
             endedAt: 1,
             endTz: 1,
+            updatedAt: 1,
           },
         }
       );

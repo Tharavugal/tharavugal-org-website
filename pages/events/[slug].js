@@ -17,6 +17,11 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import EventIcon from '@mui/icons-material/Event';
 import LanguageIcon from '@mui/icons-material/Language';
 import { format } from 'date-fns';
+import dynamic from 'next/dynamic';
+
+const DynamicReactJson = dynamic(() => import('@microlink/react-json-view'), {
+  ssr: false,
+});
 
 import Layout from '@/components/layouts/DefaultLayout';
 import { setAppState, useAppState } from '@/store';
@@ -79,10 +84,19 @@ export default function EventView() {
         <Box>
           <Paper sx={{ mt: 2, p: { xs: 1, sm: 1, md: 2 } }}>
             <Typography variant="h3">{state.event.title}</Typography>
-            <Box>
+            <Typography
+              variant="subtitle2"
+              sx={{ color: 'text.secondary', textAlign: 'right' }}
+            >
+              Updated At: {state.event.updatedAt}
+            </Typography>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', mt: 2 }}>
               <Card variant="outlined" sx={{ m: 1 }}>
                 <CardContent>
-                  <Typography variant="h6" component="div">
+                  <Typography
+                    variant="h6"
+                    sx={{ textDecoration: 'underline', mb: 1 }}
+                  >
                     PERIOD
                   </Typography>
                   <Box
@@ -159,11 +173,12 @@ export default function EventView() {
                   </Box>
                 </CardContent>
               </Card>
-            </Box>
-            <Box sx={{ display: 'flex', my: 2, flexWrap: 'wrap' }}>
               <Card variant="outlined" sx={{ m: 1 }}>
                 <CardContent>
-                  <Typography variant="h6" component="div">
+                  <Typography
+                    variant="h6"
+                    sx={{ textDecoration: 'underline', mb: 1 }}
+                  >
                     GEO
                   </Typography>
                   {state.event.locations.map((l, i) => (
@@ -177,9 +192,61 @@ export default function EventView() {
                   ))}
                 </CardContent>
               </Card>
+            </Box>
+
+            <Box>
               <Card variant="outlined" sx={{ m: 1 }}>
                 <CardContent>
-                  <Typography variant="h6" component="div">
+                  <Typography
+                    variant="h6"
+                    sx={{ textDecoration: 'underline', mb: 1 }}
+                  >
+                    VERIFICATION / VALIDATION
+                  </Typography>
+                  <Box
+                    sx={{
+                      display: 'grid',
+                      gridTemplateColumns: 'auto 1fr',
+                      gridGap: '15px 10px',
+                    }}
+                  >
+                    <Box>Status:</Box>
+                    <Box>
+                      {state.event.verified ? (
+                        <Chip
+                          icon={<CheckCircleOutlinedIcon />}
+                          label="Verified"
+                          color="success"
+                          size="small"
+                        />
+                      ) : (
+                        <Chip
+                          icon={<CancelOutlinedIcon />}
+                          label="Not Verified"
+                          color="error"
+                          size="small"
+                        />
+                      )}
+                    </Box>
+                    <Box>Drafted By:</Box>
+                    <Box>Admin (Roles: Admin, Core Member)</Box>
+                    <Box>Published By:</Box>
+                    <Box>Admin (Roles: Admin, Core Member)</Box>
+                    <Box>Cross-checked By:</Box>
+                    <Box></Box>
+                    <Box>No Cross-checks:</Box>
+                    <Box>0</Box>
+                  </Box>
+                </CardContent>
+              </Card>
+            </Box>
+            <Box sx={{ display: 'flex', my: 2, flexWrap: 'wrap' }}>
+              <Card variant="outlined" sx={{ m: 1 }}>
+                <CardContent>
+                  <Typography
+                    variant="h6"
+                    sx={{ textDecoration: 'underline', mb: 1 }}
+                  >
                     TAGS
                   </Typography>
                   {state.event.categories.map((c, i) => (
@@ -196,40 +263,24 @@ export default function EventView() {
                 </CardContent>
               </Card>
             </Box>
-            <Box>
-              <Card variant="outlined" sx={{ m: 1 }}>
-                <CardContent>
-                  <Typography variant="h6" component="div">
-                    VERIFICATION / VALIDATION
-                  </Typography>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>Status:</td>
-                        <td>
-                          {state.event.verified ? (
-                            <Chip
-                              icon={<CheckCircleOutlinedIcon />}
-                              label="Verified"
-                              color="success"
-                              size="small"
-                            />
-                          ) : (
-                            <Chip
-                              icon={<CancelOutlinedIcon />}
-                              label="Not Verified"
-                              color="error"
-                              size="small"
-                            />
-                          )}
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </CardContent>
-              </Card>
+            <Box mt={2}>
+              <Typography
+                variant="h6"
+                sx={{ display: 'flex', alignItems: 'center' }}
+              >
+                <ChevronRightIcon /> Data
+              </Typography>
+              <Divider />
+              <DynamicReactJson
+                name={false}
+                theme="google"
+                collapsed={false}
+                iconStyle="square"
+                displayObjectSize={false}
+                displayDataTypes={false}
+                src={state.data?.public || {}}
+              />
             </Box>
-            <Box></Box>
             <Box mt={2}>
               <Typography
                 variant="h6"
