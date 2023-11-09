@@ -278,7 +278,7 @@ export default function EventView() {
                 iconStyle="square"
                 displayObjectSize={false}
                 displayDataTypes={false}
-                src={state.data?.public || {}}
+                src={state.event.data?.public || {}}
               />
             </Box>
             <Box mt={2}>

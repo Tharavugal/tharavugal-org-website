@@ -21,6 +21,7 @@ export default async function handler(req, res) {
             endedAt: 1,
             endTz: 1,
             updatedAt: 1,
+            data: 1
           },
         }
       );
