@@ -233,9 +233,7 @@ export default function EventView() {
                     <Box>Published By:</Box>
                     <Box>Admin (Roles: Admin, Core Member)</Box>
                     <Box>Cross-checked By:</Box>
-                    <Box></Box>
-                    <Box>No Cross-checks:</Box>
-                    <Box>0</Box>
+                    <Box>None</Box>
                   </Box>
                 </CardContent>
               </Card>
