@@ -47,11 +47,8 @@ export default function Explore() {
   return (
     <Layout title="Explore">
       <Box textAlign="center">
-        <Typography variant="h4">Explore</Typography>
+        <Typography variant="h5">Explore</Typography>
       </Box>
-      <Alert severity="success">
-        You can explore <strong>Real-Time</strong> events here...
-      </Alert>
       <Box
         sx={{
           p: { xs: 1, sm: 1, md: 2 },

@@ -9,6 +9,9 @@ import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import WaterDropOutlinedIcon from '@mui/icons-material/WaterDropOutlined';
+import MedicationLiquidOutlinedIcon from '@mui/icons-material/MedicationLiquidOutlined';
+import TravelExploreOutlinedIcon from '@mui/icons-material/TravelExploreOutlined';
+import TempleHinduOutlinedIcon from '@mui/icons-material/TempleHinduOutlined';
 
 import ToolBox from './ToolBox';
 
@@ -20,14 +23,7 @@ export default function Tools() {
       </Typography>
       <Divider />
 
-      <Typography
-        variant="subtitle1"
-        sx={{ display: 'flex', alignItems: 'center', mt: 2 }}
-      >
-        Primary
-      </Typography>
-      <Divider />
-
+      <Divider sx={{ mt: 2 }}>Real-Time Events</Divider>
       <Box
         py={2}
         sx={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}
@@ -40,14 +36,8 @@ export default function Tools() {
         />
         <ToolBox icon={ScienceOutlinedIcon} label="Research" path="/research" />
       </Box>
-      <Typography
-        variant="subtitle1"
-        sx={{ display: 'flex', alignItems: 'center', mt: 2 }}
-      >
-        Health
-      </Typography>
-      <Divider />
 
+      <Divider sx={{ mt: 2 }}>Health</Divider>
       <Box
         py={2}
         sx={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}
@@ -57,15 +47,14 @@ export default function Tools() {
           label="Food Ingredients"
           path="/food-ingredients"
         />
+        <ToolBox
+          icon={MedicationLiquidOutlinedIcon}
+          label="Sitha Medicines"
+          path="/sitha-medicines"
+        />
       </Box>
-      <Typography
-        variant="subtitle1"
-        sx={{ display: 'flex', alignItems: 'center' }}
-      >
-        Thamizhl
-      </Typography>
-      <Divider />
 
+      <Divider sx={{ mt: 2 }}>Thamizhl</Divider>
       <Box
         py={2}
         sx={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}
@@ -86,14 +75,8 @@ export default function Tools() {
           path="/thamizhl-calendar"
         />
       </Box>
-      <Typography
-        variant="subtitle1"
-        sx={{ display: 'flex', alignItems: 'center' }}
-      >
-        Environment
-      </Typography>
-      <Divider />
 
+      <Divider sx={{ mt: 2 }}>Environment</Divider>
       <Box
         py={2}
         sx={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}
@@ -104,14 +87,20 @@ export default function Tools() {
           path="/water-bodies"
         />
       </Box>
-      <Typography
-        variant="subtitle1"
-        sx={{ display: 'flex', alignItems: 'center' }}
-      >
-        Others
-      </Typography>
-      <Divider />
 
+      <Divider sx={{ mt: 2 }}>Geo</Divider>
+      <Box
+        py={2}
+        sx={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}
+      >
+        <ToolBox
+          icon={TravelExploreOutlinedIcon}
+          label="Geo Name Finder"
+          path="/geo-name-finder"
+        />
+      </Box>
+
+      <Divider sx={{ mt: 2 }}>Others</Divider>
       <Box
         py={2}
         sx={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}
@@ -120,6 +109,11 @@ export default function Tools() {
           icon={PushPinOutlinedIcon}
           label="On This Day"
           path="/on-this-day"
+        />
+        <ToolBox
+          icon={TempleHinduOutlinedIcon}
+          label="Temples"
+          path="/temples"
         />
       </Box>
     </Box>

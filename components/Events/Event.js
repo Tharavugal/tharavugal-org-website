@@ -32,6 +32,8 @@ export default function Event({ data }) {
         <Box>
           {data.locations.map((l, i) => (
             <Chip
+              color="info"
+              variant="outlined"
               key={i}
               label={l}
               sx={{ mt: { xs: 1 }, mr: 1 }}
@@ -45,7 +47,7 @@ export default function Event({ data }) {
             {data.categories.map((c, i) => (
               <Chip
                 variant="outlined"
-                color="info"
+                color="default"
                 key={i}
                 label={c}
                 sx={{ mt: { xs: 1 }, mr: 1 }}
@@ -57,7 +59,10 @@ export default function Event({ data }) {
         )}
         <Box mt={1} sx={{ textAlign: 'right' }}>
           <Typography variant="span" fontSize={12} color="text.secondary">
-            {format(utcToZonedTime(data.startedAt, data.startTz), 'yyyy-MM-dd hh:mm:ss aa')}{' '}
+            {format(
+              utcToZonedTime(data.startedAt, data.startTz),
+              'yyyy-MM-dd hh:mm:ss aa'
+            )}{' '}
             {data.startTz}
           </Typography>
         </Box>
