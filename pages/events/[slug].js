@@ -183,6 +183,8 @@ export default function EventView() {
                   </Typography>
                   {state.event.locations.map((l, i) => (
                     <Chip
+                      color="info"
+                      variant="outlined"
                       key={i}
                       label={l}
                       sx={{ mt: { xs: 1 }, mr: 1 }}
@@ -250,7 +252,7 @@ export default function EventView() {
                   {state.event.categories.map((c, i) => (
                     <Chip
                       variant="outlined"
-                      color="info"
+                      color="default"
                       key={i}
                       label={c}
                       sx={{ mt: { xs: 1 }, mr: 1 }}
