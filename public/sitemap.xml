@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://tharavugal.org/</loc>
-  <lastmod>2023-11-01</lastmod>
+  <lastmod>2023-11-12</lastmod>
  </url>
  <url>
   <loc>https://tharavugal.org/food-ingredients</loc>
@@ -15,6 +15,26 @@
  <url>
   <loc>https://tharavugal.org/faqs</loc>
   <lastmod>2023-10-11</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/food-ingredients/maggi-nestle-india-noodles-with-seasoning</loc>
+  <lastmod>2023-10-08</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/food-ingredients/yippee-itc-noodles-with-seasoning</loc>
+  <lastmod>2023-10-08</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/food-ingredients/cadbury-dairy-milk-chocolate-mondelez-india-foods</loc>
+  <lastmod>2023-10-08</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/food-ingredients/milk-bikis-biscuits-cookies-britannia-industries</loc>
+  <lastmod>2023-10-08</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/food-ingredients/marie-gold-biscuits-cookies-britannia-industries</loc>
+  <lastmod>2023-10-08</lastmod>
  </url>
  <url>
   <loc>https://tharavugal.org/events/the-tharavugal-org-web-application-launched-chennai-thamizhl-naadu-republic-of-india-c5df718a</loc>
@@ -182,7 +202,7 @@
  </url>
  <url>
   <loc>https://tharavugal.org/events/actor-junior-balaiah-died-at-the-age-of-70-chennai-thamizhl-naadu-republic-of-india-647fcf15</loc>
-  <lastmod>2023-11-04</lastmod>
+  <lastmod>2023-11-05</lastmod>
  </url>
  <url>
   <loc>https://tharavugal.org/events/condom-packets-were-dumped-in-the-irrigation-channel-samayapuram-tiruchirappalli-thamizhl-naadu-republic-of-india-a284a742</loc>
@@ -197,12 +217,12 @@
   <lastmod>2023-11-04</lastmod>
  </url>
  <url>
-  <loc>https://tharavugal.org/events/an-army-man-died-of-a-lightning-strike-devipattanam-sivagiri-tenkasi-7ae00107</loc>
-  <lastmod>2023-11-04</lastmod>
+  <loc>https://tharavugal.org/events/an-army-man-died-of-a-lightning-strike-devipattanam-sivagiri-tenkasi-thamizhl-naadu-republic-of-india-7ae00107</loc>
+  <lastmod>2023-11-09</lastmod>
  </url>
  <url>
-  <loc>https://tharavugal.org/events/people-injured-in-a-road-accident-natrampalli-tirupathur-6bbab524</loc>
-  <lastmod>2023-11-04</lastmod>
+  <loc>https://tharavugal.org/events/people-injured-in-a-road-accident-natrampalli-tirupathur-thamizhl-naadu-republic-of-india-6bbab524</loc>
+  <lastmod>2023-11-09</lastmod>
  </url>
  <url>
   <loc>https://tharavugal.org/events/a-28-year-old-medical-student-died-in-a-college-hostel-ranchi-jharkhand-republic-of-india-b855de9e</loc>
@@ -213,23 +233,27 @@
   <lastmod>2023-11-05</lastmod>
  </url>
  <url>
-  <loc>https://tharavugal.org/food-ingredients/maggi-nestle-india-noodles-with-seasoning</loc>
-  <lastmod>2023-10-08</lastmod>
+  <loc>https://tharavugal.org/events/a-newlywed-couple-was-murdered-thoothukudi-thamizhl-naadu-republic-of-india-6ff38dd9</loc>
+  <lastmod>2023-11-07</lastmod>
  </url>
  <url>
-  <loc>https://tharavugal.org/food-ingredients/yippee-itc-noodles-with-seasoning</loc>
-  <lastmod>2023-10-08</lastmod>
+  <loc>https://tharavugal.org/events/the-earthquake-occurred-islamic-emirate-of-afghanistan-1b8d81ea</loc>
+  <lastmod>2023-11-07</lastmod>
  </url>
  <url>
-  <loc>https://tharavugal.org/food-ingredients/cadbury-dairy-milk-chocolate-mondelez-india-foods</loc>
-  <lastmod>2023-10-08</lastmod>
+  <loc>https://tharavugal.org/events/seven-college-students-were-arrested-for-harassing-a-junior-student-peelamedu-coimbatore-thamizhl-naadu-republic-of-india-2513d997</loc>
+  <lastmod>2023-11-10</lastmod>
  </url>
  <url>
-  <loc>https://tharavugal.org/food-ingredients/milk-bikis-biscuits-cookies-britannia-industries</loc>
-  <lastmod>2023-10-08</lastmod>
+  <loc>https://tharavugal.org/events/a-woman-conservancy-worker-died-in-an-accident-thiruvanmiyur-chennai-thamizhl-naadu-republic-of-india-c593900a</loc>
+  <lastmod>2023-11-10</lastmod>
  </url>
  <url>
-  <loc>https://tharavugal.org/food-ingredients/marie-gold-biscuits-cookies-britannia-industries</loc>
-  <lastmod>2023-10-08</lastmod>
+  <loc>https://tharavugal.org/events/a-gold-chain-was-snatched-from-a-woman-visalakshipuram-madurai-thamizhl-naadu-republic-of-india-e67131c0</loc>
+  <lastmod>2023-11-10</lastmod>
+ </url>
+ <url>
+  <loc>https://tharavugal.org/events/a-police-team-arrested-an-accused-by-shooting-sellur-madurai-thamizhl-naadu-republic-of-india-423c869e</loc>
+  <lastmod>2023-11-10</lastmod>
  </url>
 </urlset>

@@ -5,7 +5,7 @@ import { connect } from './utils/db';
 
 const baseUrl = {
   loc: 'https://tharavugal.org/',
-  lastmod: '2023-10-01',
+  lastmod: '2023-11-12',
 };
 
 const staticUrls = [
@@ -77,8 +77,8 @@ async function run() {
       _content: [
         { url: baseUrl },
         ...staticUrls,
-        ...xmlEvents,
         ...xmlFoodIngredients,
+        ...xmlEvents,
       ],
     },
     { header: true, indent: ' ' }
