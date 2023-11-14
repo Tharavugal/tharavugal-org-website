@@ -13,6 +13,7 @@ import FeaturedVisualizations from '@/components/FeaturedVisualizations';
 import RecentDiscussions from '@/components/RecentDiscussions';
 import RecentEntities from '@/components/RecentEntities';
 import Links from '@/components/Links';
+import Stats from '@/components/home/Stats';
 
 export default function Home({ data }) {
   const router = useRouter();
@@ -36,6 +37,15 @@ export default function Home({ data }) {
         <Events data={data.events} styles={styles} />
         <Box>
           <Paper sx={{ mt: 0 }}>
+            <Stats
+              data={{
+                totalEvents: data.totalEvents,
+                totalTags: data.totalTags,
+                totalLocations: data.totalLocations,
+              }}
+            />
+          </Paper>
+          <Paper sx={{ mt: 2 }}>
             <Tools />
           </Paper>
           <Paper sx={{ mt: 2 }}>
@@ -77,31 +87,6 @@ export async function getServerSideProps(context) {
     {
       $limit: 10,
     },
-    // {
-    //   $group: {
-    //     _id: {
-    //       $dateToString: {
-    //         date: '$startedAt',
-    //         format: '%G-%m-%d',
-    //         timezone: '$startTz',
-    //       },
-    //     },
-    //     records: {
-    //       $push: {
-    //         title: '$title',
-    //         slug: '$slug',
-    //         locations: '$locations',
-    //         startedAt: '$startedAt',
-    //         startTz: '$startTz',
-    //       },
-    //     },
-    //   },
-    // },
-    // {
-    //   $project: {
-    //     records: 1,
-    //   },
-    // },
     {
       $project: {
         title: 1,
@@ -115,10 +100,18 @@ export async function getServerSideProps(context) {
   ]);
 
   const events = JSON.parse(JSON.stringify(await cursor.toArray()));
+  const totalEvents = await eventsCol.estimatedDocumentCount();
+  const tagsCol = client.db(DB_NAME).collection('event-categories');
+  const totalTags = await tagsCol.estimatedDocumentCount();
+  const loctaionsCol = client.db(DB_NAME).collection('event-locations');
+  const totalLocations = await loctaionsCol.estimatedDocumentCount();
   return {
     props: {
       data: {
         events,
+        totalEvents,
+        totalTags,
+        totalLocations,
       },
     },
   };

@@ -1,16 +1,5 @@
 import Layout from '@/components/layouts/DefaultLayout';
-import {
-  Paper,
-  Typography,
-  Alert,
-  AlertTitle,
-  Card,
-  CardContent,
-  CardActions,
-  Button,
-  Chip,
-  Box,
-} from '@mui/material';
+import { Paper, Typography, Card, CardContent, Chip, Box } from '@mui/material';
 import Link from 'next/link';
 import InfoIcon from '@mui/icons-material/Info';
 
@@ -20,7 +9,7 @@ export default function Contribute() {
       <Typography variant="h5" textAlign="center">
         Contribute
       </Typography>
-      <Paper sx={{ mt: 2, p: 5 }}>
+      <Paper sx={{ mt: 2, p: { xs: 1, sm: 1, md: 2 } }}>
         <Card sx={{ mt: 2 }}>
           <CardContent>
             <Typography variant="h6">Share</Typography>
