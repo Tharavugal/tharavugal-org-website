@@ -1,23 +1,7 @@
-import { Box, Card, CardContent, Divider, Typography } from '@mui/material';
+import { Box, Divider, Typography } from '@mui/material';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-
-function StatsBox({ name, count }) {
-  return (
-    <Card variant="outlined" sx={{ m: 1, minWidth: '100px' }}>
-      <CardContent
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Typography variant="h3">{count}</Typography>
-        <Typography variant="subtitle1">{name}</Typography>
-      </CardContent>
-    </Card>
-  );
-}
+import Link from 'next/link';
+import StatsBox from '../stats/StatsBox';
 
 export default function Stats({ data }) {
   return (
@@ -31,6 +15,10 @@ export default function Stats({ data }) {
         <StatsBox name="Real-Time Events" count={data.totalEvents} />
         <StatsBox name="Tags" count={data.totalTags} />
         <StatsBox name="Locations" count={data.totalLocations} />
+      </Box>
+
+      <Box sx={{ m: 1, textAlign: 'right' }}>
+        <Link href="/statistics">View All</Link>
       </Box>
     </Box>
   );
