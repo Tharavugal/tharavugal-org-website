@@ -9,7 +9,7 @@ import styles from './index.module.css';
 import SearchForm from '@/components/SearchForm';
 import Tools from '@/components/tools';
 import Resources from '@/components/Resources';
-import FeaturedVisualizations from '@/components/FeaturedVisualizations';
+import FeaturedVisualizations from '@/components/home/FeaturedVisualizations';
 import RecentDiscussions from '@/components/RecentDiscussions';
 import RecentEntities from '@/components/RecentEntities';
 import Links from '@/components/Links';
@@ -36,7 +36,7 @@ export default function Home({ data }) {
       >
         <Events data={data.events} styles={styles} />
         <Box>
-          <Paper sx={{ mt: 0 }}>
+          <Paper sx={{ mt: { xs: 2, sm: 0 } }}>
             <Stats
               data={{
                 totalEvents: data.totalEvents,

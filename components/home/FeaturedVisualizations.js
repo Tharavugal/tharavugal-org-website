@@ -24,7 +24,6 @@ function FeaturedBox({ data }) {
       <Card
         variant="outlined"
         sx={{
-          borderColor: data.severity,
           p: 3,
           userSelect: 'none',
           cursor: 'pointer',
@@ -83,9 +82,9 @@ export default function FeaturedVisualizations() {
       },
     },
     {
-      title: '🚗 EV Explosions 🛵',
+      title: '🌎 Natural Disasters',
       subtitle: `(${format(new Date(), 'yyyy')})`,
-      severity: 'warning.main',
+      severity: 'error.main',
       filters: {},
       disabled: true,
     },
