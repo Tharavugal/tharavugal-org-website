@@ -1,49 +1,38 @@
 import { List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { useRouter } from 'next/router';
 
-export default function Sidebar() {
+function Menu({ obj }) {
   const router = useRouter();
 
   return (
+    <ListItem disablePadding>
+      <ListItemButton
+        selected={router.pathname === obj.path}
+        onClick={() => router.push(obj.path)}
+      >
+        <ListItemText primary={obj.menu} />
+      </ListItemButton>
+    </ListItem>
+  );
+}
+
+export default function Sidebar() {
+  const menus = [
+    { menu: 'Dashboard', path: '/admin' },
+    { menu: 'Events', path: '/admin/events' },
+    { menu: 'Event Categories', path: '/admin/event-categories' },
+    { menu: 'Event Locations', path: '/admin/event-locations' },
+    { menu: 'Entity Types', path: '/admin/entity-types' },
+    { menu: 'Entities', path: '/admin/entities' },
+    { menu: 'Food Ingredients', path: '/admin/food-ingredients' },
+    { menu: 'Contribution Logs', path: '/admin/contribution-logs' },
+  ];
+
+  return (
     <List>
-      <ListItem disablePadding>
-        <ListItemButton
-          selected={router.pathname === '/admin'}
-          onClick={() => router.push('/admin')}
-        >
-          <ListItemText primary="Dashboard" />
-        </ListItemButton>
-      </ListItem>
-      <ListItem disablePadding>
-        <ListItemButton selected={router.pathname === '/admin/events'}
-          onClick={() => router.push('/admin/events')}>
-          <ListItemText primary="Events" />
-        </ListItemButton>
-      </ListItem>
-      <ListItem disablePadding>
-        <ListItemButton selected={router.pathname === '/admin/event-categories'}
-          onClick={() => router.push('/admin/event-categories')}>
-          <ListItemText primary="Event Categories" />
-        </ListItemButton>
-      </ListItem>
-      <ListItem disablePadding>
-        <ListItemButton selected={router.pathname === '/admin/event-locations'}
-          onClick={() => router.push('/admin/event-locations')}>
-          <ListItemText primary="Event Locations" />
-        </ListItemButton>
-      </ListItem>
-      <ListItem disablePadding>
-        <ListItemButton selected={router.pathname === '/admin/entity-types'}
-          onClick={() => router.push('/admin/entity-types')}>
-          <ListItemText primary="Entity Types" />
-        </ListItemButton>
-      </ListItem>
-      <ListItem disablePadding>
-        <ListItemButton selected={router.pathname === '/admin/entities'}
-          onClick={() => router.push('/admin/entities')}>
-          <ListItemText primary="Entities" />
-        </ListItemButton>
-      </ListItem>
+      {menus.map((m, i) => (
+        <Menu key={i} obj={m} />
+      ))}
     </List>
   );
 }

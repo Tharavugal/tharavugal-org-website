@@ -42,22 +42,22 @@ export default function ActionMenu({ row, url, Edit, actions = [], mutate }) {
         }}
       >
         <MenuItem onClick={handleReport}>
-          <ReportIcon
-            sx={{ mr: 1, color: (theme) => theme.palette.text.secondary }}
-          />{' '}
-          Report
-        </MenuItem>
-        <MenuItem onClick={handleReport}>
           <EditIcon
             sx={{ mr: 1, color: (theme) => theme.palette.text.secondary }}
           />{' '}
-          Correct it
+          Update
         </MenuItem>
         <MenuItem onClick={handleReport}>
           <TranslateOutlinedIcon
             sx={{ mr: 1, color: (theme) => theme.palette.text.secondary }}
           />{' '}
           Translate
+        </MenuItem>
+        <MenuItem onClick={handleReport}>
+          <ReportIcon
+            sx={{ mr: 1, color: (theme) => theme.palette.text.secondary }}
+          />{' '}
+          Report
         </MenuItem>
       </Menu>
     </>

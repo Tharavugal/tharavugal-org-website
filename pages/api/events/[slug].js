@@ -15,10 +15,13 @@ export default async function handler(req, res) {
             _id: 0,
             title: 1,
             locations: 1,
+            categories: 1,
             startedAt: 1,
             startTz: 1,
             endedAt: 1,
             endTz: 1,
+            updatedAt: 1,
+            data: 1
           },
         }
       );

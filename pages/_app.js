@@ -8,7 +8,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { Box, CircularProgress } from '@mui/material';
+import { Box, CircularProgress, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 import { setAppState } from '@/store';
 import { SWRConfig } from 'swr';
@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }) {
   const [authorized, setAuthorized] = useState(false);
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'));
+    const user = JSON.parse(window.localStorage.getItem('user'));
 
     if (user) {
       setAppState((s) => ({ ...s, user }));
@@ -48,6 +48,7 @@ export default function App({ Component, pageProps }) {
         '/images',
         '/videos',
         '/documents',
+        '/books',
         '/contributing-process',
         '/entities',
         '/literatures',
@@ -64,9 +65,10 @@ export default function App({ Component, pageProps }) {
         '/contribute',
         '/open-issues',
         '/food-ingredients',
+        '/food-ingredients/[slug]',
       ];
       const path = url.split('?')[0];
-      const user = localStorage.getItem('user');
+      const user = window.localStorage.getItem('user');
       if (!user && !publicPaths.includes(path)) {
         setAuthorized(false);
         router.push({
@@ -77,7 +79,7 @@ export default function App({ Component, pageProps }) {
       }
     }
     // run auth check on initial load
-    authCheck(router.asPath);
+    authCheck(router.pathname);
 
     // set authorized to false to hide page content while changing routes
     const hideContent = () => setAuthorized(false);
@@ -95,16 +97,38 @@ export default function App({ Component, pageProps }) {
 
   if (!authorized) {
     return (
-      <Box
-        sx={{
-          position: 'fixed',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-        }}
-      >
-        <CircularProgress />
-      </Box>
+      <>
+        <CssBaseline />
+        <Box
+          sx={{
+            width: '100%',
+            height: '100vh'
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '100%'
+            }}
+          >
+            <Box sx={{ color: '#FF851B' }}>
+              <CircularProgress color="success" />
+            </Box>
+            <Typography variant="h5" sx={{ mt: 2 }}>
+              Please wait..
+            </Typography>
+            <Typography
+              variant="subtitle2"
+              sx={{ mt: 2, color: 'text.secondary' }}
+            >
+              It may take upto 10 Sec to load.
+            </Typography>
+          </Box>
+        </Box>
+      </>
     );
   }
 

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function OnThisDay() {
   return (
-    <Layout>
+    <Layout title="On This Day">
       <Box textAlign="center">
         <Typography variant="h4">On This Day</Typography>
       </Box>

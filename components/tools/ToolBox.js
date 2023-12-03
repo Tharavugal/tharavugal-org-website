@@ -8,20 +8,20 @@ export default function ToolBox({ icon: Icon, label, path }) {
     <Box
       onClick={() => router.push(path)}
       sx={{
-        width: '100px',
+        width: '120px',
         minHeight: '100px',
         justifyContent: 'center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        border: '1px solid grey',
-        borderRadius: '10px',
+        border: '2px dashed #01FF70',
         cursor: 'pointer',
+        textTransform: 'uppercase',
         m: 1,
         p: 1,
-        '&:hover': (theme) => ({
-          background: theme.palette.grey[200],
-        }),
+        '&:hover': {
+          background: '#01ff709e',
+        },
       }}
     >
       <Icon sx={{ fontSize: '35px', mt: '10px' }} />
@@ -31,7 +31,7 @@ export default function ToolBox({ icon: Icon, label, path }) {
         variant="body1"
         sx={{ userSelect: 'none' }}
         fontSize={14}
-        color="primary.main"
+        color="#111111"
       >
         {label}
       </Typography>

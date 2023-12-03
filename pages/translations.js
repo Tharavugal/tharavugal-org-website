@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Translations() {
   return (
-    <Layout>
+    <Layout title="Translations">
       <Box textAlign="center">
         <Typography variant="h4">Translations</Typography>
       </Box>

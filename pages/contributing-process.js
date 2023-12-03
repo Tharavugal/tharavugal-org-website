@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function ContributingProcess() {
   return (
-    <Layout>
+    <Layout title="Contributing Process">
       <Box textAlign="center">
         <Typography variant="h4">Contributing Process</Typography>
       </Box>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function ArchivalRecords() {
   return (
-    <Layout>
+    <Layout title="Archival Records">
       <Box textAlign="center">
         <Typography variant="h4">Archival Records</Typography>
       </Box>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function ThamizhlCalendar() {
   return (
-    <Layout>
+    <Layout title="Thamizhl Calendar">
       <Box textAlign="center">
         <Typography variant="h4">Thamizhl Calendar</Typography>
       </Box>

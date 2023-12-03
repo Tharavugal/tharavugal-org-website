@@ -14,7 +14,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
 
-export default function DefaultLayout({ children, title }) {
+export default function DefaultLayout({ children, title = 'Loading' }) {
   const [agreement, setAgreement] = useState(localStorage.getItem('agreement'));
   const isLoading = useAppState((s) => s.loading);
 
@@ -26,9 +26,8 @@ export default function DefaultLayout({ children, title }) {
       <AppHeader />
       <Toolbar variant="dense" />
       <Box
-        p={3}
         pb={15}
-        sx={{ minHeight: 'calc(100% - 50px)' }}
+        sx={{ minHeight: 'calc(100% - 50px)', p: { xs: 1, sm: 1, md: 2 } }}
         bgcolor="#E7EBF0"
       >
         {children}
@@ -49,11 +48,21 @@ export default function DefaultLayout({ children, title }) {
       >
         <Grid container px={3}>
           <Grid item xs={12} sm={6} md={4}>
-            <Typography variant="body1" sx={{ textDecoration: 'underline' }}>
+            <Typography
+              variant="body2"
+              sx={{
+                background: 'white',
+                color: 'black',
+                textDecoration: 'none',
+                display: 'inline',
+                padding: '3px 10px',
+                fontWeight: 'bold',
+              }}
+            >
               ORGANIZATION
             </Typography>
-            <Box mt={2}>
-              <Box>
+            <Box mt={2} component="ul">
+              <Box component="li">
                 <Box
                   component={Link}
                   href="/about-us"
@@ -66,7 +75,7 @@ export default function DefaultLayout({ children, title }) {
                   About Us
                 </Box>
               </Box>
-              <Box>
+              <Box component="li">
                 <Box
                   component={Link}
                   href="/contact-us"
@@ -82,11 +91,21 @@ export default function DefaultLayout({ children, title }) {
             </Box>
           </Grid>
           <Grid item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={4}>
-            <Typography variant="body1" sx={{ textDecoration: 'underline' }}>
+            <Typography
+              variant="body2"
+              sx={{
+                background: 'white',
+                color: 'black',
+                textDecoration: 'none',
+                display: 'inline',
+                padding: '3px 10px',
+                fontWeight: 'bold',
+              }}
+            >
               USEFUL LINKS
             </Typography>
-            <Box mt={2}>
-              <Box>
+            <Box mt={2} component="ul">
+              <Box component="li">
                 <Box
                   component={Link}
                   href="/faqs"
@@ -99,7 +118,7 @@ export default function DefaultLayout({ children, title }) {
                   FAQs
                 </Box>
               </Box>
-              <Box>
+              <Box component="li">
                 <Box
                   component={Link}
                   href="https://github.com/Tharavugal/web"
@@ -109,17 +128,28 @@ export default function DefaultLayout({ children, title }) {
                     '&:hover': { textDecoration: 'underline' },
                   }}
                 >
-                  Github <OpenInNewOutlinedIcon sx={{ fontSize: '12px' }} />
+                  Code Repository - Github{' '}
+                  <OpenInNewOutlinedIcon sx={{ fontSize: '12px' }} />
                 </Box>
               </Box>
             </Box>
           </Grid>
           <Grid item xs={12} sx={{ mt: { xs: 2, sm: 0 } }} sm={6} md={4}>
-            <Typography variant="body1" sx={{ textDecoration: 'underline' }}>
+            <Typography
+              variant="body2"
+              sx={{
+                background: 'white',
+                color: 'black',
+                textDecoration: 'none',
+                display: 'inline',
+                padding: '3px 10px',
+                fontWeight: 'bold',
+              }}
+            >
               LEGAL
             </Typography>
-            <Box mt={2}>
-              <Box>
+            <Box mt={2} component="ul">
+              <Box component="li">
                 <Box
                   component={Link}
                   href="/terms-conditions"
@@ -132,7 +162,7 @@ export default function DefaultLayout({ children, title }) {
                   Terms & Conditions
                 </Box>
               </Box>
-              <Box>
+              <Box component="li">
                 <Box
                   component={Link}
                   href="/privacy-policy"

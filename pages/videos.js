@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function Videos() {
   return (
-    <Layout>
+    <Layout title="Videos">
       <Box textAlign="center">
         <Typography variant="h4">Videos</Typography>
       </Box>

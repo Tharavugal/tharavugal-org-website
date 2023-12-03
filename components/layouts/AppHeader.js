@@ -19,7 +19,7 @@ export default function AppHeader() {
   const user = useAppState((s) => s.user);
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed" sx={{ backgroundColor: 'white', color: 'black' }}>
       <Toolbar
         variant="dense"
         sx={{ display: 'flex', justifyContent: 'space-between' }}
@@ -37,7 +37,7 @@ export default function AppHeader() {
         </Box>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           {user && user.role === USER_ROLES.ADMIN && (
-            <Box mr={2} component={Link} href="/admin" sx={{ color: 'white' }}>
+            <Box mr={2} component={Link} href="/admin">
               Dashboard
             </Box>
           )}
@@ -52,28 +52,30 @@ export default function AppHeader() {
               Sign Out
             </Button>
           )}
-          <Box
-            component={Link}
-            href="/contribute"
-            sx={{
-              alignItems: 'center',
-              border: 'none',
-              borderRadius: '20px',
-              display: 'flex',
-              flexDirection: 'row',
-              padding: '0 10px',
-              textDecoration: 'none',
-              color: 'white',
-              background: 'black',
-              fontWeight: 'bold',
-              mx: 1,
-              letterSpacing: '1px',
-              fontSize: '15px',
-            }}
-          >
-            CONTRIBUTE
-            <Box className={styles.heart}>❤️</Box>
-          </Box>
+          {!user && (
+            <Box
+              component={Link}
+              href="/contribute"
+              sx={{
+                alignItems: 'center',
+                border: 'none',
+                borderRadius: '20px',
+                display: 'flex',
+                flexDirection: 'row',
+                padding: '0 10px',
+                textDecoration: 'none',
+                color: 'white',
+                background: 'black',
+                fontWeight: 'bold',
+                mx: 1,
+                letterSpacing: '1px',
+                fontSize: '15px',
+              }}
+            >
+              CONTRIBUTE
+              <Box className={styles.heart}>❤️</Box>
+            </Box>
+          )}
           {!user && (
             <Button
               color="inherit"

@@ -24,7 +24,6 @@ function FeaturedBox({ data }) {
       <Card
         variant="outlined"
         sx={{
-          borderColor: data.severity,
           p: 3,
           userSelect: 'none',
           cursor: 'pointer',
@@ -57,7 +56,8 @@ export default function FeaturedVisualizations() {
   });
   const list = [
     {
-      title: '🐘 Elephant Deaths this Year',
+      title: '🐘 Elephant Deaths',
+      subtitle: `(${format(new Date(), 'yyyy')})`,
       severity: 'error.main',
       filters: {
         category: 'Elephant Death',
@@ -69,8 +69,8 @@ export default function FeaturedVisualizations() {
       },
     },
     {
-      title: '🛣️ Road Accidents this Month',
-      subtitle: '(Week Day View)',
+      title: '🛣️ Road Accidents',
+      subtitle: `(${format(new Date(), 'MMMM')} - Week Day View)`,
       severity: 'error.main',
       filters: {
         category: 'Road Accident',
@@ -82,14 +82,15 @@ export default function FeaturedVisualizations() {
       },
     },
     {
-      title: '🛵 E-Bike Explosions this Year',
-      severity: 'warning.main',
+      title: '🌎 Natural Disasters',
+      subtitle: `(${format(new Date(), 'yyyy')})`,
+      severity: 'error.main',
       filters: {},
       disabled: true,
     },
     {
       title: '🔥 Fire Accidents',
-      subtitle: '(Months View)',
+      subtitle: `(${format(new Date(), 'yyyy')} - Months View)`,
       severity: 'warning.main',
       filters: {
         category: 'Fire Accident',
@@ -101,7 +102,7 @@ export default function FeaturedVisualizations() {
       },
     },
     {
-      title: '🧒 Sexual Abuse of Children',
+      title: '🧒 Children Sexual Abuses',
       severity: 'primary.main',
       filters: {},
       disabled: true,
@@ -111,7 +112,7 @@ export default function FeaturedVisualizations() {
   return (
     <Box p={1}>
       <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center' }}>
-        <ChevronRightIcon /> Featured (Visualizations)
+        <ChevronRightIcon /> Visualizations (Featured)
       </Typography>
       <Divider />
       <Box p={2}>
